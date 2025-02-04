@@ -1,0 +1,372 @@
+!--------------------------  Problem description
+Arek Field Lysimeter v1
+3 x 3 x 14 Node Model to develop mapping
+Event - Experiment forcing
+
+
+end title
+
+!--------------------------  Grid generation
+    generate variable rectangles
+        3 !nx
+        0
+        1
+        2
+
+
+        3 !ny
+        0
+        1
+        2
+
+    generate layers interactive
+
+        base elevation
+            elevation constant
+            0
+
+        end ! base elevation
+
+        new layer
+            layer name 
+            NoCoup
+
+            proportional sublayering
+            3
+            0.45
+            0.5
+            0.5
+
+            elevation constant
+            1.45
+        end ! new layer
+
+        new layer
+            layer name
+            Coup
+
+            proportional sublayering
+            10
+            0.005
+            0.01
+            0.01
+            0.01
+            0.01
+            0.01
+            0.01
+            0.03
+            0.03
+            0.03
+
+            elevation constant
+            3
+        end ! new layer
+
+    end ! generate layer interactive
+
+end !grid generation
+
+!--------------------------  General simulation parameters
+units: kilogram-metre-day
+transient flow
+unsaturated
+
+finite difference mode
+
+remove negative coefficients
+
+no nodal flow check
+
+compute underrelaxation factor
+
+dual nodes for surface flow
+
+!--------------------------  Porous media properties
+
+use domain type
+porous media
+
+properties file
+lys.mprops
+
+! Define whole model as one soil type
+choose elements all
+new zone
+1
+
+clear chosen zones
+clear chosen elements
+
+choose zone number
+1
+read properties
+gen_soil
+
+clear chosen zones
+
+! Set initial heads from spin-up output
+choose nodes all
+
+initial head from output file
+lys_suo.head_pm.0005
+
+clear chosen nodes
+
+! Then force measured saturation values at nodes that intersect the zone of measurement
+choose nodes block
+0.0 2.0
+0.0 2.0
+2.2 3.0
+initial head from depth-saturation table
+    0.01 0.25459
+    0.02 0.3085
+    0.03 0.15289
+    0.04 0.15728999999999999
+    0.05 0.1393
+    0.06 0.15569
+    0.07 0.4443
+    0.08 0.3779
+end
+
+clear chosen nodes
+
+! Set measured water table boundary at bottom of model
+choose nodes bottom
+
+create node set
+lys_bottom
+
+clear chosen nodes
+
+boundary condition
+    type
+    head
+
+    node set
+    lys_bottom
+
+    time value table
+    0.0 0.4
+    18262.5 0.4
+    end
+end
+
+!--------------------------  Overland flow properties
+use domain type
+surface
+
+properties file
+lys.oprops
+
+! Set olf properties on top of model to generic grass
+choose faces top
+
+new zone
+1
+
+clear chosen zones
+clear chosen faces
+
+choose zone number 
+1
+read properties
+gen_grass
+
+clear chosen zones
+
+!--------------------------  Weather forcing properties
+
+! Apply P at top
+choose faces top
+
+create face set from chosen faces
+top
+
+clear chosen faces
+
+boundary condition
+    type
+    rain
+
+    face set
+    top
+
+    time value table
+    0.0 0.0
+    1.0 0.0
+    2.0 0.00045
+    3.0 0.0
+    4.0 0.0
+    5.0 0.0
+    6.0 0.0
+    7.0 0.0
+    8.0 0.0
+    9.0 0.001103
+    10.0 0.010602
+    11.0 0.0
+    12.0 5.6e-05
+    13.0 0.0005510000000000001
+    14.0 0.00087
+    15.0 0.000496
+    16.0 0.001091
+    17.0 0.0
+    18.0 0.0
+    19.0 0.018618000000000003
+    20.0 0.0
+    21.0 0.012204000000000001
+    22.0 0.000313
+    23.0 0.027396
+    24.0 0.007431
+    25.0 0.0
+    26.0 0.0
+    27.0 0.0
+    28.0 0.002826
+    29.0 0.0
+    30.0 0.0
+    31.0 0.0
+    32.0 0.000253
+    33.0 0.0
+    34.0 0.0
+    35.0 0.0
+    36.0 0.0
+    37.0 0.0
+    38.0 0.0
+    39.0 0.000331
+    40.0 0.000357
+    41.0 0.000199
+    42.0 0.0
+    43.0 0.006462
+    44.0 0.004958000000000001
+    45.0 0.0
+    46.0 0.0
+    47.0 0.0
+    48.0 0.0
+    49.0 0.0074589999999999995
+    50.0 0.0
+    51.0 0.0
+    52.0 0.009942
+    53.0 0.0046289999999999994
+    54.0 0.000575
+    55.0 0.0
+    56.0 0.004881
+    57.0 8.400000000000001e-05
+    58.0 0.0
+    59.0 0.000345
+    60.0 0.0
+    61.0 0.0
+    62.0 0.01717
+    63.0 0.016225
+    64.0 0.026952
+    65.0 0.000128
+    66.0 0.004212
+    67.0 0.0
+    68.0 0.007899
+    69.0 0.0
+    70.0 0.0
+    71.0 0.0
+    72.0 0.0
+    73.0 0.0
+    74.0 0.0054859999999999996
+    75.0 0.0
+    76.0 0.005001
+    77.0 0.0005909999999999999
+    78.0 6.1000000000000005e-05
+    79.0 0.0027730000000000003
+    80.0 0.001428
+    81.0 0.0
+    82.0 0.0
+    end
+
+end
+
+! boundary condition
+!     type
+!     potential evapotranspiration
+
+!     face set
+!     top
+
+!     time value table
+! !--Main PET Series--
+!     end
+
+! end
+
+! !--------------------------  ET properties
+
+! use domain type
+! et
+
+! properties file
+! lys.etprops
+
+! ! set ET properties on top of model to grass
+
+! ! Generic Grass
+! choose faces top
+
+! new zone
+! 1
+
+! clear chosen zones
+! clear chosen faces
+
+! choose zone number
+! 1
+! read properties
+! gen_grass
+
+!--------------------------  Solution controls
+
+Newton maximum iterations
+20
+Jacobian epsilon
+1.0d-6
+Newton absolute convergence criteria
+1.0d-5
+Newton residual convergence criteria
+1.0d-5
+newton maximum update for head
+1
+newton maximum update for depth
+1
+
+!--------------------------  Timestep controls
+newton iteration control
+15
+
+maximum timestep
+10000.0
+minimum timestep
+1E-12
+initial timestep
+1.157407E-5
+maximum timestep multiplier
+2.5
+minimum timestep multiplier
+0.5
+
+output times
+1.157407E-5
+5
+10
+15
+20
+25
+30
+25
+40
+45
+50
+55
+60
+65
+70
+75
+80
+82
+
+end
+
+!--------------------------  Output
+

@@ -1,0 +1,26 @@
+!--------------------------  Material Properties (kg-m-day)
+
+! Soil parameters from Arek
+
+gen_soil
+    K isotropic
+    0.078
+
+    porosity
+    0.205224
+
+    unsaturated VAN GENUCHTEN FUNCTIONS
+        alpha
+        1.43
+
+        beta
+        1.52
+
+        residual saturation
+        0.12
+
+        table smoothness factor
+        1.00E-07
+    end
+
+end material
