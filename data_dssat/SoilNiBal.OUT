@@ -1,0 +1,319 @@
+*SOIL INORGANIC N BALANCE
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   1        : 0 KG N/HA                 CSCER048 RORO7401    1
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  1   : 0 KG N/HA                 CSCER048
+  
+
+
+!SOIL INORGANIC N BALANCE                         Initial               Final
+!                                                Year/Doy            Year/Doy
+!                                                1974/305            1975/214
+!                                               (kg[N]/ha)          (kg[N]/ha)
+! Soil N state variables:
+!   Soil NO3                                        44.38               21.65
+!   Soil NH4                                        34.33                0.52
+!   Soil Urea                                        0.00                0.00
+!   Soil N gases                                     0.00                0.01
+!   Unreleased fert N                                                    0.00
+
+! N additions:
+!   Fertilizer N                                     0.00
+!   Mineralized N                                   14.18
+
+! N subtractions:
+!   N immobilized                                                        3.52
+!   N leached                                                           28.04
+!   N loss to tile drainage                                              0.00
+!   N Uptake From Soil                                                  36.13
+!   NH3 loss                                                             0.00
+!   N2O loss                                                             0.38
+!   N2 loss                                                              2.35
+!   NO loss                                                              0.26
+
+!   Total N balance                                 92.88               92.88
+!   Balance                                                             0.000
+
+!===============================================================================
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   2        : 30 KG N/HA                CSCER048 RORO7401    2
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  2   : 30 KG N/HA                CSCER048
+  
+
+
+!SOIL INORGANIC N BALANCE                         Initial               Final
+!                                                Year/Doy            Year/Doy
+!                                                1974/305            1975/214
+!                                               (kg[N]/ha)          (kg[N]/ha)
+! Soil N state variables:
+!   Soil NO3                                        44.38               19.36
+!   Soil NH4                                        34.33                0.43
+!   Soil Urea                                        0.00                0.00
+!   Soil N gases                                     0.00                0.01
+!   Unreleased fert N                                                    0.00
+
+! N additions:
+!   Fertilizer N                                    30.00
+!   Mineralized N                                   13.27
+
+! N subtractions:
+!   N immobilized                                                        5.29
+!   N leached                                                           27.86
+!   N loss to tile drainage                                              0.00
+!   N Uptake From Soil                                                  65.28
+!   NH3 loss                                                             0.68
+!   N2O loss                                                             0.39
+!   N2 loss                                                              2.35
+!   NO loss                                                              0.31
+
+!   Total N balance                                121.97              121.97
+!   Balance                                                             0.000
+
+!===============================================================================
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   3        : 60 KG N/HA                CSCER048 RORO7401    3
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  3   : 60 KG N/HA                CSCER048
+  
+
+
+!SOIL INORGANIC N BALANCE                         Initial               Final
+!                                                Year/Doy            Year/Doy
+!                                                1974/305            1975/214
+!                                               (kg[N]/ha)          (kg[N]/ha)
+! Soil N state variables:
+!   Soil NO3                                        44.38               22.16
+!   Soil NH4                                        34.33                0.42
+!   Soil Urea                                        0.00                0.00
+!   Soil N gases                                     0.00                0.01
+!   Unreleased fert N                                                    0.00
+
+! N additions:
+!   Fertilizer N                                    60.00
+!   Mineralized N                                   13.45
+
+! N subtractions:
+!   N immobilized                                                        5.54
+!   N leached                                                           27.91
+!   N loss to tile drainage                                              0.00
+!   N Uptake From Soil                                                  92.10
+!   NH3 loss                                                             0.88
+!   N2O loss                                                             0.41
+!   N2 loss                                                              2.35
+!   NO loss                                                              0.38
+
+!   Total N balance                                152.15              152.15
+!   Balance                                                             0.000
+
+!===============================================================================
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   4        : 90 KG N/HA                CSCER048 RORO7401    4
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  4   : 90 KG N/HA                CSCER048
+  
+
+
+!SOIL INORGANIC N BALANCE                         Initial               Final
+!                                                Year/Doy            Year/Doy
+!                                                1974/305            1975/214
+!                                               (kg[N]/ha)          (kg[N]/ha)
+! Soil N state variables:
+!   Soil NO3                                        44.38               38.58
+!   Soil NH4                                        34.33                0.44
+!   Soil Urea                                        0.00                0.00
+!   Soil N gases                                     0.00                0.01
+!   Unreleased fert N                                                    0.00
+
+! N additions:
+!   Fertilizer N                                    90.00
+!   Mineralized N                                   13.49
+
+! N subtractions:
+!   N immobilized                                                        5.57
+!   N leached                                                           27.91
+!   N loss to tile drainage                                              0.00
+!   N Uptake From Soil                                                 105.34
+!   NH3 loss                                                             1.11
+!   N2O loss                                                             0.42
+!   N2 loss                                                              2.35
+!   NO loss                                                              0.45
+
+!   Total N balance                                182.19              182.19
+!   Balance                                                            -0.000
+
+!===============================================================================
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   5        : 120 KG N/HA               CSCER048 RORO7401    5
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  5   : 120 KG N/HA               CSCER048
+  
+
+
+!SOIL INORGANIC N BALANCE                         Initial               Final
+!                                                Year/Doy            Year/Doy
+!                                                1974/305            1975/214
+!                                               (kg[N]/ha)          (kg[N]/ha)
+! Soil N state variables:
+!   Soil NO3                                        44.38               64.57
+!   Soil NH4                                        34.33                0.47
+!   Soil Urea                                        0.00                0.00
+!   Soil N gases                                     0.00                0.01
+!   Unreleased fert N                                                    0.00
+
+! N additions:
+!   Fertilizer N                                   120.00
+!   Mineralized N                                   13.65
+
+! N subtractions:
+!   N immobilized                                                        5.60
+!   N leached                                                           27.92
+!   N loss to tile drainage                                              0.00
+!   N Uptake From Soil                                                 109.07
+!   NH3 loss                                                             1.40
+!   N2O loss                                                             0.43
+!   N2 loss                                                              2.35
+!   NO loss                                                              0.53
+
+!   Total N balance                                212.35              212.35
+!   Balance                                                            -0.000
+
+!===============================================================================
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   6        : 150 KG N/HA               CSCER048 RORO7401    6
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  6   : 150 KG N/HA               CSCER048
+  
+
+
+!SOIL INORGANIC N BALANCE                         Initial               Final
+!                                                Year/Doy            Year/Doy
+!                                                1974/305            1975/214
+!                                               (kg[N]/ha)          (kg[N]/ha)
+! Soil N state variables:
+!   Soil NO3                                        44.38               90.11
+!   Soil NH4                                        34.33                0.48
+!   Soil Urea                                        0.00                0.00
+!   Soil N gases                                     0.00                0.01
+!   Unreleased fert N                                                    0.00
+
+! N additions:
+!   Fertilizer N                                   150.00
+!   Mineralized N                                   13.75
+
+! N subtractions:
+!   N immobilized                                                        5.61
+!   N leached                                                           27.92
+!   N loss to tile drainage                                              0.00
+!   N Uptake From Soil                                                 113.16
+!   NH3 loss                                                             1.76
+!   N2O loss                                                             0.45
+!   N2 loss                                                              2.35
+!   NO loss                                                              0.60
+
+!   Total N balance                                242.45              242.45
+!   Balance                                                             0.000
+
+!===============================================================================
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   7        : 180 KG N/HA               CSCER048 RORO7401    7
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  7   : 180 KG N/HA               CSCER048
+  
+
+
+!SOIL INORGANIC N BALANCE                         Initial               Final
+!                                                Year/Doy            Year/Doy
+!                                                1974/305            1975/214
+!                                               (kg[N]/ha)          (kg[N]/ha)
+! Soil N state variables:
+!   Soil NO3                                        44.38              116.85
+!   Soil NH4                                        34.33                0.49
+!   Soil Urea                                        0.00                0.00
+!   Soil N gases                                     0.00                0.01
+!   Unreleased fert N                                                    0.00
+
+! N additions:
+!   Fertilizer N                                   180.00
+!   Mineralized N                                   13.79
+
+! N subtractions:
+!   N immobilized                                                        5.62
+!   N leached                                                           27.92
+!   N loss to tile drainage                                              0.00
+!   N Uptake From Soil                                                 115.94
+!   NH3 loss                                                             2.18
+!   N2O loss                                                             0.46
+!   N2 loss                                                              2.35
+!   NO loss                                                              0.68
+
+!   Total N balance                                272.49              272.49
+!   Balance                                                            -0.000
+
+!===============================================================================
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:19
+
+*RUN   8        : 210 KG N/HA               CSCER048 RORO7401    8
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  8   : 210 KG N/HA               CSCER048
+  
+
+
+!SOIL INORGANIC N BALANCE                         Initial               Final
+!                                                Year/Doy            Year/Doy
+!                                                1974/305            1975/214
+!                                               (kg[N]/ha)          (kg[N]/ha)
+! Soil N state variables:
+!   Soil NO3                                        44.38              144.48
+!   Soil NH4                                        34.33                0.49
+!   Soil Urea                                        0.00                0.00
+!   Soil N gases                                     0.00                0.01
+!   Unreleased fert N                                                    0.00
+
+! N additions:
+!   Fertilizer N                                   210.00
+!   Mineralized N                                   13.79
+
+! N subtractions:
+!   N immobilized                                                        5.62
+!   N leached                                                           27.92
+!   N loss to tile drainage                                              0.00
+!   N Uptake From Soil                                                 117.73
+!   NH3 loss                                                             2.66
+!   N2O loss                                                             0.48
+!   N2 loss                                                              2.35
+!   NO loss                                                              0.76
+
+!   Total N balance                                302.49              302.49
+!   Balance                                                            -0.000

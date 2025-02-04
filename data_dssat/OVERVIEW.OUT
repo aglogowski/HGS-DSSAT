@@ -1,0 +1,1259 @@
+*SIMULATION OVERVIEW FILE
+  
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   1        : 0 KG N/HA                 CSCER048 RORO7401    1
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  1   : 0 KG N/HA                 CSCER048
+
+
+ CROP           : Wheat            CULTIVAR : MARIS FUNDIN     ECOTYPE :UKWH01
+ STARTING DATE  : NOV  1 1974
+ PLANTING DATE  : NOV  6 1974      PLANTS/m2 :   277.0    ROW SPACING :  17.cm
+ WEATHER        : RORO   1974
+ SOIL           : IBWH980020     TEXTURE : -99   -   Rothamsted
+ SOIL INIT COND : DEPTH:155cm EXTR. H2O:237.5mm  NO3: 44.4kg/ha  NH4: 34.3kg/ha
+ WATER BALANCE  : IRRIGATE ON REPORTED DATE(S)
+ IRRIGATION     :        0 mm IN     0 APPLICATIONS
+ NITROGEN BAL.  : SOIL-N & N-UPTAKE SIMULATION; NO N-FIXATION
+ N-FERTILIZER   :        0 kg/ha IN     0 APPLICATIONS
+ RESIDUE/MANURE : INITIAL :  3000 kg/ha ;       0 kg/ha IN     0 APPLICATIONS
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00
+                  RAIN=    0.00  CO2 =    0.00  DEW =    0.00  WIND=    0.00
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:N  PHOSPH :N  PESTS  :N
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G
+                  CO2 330ppm  NSWIT   :1  EVAP :S  SOIL   :2  STEMP  :D
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :R  FERT :R  RESIDUE:N  HARVEST:M
+                  WEATHER :M  TILLAGE :N
+
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS
+
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %
+-------------------------------------------------------------------------------
+  0-  5 0.110 0.280 0.330 0.170 0.330   1.00   1.10   7.00   6.00   3.00   1.16
+  5- 15 0.130 0.300 0.375 0.170 0.330   0.95   1.15   7.00   5.50   3.00   1.08
+ 15- 25 0.150 0.320 0.420 0.170 0.330   0.90   1.20   7.00   5.00   3.00   1.00
+ 25- 35 0.220 0.370 0.420 0.150 0.330   0.70   1.25   7.00   4.00   3.00   0.68
+ 35- 45 0.220 0.370 0.420 0.150 0.330   0.70   1.25   7.00   4.00   3.00   0.68
+ 45- 55 0.220 0.370 0.420 0.150 0.330   0.50   1.25   7.00   3.00   2.00   0.26
+ 55- 65 0.220 0.370 0.420 0.150 0.330   0.50   1.25   7.00   3.00   2.00   0.26
+ 65- 95 0.220 0.370 0.420 0.150 0.330   0.20   1.25   7.00   2.00   2.00   0.25
+ 95-125 0.220 0.370 0.420 0.150 0.330   0.10   1.25   7.00   0.50   1.00   0.20
+125-155 0.220 0.370 0.420 0.150 0.330   0.05   1.25   7.00   0.50   0.50   0.20
+
+TOT-155  32.0  55.7  64.2  23.8  51.2  <--cm   -  kg/ha-->   44.4   34.3  78675
+SOIL ALBEDO    : 0.14      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00
+RUNOFF CURVE # :60.00      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00
+
+ Wheat            CULTIVAR: IB1015-MARIS FUNDIN       ECOTYPE: UKWH01
+   P1V   P1D    P5    G1    G2    G3 PHINT
+  53.0  82.6 529.3  47.0  60.9  6.67 100.0
+
+
+*SIMULATED CROP AND SOIL STATUS AT MAIN DEVELOPMENT STAGES
+  
+ RUN NO.      1   N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)                     
+
+ ...... DATE ......  GROWTH STAGE BIOMASS   LEAF       CROP N      STRESS
+ YEARDOY DOM MON DAP ............. kg/ha AREA NUMBER  kg/ha   %   H2O    N
+ 1974310   6 Nov 365 7 Sowing         0  0.00   0.0     0   0.0  0.00  0.00
+ 1974312   8 Nov   2 8 Germinate      0  0.00   0.0     0   0.0  0.00  0.00
+ 1974317  13 Nov   7 9 Emergence      0  0.00   0.0     0   0.0  0.00  0.00
+ 1975126   6 May 181 1 Term Spklt  1489  0.97  11.8     9   0.6  0.00  0.14
+ 1975157   6 Jun 212 2 End Veg     2513  1.23  14.8    12   0.5  0.00  0.61
+ 1975170  19 Jun 225 3 End Ear Gr  3513  1.05  14.8    14   0.4  0.00  0.48
+ 1975183   2 Jul 238 4 Beg Gr Fil  4770  0.90  14.8    19   0.4  0.00  0.37
+ 1975214   2 Aug 269 5 End Gr Fil  4912  0.18  14.8    26   0.5  0.00  0.96
+ 1975214   2 Aug 269 6 Harvest     4912  0.18  14.8    26   0.5  0.00  1.00
+  
+ BIOMASS = Above-ground dry wt (kg/ha)
+ LEAF AREA  = Leaf area index (m2/m2)
+ LEAF NUMBER  = Leaf number produced on main axis
+ CROP N  = Above-ground N (kg/ha)
+ CROP N% = Above-ground N conc (%)
+ H2O STRESS = Photosynthesis stress,average (0-1,0=none)
+ N STRESS = Photosynthesis stress,average (0-1,0=none)
+  
+
+*MAIN GROWTH AND DEVELOPMENT VARIABLES
+
+@     VARIABLE                             SIMULATED     MEASURED
+      --------                             ---------     --------
+      Emergence (DAP)                            7          -99
+      Anthesis (DAP)                           228          228
+      Maturity (DAP)                           269          269
+      Product wt (kg dm/ha;no loss)           1987         3100
+      Product unit weight (g dm)             0.011        0.045
+      Product number (no/m2)                 18207         5980
+      Product number (no/group)               65.7         23.0
+      Product harvest index (ratio)           0.40         0.56
+      Maximum leaf area index                  1.2        -99.0
+      Final leaf number (one axis)            14.8        -99.0
+      Final shoot number (#/m2)                277          260
+      Canopy (tops) wt (kg dm/ha)             4912         5500
+      Vegetative wt (kg dm/ha)                2925         2400
+      Root wt (kg dm/ha)                       659          -99
+      Assimilate wt (kg dm/ha)                6203          -99
+      Senesced wt (kg dm/ha)                   238          -99
+      Reserves wt (kg dm/ha)                  1731          -99
+      N uptake (kg/ha)                        36.3        -99.0
+      N senesced (kg/ha)                       3.3        -99.0
+      Above-ground N (kg/ha)                  26.2         52.0
+      Root N (kg/ha)                           8.3        -99.0
+      Vegetative N (kg/ha)                     6.3          2.7
+      Product N (kg/ha)                       19.9         49.3
+      Product N harvest index (ratio)         0.76         0.95
+      Product N (%)                            1.0          1.6
+      Vegetative N (%)                         0.2          0.1
+      Leaf+stem wt,anthesis (kg dm/ha)        3855          -99
+      Leaf+stem N,anthesis (kg/ha)            14.9        -99.0
+      Leaf N,anthesis (%)                      2.3        -99.0
+
+  Seed N must be added to N uptake to obtain a         
+  balance with N in above-ground plus root material    
+
+  Measured data are obtained from the A file,either    
+  directly or by calculation from other other variables
+  using the expressions given below:                   
+                                                       
+  Product wt       Harvest wt (HWAH) /                 
+                               (Harvest%/100) (HPC)    
+  Canopy wt        Grain wt (HWAM)+Vegetative wt (VWAm)
+  Vegetative wt    Canopy wt (CWAM) - grain wt (HWAM)  
+    = leaf+stem+retained dead material                 
+  Product unit wt  Grain yield (HWAM)/Grain # (G#AM)   
+  Product #/area   Product#/tiller (H#SM) *            
+                                   tiller number (T#AM)
+  Product #/group  Product#/area (H#AM) /              
+                                tiller number (T#AM)   
+  Harvest index    Product wt (HWAM)/Canopy wt.(CWAM)  
+                                                       
+  The same procedure is followed for nitrogen aspects  
+
+
+*ENVIRONMENTAL AND STRESS FACTORS
+
+ |-----Development Phase------|-------------Environment--------------|----------------Stress-----------------|
+                              |--------Average-------|---Cumulative--|         (0=Min, 1=Max Stress)         |
+                         Time  Temp  Temp Solar Photop         Evapo |----Water---|--Nitrogen--|--Phosphorus-|
+                         Span   Max   Min   Rad  [day]   Rain  Trans  Photo         Photo         Photo
+                         days    °C    °C MJ/m2     hr     mm     mm  synth Growth ' synth Growth  synth Growth
+--------------------------------------------------------------------------------------------------------------
+ Germinate  - Term Spklt  174   9.3   3.1   4.8  11.49  409.8  136.1  0.000  0.000  0.136  0.136 -99.00 -99.00
+ Term Spklt - End Veg      31  14.0   5.3  14.5  17.31   68.6   75.1  0.000  0.000  0.609  0.609 -99.00 -99.00
+ End Veg    - End Ear Gr   13  21.7   9.5  21.8  18.21    7.8   41.1  0.000  0.000  0.478  0.478 -99.00 -99.00
+ End Ear Gr - Beg Gr Fil   13  20.8   9.0  21.3  18.29    8.1   38.0  0.000  0.000  0.373  0.373 -99.00 -99.00
+ Beg Gr Fil - End Gr Fil   31  23.0  12.3  16.8  17.61   18.6   56.5  0.000  0.000  0.959  0.959 -99.00 -99.00
+  
+ Germinate  - End Gr Fil  262  12.7   5.1   9.0  13.57  512.9  346.9  0.000  0.000  0.318  0.318 -99.00 -99.00
+--------------------------------------------------------------------------------------------------------------
+
+
+*RESOURCE PRODUCTIVITY
+
+ Growing season length: 262 days 
+
+ Precipitation during growth season        512.9 mm[rain]
+   Dry Matter Productivity                  0.96 kg[DM]/m3[rain]          =    9.6 kg[DM]/ha per mm[rain]
+   Yield Productivity                       0.39 kg[grain yield]/m3[rain] =    3.9 kg[yield]/ha per mm[rain]
+
+ Evapotranspiration during growth season   346.9 mm[ET]
+   Dry Matter Productivity                  1.42 kg[DM]/m3[ET]            =   14.2 kg[DM]/ha per mm[ET]
+   Yield Productivity                       0.57 kg[grain yield]/m3[ET]   =    5.7 kg[yield]/ha per mm[ET]
+
+ Transpiration during growth season        179.2 mm[EP]
+   Dry Matter Productivity                  2.74 kg[DM]/m3[EP]            =   27.4 kg[DM]/ha per mm[EP]
+   Yield Productivity                       1.11 kg[grain yield]/m3[EP]   =   11.1 kg[yield]/ha per mm[EP]
+
+ N uptake during growing season             36.3 kg[N uptake]/ha
+   Dry Matter Productivity                 135.3 kg[DM]/kg[N uptake]
+   Yield Productivity                       54.7 kg[yield]/kg[N uptake]
+
+--------------------------------------------------------------------------------------------------------------
+
+          WHEAT YIELD :     1987 kg/ha    [Dry weight] 
+
+**************************************************************************************************************
+  
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   2        : 30 KG N/HA                CSCER048 RORO7401    2
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  2   : 30 KG N/HA                CSCER048
+
+
+ CROP           : Wheat            CULTIVAR : MARIS FUNDIN     ECOTYPE :UKWH01
+ STARTING DATE  : NOV  1 1974
+ PLANTING DATE  : NOV  6 1974      PLANTS/m2 :   277.0    ROW SPACING :  17.cm
+ WEATHER        : RORO   1974
+ SOIL           : IBWH980020     TEXTURE : -99   -   Rothamsted
+ SOIL INIT COND : DEPTH:155cm EXTR. H2O:237.5mm  NO3: 44.4kg/ha  NH4: 34.3kg/ha
+ WATER BALANCE  : IRRIGATE ON REPORTED DATE(S)
+ IRRIGATION     :        0 mm IN     0 APPLICATIONS
+ NITROGEN BAL.  : SOIL-N & N-UPTAKE SIMULATION; NO N-FIXATION
+ N-FERTILIZER   :       30 kg/ha IN     1 APPLICATIONS
+ RESIDUE/MANURE : INITIAL :  3000 kg/ha ;       0 kg/ha IN     0 APPLICATIONS
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00
+                  RAIN=    0.00  CO2 =    0.00  DEW =    0.00  WIND=    0.00
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:N  PHOSPH :N  PESTS  :N
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G
+                  CO2 330ppm  NSWIT   :1  EVAP :S  SOIL   :2  STEMP  :D
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :R  FERT :R  RESIDUE:N  HARVEST:M
+                  WEATHER :M  TILLAGE :N
+
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS
+
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %
+-------------------------------------------------------------------------------
+  0-  5 0.110 0.280 0.330 0.170 0.330   1.00   1.10   7.00   6.00   3.00   1.16
+  5- 15 0.130 0.300 0.375 0.170 0.330   0.95   1.15   7.00   5.50   3.00   1.08
+ 15- 25 0.150 0.320 0.420 0.170 0.330   0.90   1.20   7.00   5.00   3.00   1.00
+ 25- 35 0.220 0.370 0.420 0.150 0.330   0.70   1.25   7.00   4.00   3.00   0.68
+ 35- 45 0.220 0.370 0.420 0.150 0.330   0.70   1.25   7.00   4.00   3.00   0.68
+ 45- 55 0.220 0.370 0.420 0.150 0.330   0.50   1.25   7.00   3.00   2.00   0.26
+ 55- 65 0.220 0.370 0.420 0.150 0.330   0.50   1.25   7.00   3.00   2.00   0.26
+ 65- 95 0.220 0.370 0.420 0.150 0.330   0.20   1.25   7.00   2.00   2.00   0.25
+ 95-125 0.220 0.370 0.420 0.150 0.330   0.10   1.25   7.00   0.50   1.00   0.20
+125-155 0.220 0.370 0.420 0.150 0.330   0.05   1.25   7.00   0.50   0.50   0.20
+
+TOT-155  32.0  55.7  64.2  23.8  51.2  <--cm   -  kg/ha-->   44.4   34.3  78675
+SOIL ALBEDO    : 0.14      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00
+RUNOFF CURVE # :60.00      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00
+
+ Wheat            CULTIVAR: IB1015-MARIS FUNDIN       ECOTYPE: UKWH01
+   P1V   P1D    P5    G1    G2    G3 PHINT
+  53.0  82.6 529.3  47.0  60.9  6.67 100.0
+
+
+*SIMULATED CROP AND SOIL STATUS AT MAIN DEVELOPMENT STAGES
+  
+ RUN NO.      2   N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)                     
+
+ ...... DATE ......  GROWTH STAGE BIOMASS   LEAF       CROP N      STRESS
+ YEARDOY DOM MON DAP ............. kg/ha AREA NUMBER  kg/ha   %   H2O    N
+ 1974310   6 Nov 365 7 Sowing         0  0.00   0.0     0   0.0  0.00  0.00
+ 1974312   8 Nov   2 8 Germinate      0  0.00   0.0     0   0.0  0.00  0.00
+ 1974317  13 Nov   7 9 Emergence      0  0.00   0.0     0   0.0  0.00  0.00
+ 1975126   6 May 181 1 Term Spklt  2136  1.52  11.8    25   1.2  0.00  0.10
+ 1975157   6 Jun 212 2 End Veg     4897  2.83  14.8    37   0.8  0.00  0.32
+ 1975170  19 Jun 225 3 End Ear Gr  6978  2.39  14.8    39   0.6  0.00  0.27
+ 1975183   2 Jul 238 4 Beg Gr Fil  9427  2.12  14.8    45   0.5  0.01  0.19
+ 1975214   2 Aug 269 5 End Gr Fil  9719  0.32  14.8    51   0.5  0.21  0.94
+ 1975214   2 Aug 269 6 Harvest     9719  0.32  14.8    51   0.5  0.40  1.00
+  
+
+*MAIN GROWTH AND DEVELOPMENT VARIABLES
+
+@     VARIABLE                             SIMULATED     MEASURED
+      --------                             ---------     --------
+      Emergence (DAP)                            7          -99
+      Anthesis (DAP)                           228          228
+      Maturity (DAP)                           269          269
+      Product wt (kg dm/ha;no loss)           3694         4600
+      Product unit weight (g dm)             0.010        0.043
+      Product number (no/m2)                 36042         9180
+      Product number (no/group)              129.0         27.0
+      Product harvest index (ratio)           0.38         0.52
+      Maximum leaf area index                  2.8        -99.0
+      Final leaf number (one axis)            14.8        -99.0
+      Final shoot number (#/m2)                279          340
+      Canopy (tops) wt (kg dm/ha)             9719         8800
+      Vegetative wt (kg dm/ha)                6025         4200
+      Root wt (kg dm/ha)                      1081          -99
+      Assimilate wt (kg dm/ha)               11673          -99
+      Senesced wt (kg dm/ha)                   181          -99
+      Reserves wt (kg dm/ha)                  3528          -99
+      N uptake (kg/ha)                        65.4        -99.0
+      N senesced (kg/ha)                       2.5        -99.0
+      Above-ground N (kg/ha)                  50.7         71.0
+      Root N (kg/ha)                          13.7        -99.0
+      Vegetative N (kg/ha)                    13.8          5.2
+      Product N (kg/ha)                       36.9         65.8
+      Product N harvest index (ratio)         0.73         0.93
+      Product N (%)                            1.0          1.4
+      Vegetative N (%)                         0.2          0.1
+      Leaf+stem wt,anthesis (kg dm/ha)        7647          -99
+      Leaf+stem N,anthesis (kg/ha)            39.4        -99.0
+      Leaf N,anthesis (%)                      2.8        -99.0
+
+*ENVIRONMENTAL AND STRESS FACTORS
+
+ |-----Development Phase------|-------------Environment--------------|----------------Stress-----------------|
+                              |--------Average-------|---Cumulative--|         (0=Min, 1=Max Stress)         |
+                         Time  Temp  Temp Solar Photop         Evapo |----Water---|--Nitrogen--|--Phosphorus-|
+                         Span   Max   Min   Rad  [day]   Rain  Trans  Photo         Photo         Photo
+                         days    °C    °C MJ/m2     hr     mm     mm  synth Growth ' synth Growth  synth Growth
+--------------------------------------------------------------------------------------------------------------
+ Germinate  - Term Spklt  174   9.3   3.1   4.8  11.49  409.8  138.1  0.000  0.000  0.101  0.101 -99.00 -99.00
+ Term Spklt - End Veg      31  14.0   5.3  14.5  17.31   68.6   79.0  0.000  0.000  0.318  0.318 -99.00 -99.00
+ End Veg    - End Ear Gr   13  21.7   9.5  21.8  18.21    7.8   54.9  0.000  0.000  0.266  0.266 -99.00 -99.00
+ End Ear Gr - Beg Gr Fil   13  20.8   9.0  21.3  18.29    8.1   49.9  0.010  0.040  0.188  0.188 -99.00 -99.00
+ Beg Gr Fil - End Gr Fil   31  23.0  12.3  16.8  17.61   18.6   65.9  0.214  0.339  0.943  0.943 -99.00 -99.00
+  
+ Germinate  - End Gr Fil  262  12.7   5.1   9.0  13.57  512.9  387.9  0.026  0.042  0.239  0.239 -99.00 -99.00
+--------------------------------------------------------------------------------------------------------------
+
+
+*RESOURCE PRODUCTIVITY
+
+ Growing season length: 262 days 
+
+ Precipitation during growth season        512.9 mm[rain]
+   Dry Matter Productivity                  1.89 kg[DM]/m3[rain]          =   18.9 kg[DM]/ha per mm[rain]
+   Yield Productivity                       0.72 kg[grain yield]/m3[rain] =    7.2 kg[yield]/ha per mm[rain]
+
+ Evapotranspiration during growth season   387.9 mm[ET]
+   Dry Matter Productivity                  2.51 kg[DM]/m3[ET]            =   25.1 kg[DM]/ha per mm[ET]
+   Yield Productivity                       0.95 kg[grain yield]/m3[ET]   =    9.5 kg[yield]/ha per mm[ET]
+
+ Transpiration during growth season        245.5 mm[EP]
+   Dry Matter Productivity                  3.96 kg[DM]/m3[EP]            =   39.6 kg[DM]/ha per mm[EP]
+   Yield Productivity                       1.50 kg[grain yield]/m3[EP]   =   15.0 kg[yield]/ha per mm[EP]
+
+ N applied during growing season            30.0 kg[N applied]/ha
+   Dry Matter Productivity                 324.0 kg[DM]/kg[N applied]
+   Yield Productivity                      123.1 kg[yield]/kg[N applied]
+
+ N uptake during growing season             65.4 kg[N uptake]/ha
+   Dry Matter Productivity                 148.7 kg[DM]/kg[N uptake]
+   Yield Productivity                       56.5 kg[yield]/kg[N uptake]
+
+--------------------------------------------------------------------------------------------------------------
+
+          WHEAT YIELD :     3694 kg/ha    [Dry weight] 
+
+**************************************************************************************************************
+  
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   3        : 60 KG N/HA                CSCER048 RORO7401    3
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  3   : 60 KG N/HA                CSCER048
+
+
+ CROP           : Wheat            CULTIVAR : MARIS FUNDIN     ECOTYPE :UKWH01
+ STARTING DATE  : NOV  1 1974
+ PLANTING DATE  : NOV  6 1974      PLANTS/m2 :   277.0    ROW SPACING :  17.cm
+ WEATHER        : RORO   1974
+ SOIL           : IBWH980020     TEXTURE : -99   -   Rothamsted
+ SOIL INIT COND : DEPTH:155cm EXTR. H2O:237.5mm  NO3: 44.4kg/ha  NH4: 34.3kg/ha
+ WATER BALANCE  : IRRIGATE ON REPORTED DATE(S)
+ IRRIGATION     :        0 mm IN     0 APPLICATIONS
+ NITROGEN BAL.  : SOIL-N & N-UPTAKE SIMULATION; NO N-FIXATION
+ N-FERTILIZER   :       60 kg/ha IN     1 APPLICATIONS
+ RESIDUE/MANURE : INITIAL :  3000 kg/ha ;       0 kg/ha IN     0 APPLICATIONS
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00
+                  RAIN=    0.00  CO2 =    0.00  DEW =    0.00  WIND=    0.00
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:N  PHOSPH :N  PESTS  :N
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G
+                  CO2 330ppm  NSWIT   :1  EVAP :S  SOIL   :2  STEMP  :D
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :R  FERT :R  RESIDUE:N  HARVEST:M
+                  WEATHER :M  TILLAGE :N
+
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS
+
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %
+-------------------------------------------------------------------------------
+  0-  5 0.110 0.280 0.330 0.170 0.330   1.00   1.10   7.00   6.00   3.00   1.16
+  5- 15 0.130 0.300 0.375 0.170 0.330   0.95   1.15   7.00   5.50   3.00   1.08
+ 15- 25 0.150 0.320 0.420 0.170 0.330   0.90   1.20   7.00   5.00   3.00   1.00
+ 25- 35 0.220 0.370 0.420 0.150 0.330   0.70   1.25   7.00   4.00   3.00   0.68
+ 35- 45 0.220 0.370 0.420 0.150 0.330   0.70   1.25   7.00   4.00   3.00   0.68
+ 45- 55 0.220 0.370 0.420 0.150 0.330   0.50   1.25   7.00   3.00   2.00   0.26
+ 55- 65 0.220 0.370 0.420 0.150 0.330   0.50   1.25   7.00   3.00   2.00   0.26
+ 65- 95 0.220 0.370 0.420 0.150 0.330   0.20   1.25   7.00   2.00   2.00   0.25
+ 95-125 0.220 0.370 0.420 0.150 0.330   0.10   1.25   7.00   0.50   1.00   0.20
+125-155 0.220 0.370 0.420 0.150 0.330   0.05   1.25   7.00   0.50   0.50   0.20
+
+TOT-155  32.0  55.7  64.2  23.8  51.2  <--cm   -  kg/ha-->   44.4   34.3  78675
+SOIL ALBEDO    : 0.14      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00
+RUNOFF CURVE # :60.00      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00
+
+ Wheat            CULTIVAR: IB1015-MARIS FUNDIN       ECOTYPE: UKWH01
+   P1V   P1D    P5    G1    G2    G3 PHINT
+  53.0  82.6 529.3  47.0  60.9  6.67 100.0
+
+
+*SIMULATED CROP AND SOIL STATUS AT MAIN DEVELOPMENT STAGES
+  
+ RUN NO.      3   N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)                     
+
+ ...... DATE ......  GROWTH STAGE BIOMASS   LEAF       CROP N      STRESS
+ YEARDOY DOM MON DAP ............. kg/ha AREA NUMBER  kg/ha   %   H2O    N
+ 1974310   6 Nov 365 7 Sowing         0  0.00   0.0     0   0.0  0.00  0.00
+ 1974312   8 Nov   2 8 Germinate      0  0.00   0.0     0   0.0  0.00  0.00
+ 1974317  13 Nov   7 9 Emergence      0  0.00   0.0     0   0.0  0.00  0.00
+ 1975126   6 May 181 1 Term Spklt  2191  1.55  11.8    27   1.2  0.00  0.10
+ 1975157   6 Jun 212 2 End Veg     6350  3.53  14.8    62   1.0  0.00  0.06
+ 1975170  19 Jun 225 3 End Ear Gr  9384  3.01  14.8    60   0.6  0.00  0.03
+ 1975183   2 Jul 238 4 Beg Gr Fil 12284  2.67  14.8    67   0.5  0.01  0.10
+ 1975214   2 Aug 269 5 End Gr Fil 12674  0.37  14.8    75   0.6  0.26  0.93
+ 1975214   2 Aug 269 6 Harvest    12674  0.37  14.8    75   0.6  0.45  1.00
+  
+
+*MAIN GROWTH AND DEVELOPMENT VARIABLES
+
+@     VARIABLE                             SIMULATED     MEASURED
+      --------                             ---------     --------
+      Emergence (DAP)                            7          -99
+      Anthesis (DAP)                           228          228
+      Maturity (DAP)                           269          269
+      Product wt (kg dm/ha;no loss)           5600         5600
+      Product unit weight (g dm)             0.012        0.045
+      Product number (no/m2)                 47872        10850
+      Product number (no/group)              166.7         31.0
+      Product harvest index (ratio)           0.44         0.52
+      Maximum leaf area index                  3.5        -99.0
+      Final leaf number (one axis)            14.8        -99.0
+      Final shoot number (#/m2)                287          350
+      Canopy (tops) wt (kg dm/ha)            12674        10800
+      Vegetative wt (kg dm/ha)                7074         5200
+      Root wt (kg dm/ha)                      1240          -99
+      Assimilate wt (kg dm/ha)               14905          -99
+      Senesced wt (kg dm/ha)                   188          -99
+      Reserves wt (kg dm/ha)                  3783          -99
+      N uptake (kg/ha)                        92.2        -99.0
+      N senesced (kg/ha)                       2.6        -99.0
+      Above-ground N (kg/ha)                  75.4         88.0
+      Root N (kg/ha)                          15.7        -99.0
+      Vegetative N (kg/ha)                    19.4          9.1
+      Product N (kg/ha)                       56.0         78.9
+      Product N harvest index (ratio)         0.74         0.90
+      Product N (%)                            1.0          1.4
+      Vegetative N (%)                         0.3          0.2
+      Leaf+stem wt,anthesis (kg dm/ha)       10169          -99
+      Leaf+stem N,anthesis (kg/ha)            59.6        -99.0
+      Leaf N,anthesis (%)                      3.0        -99.0
+
+*ENVIRONMENTAL AND STRESS FACTORS
+
+ |-----Development Phase------|-------------Environment--------------|----------------Stress-----------------|
+                              |--------Average-------|---Cumulative--|         (0=Min, 1=Max Stress)         |
+                         Time  Temp  Temp Solar Photop         Evapo |----Water---|--Nitrogen--|--Phosphorus-|
+                         Span   Max   Min   Rad  [day]   Rain  Trans  Photo         Photo         Photo
+                         days    °C    °C MJ/m2     hr     mm     mm  synth Growth ' synth Growth  synth Growth
+--------------------------------------------------------------------------------------------------------------
+ Germinate  - Term Spklt  174   9.3   3.1   4.8  11.49  409.8  138.2  0.000  0.000  0.098  0.098 -99.00 -99.00
+ Term Spklt - End Veg      31  14.0   5.3  14.5  17.31   68.6   78.7  0.000  0.000  0.061  0.061 -99.00 -99.00
+ End Veg    - End Ear Gr   13  21.7   9.5  21.8  18.21    7.8   56.1  0.000  0.000  0.026  0.026 -99.00 -99.00
+ End Ear Gr - Beg Gr Fil   13  20.8   9.0  21.3  18.29    8.1   52.3  0.013  0.045  0.097  0.097 -99.00 -99.00
+ Beg Gr Fil - End Gr Fil   31  23.0  12.3  16.8  17.61   18.6   67.2  0.260  0.380  0.928  0.928 -99.00 -99.00
+  
+ Germinate  - End Gr Fil  262  12.7   5.1   9.0  13.57  512.9  392.4  0.031  0.047  0.188  0.188 -99.00 -99.00
+--------------------------------------------------------------------------------------------------------------
+
+
+*RESOURCE PRODUCTIVITY
+
+ Growing season length: 262 days 
+
+ Precipitation during growth season        512.9 mm[rain]
+   Dry Matter Productivity                  2.47 kg[DM]/m3[rain]          =   24.7 kg[DM]/ha per mm[rain]
+   Yield Productivity                       1.09 kg[grain yield]/m3[rain] =   10.9 kg[yield]/ha per mm[rain]
+
+ Evapotranspiration during growth season   392.4 mm[ET]
+   Dry Matter Productivity                  3.23 kg[DM]/m3[ET]            =   32.3 kg[DM]/ha per mm[ET]
+   Yield Productivity                       1.43 kg[grain yield]/m3[ET]   =   14.3 kg[yield]/ha per mm[ET]
+
+ Transpiration during growth season        256.5 mm[EP]
+   Dry Matter Productivity                  4.94 kg[DM]/m3[EP]            =   49.4 kg[DM]/ha per mm[EP]
+   Yield Productivity                       2.18 kg[grain yield]/m3[EP]   =   21.8 kg[yield]/ha per mm[EP]
+
+ N applied during growing season            60.0 kg[N applied]/ha
+   Dry Matter Productivity                 211.2 kg[DM]/kg[N applied]
+   Yield Productivity                       93.3 kg[yield]/kg[N applied]
+
+ N uptake during growing season             92.2 kg[N uptake]/ha
+   Dry Matter Productivity                 137.4 kg[DM]/kg[N uptake]
+   Yield Productivity                       60.7 kg[yield]/kg[N uptake]
+
+--------------------------------------------------------------------------------------------------------------
+
+          WHEAT YIELD :     5600 kg/ha    [Dry weight] 
+
+**************************************************************************************************************
+  
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   4        : 90 KG N/HA                CSCER048 RORO7401    4
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  4   : 90 KG N/HA                CSCER048
+
+
+ CROP           : Wheat            CULTIVAR : MARIS FUNDIN     ECOTYPE :UKWH01
+ STARTING DATE  : NOV  1 1974
+ PLANTING DATE  : NOV  6 1974      PLANTS/m2 :   277.0    ROW SPACING :  17.cm
+ WEATHER        : RORO   1974
+ SOIL           : IBWH980020     TEXTURE : -99   -   Rothamsted
+ SOIL INIT COND : DEPTH:155cm EXTR. H2O:237.5mm  NO3: 44.4kg/ha  NH4: 34.3kg/ha
+ WATER BALANCE  : IRRIGATE ON REPORTED DATE(S)
+ IRRIGATION     :        0 mm IN     0 APPLICATIONS
+ NITROGEN BAL.  : SOIL-N & N-UPTAKE SIMULATION; NO N-FIXATION
+ N-FERTILIZER   :       90 kg/ha IN     1 APPLICATIONS
+ RESIDUE/MANURE : INITIAL :  3000 kg/ha ;       0 kg/ha IN     0 APPLICATIONS
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00
+                  RAIN=    0.00  CO2 =    0.00  DEW =    0.00  WIND=    0.00
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:N  PHOSPH :N  PESTS  :N
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G
+                  CO2 330ppm  NSWIT   :1  EVAP :S  SOIL   :2  STEMP  :D
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :R  FERT :R  RESIDUE:N  HARVEST:M
+                  WEATHER :M  TILLAGE :N
+
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS
+
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %
+-------------------------------------------------------------------------------
+  0-  5 0.110 0.280 0.330 0.170 0.330   1.00   1.10   7.00   6.00   3.00   1.16
+  5- 15 0.130 0.300 0.375 0.170 0.330   0.95   1.15   7.00   5.50   3.00   1.08
+ 15- 25 0.150 0.320 0.420 0.170 0.330   0.90   1.20   7.00   5.00   3.00   1.00
+ 25- 35 0.220 0.370 0.420 0.150 0.330   0.70   1.25   7.00   4.00   3.00   0.68
+ 35- 45 0.220 0.370 0.420 0.150 0.330   0.70   1.25   7.00   4.00   3.00   0.68
+ 45- 55 0.220 0.370 0.420 0.150 0.330   0.50   1.25   7.00   3.00   2.00   0.26
+ 55- 65 0.220 0.370 0.420 0.150 0.330   0.50   1.25   7.00   3.00   2.00   0.26
+ 65- 95 0.220 0.370 0.420 0.150 0.330   0.20   1.25   7.00   2.00   2.00   0.25
+ 95-125 0.220 0.370 0.420 0.150 0.330   0.10   1.25   7.00   0.50   1.00   0.20
+125-155 0.220 0.370 0.420 0.150 0.330   0.05   1.25   7.00   0.50   0.50   0.20
+
+TOT-155  32.0  55.7  64.2  23.8  51.2  <--cm   -  kg/ha-->   44.4   34.3  78675
+SOIL ALBEDO    : 0.14      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00
+RUNOFF CURVE # :60.00      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00
+
+ Wheat            CULTIVAR: IB1015-MARIS FUNDIN       ECOTYPE: UKWH01
+   P1V   P1D    P5    G1    G2    G3 PHINT
+  53.0  82.6 529.3  47.0  60.9  6.67 100.0
+
+
+*SIMULATED CROP AND SOIL STATUS AT MAIN DEVELOPMENT STAGES
+  
+ RUN NO.      4   N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)                     
+
+ ...... DATE ......  GROWTH STAGE BIOMASS   LEAF       CROP N      STRESS
+ YEARDOY DOM MON DAP ............. kg/ha AREA NUMBER  kg/ha   %   H2O    N
+ 1974310   6 Nov 365 7 Sowing         0  0.00   0.0     0   0.0  0.00  0.00
+ 1974312   8 Nov   2 8 Germinate      0  0.00   0.0     0   0.0  0.00  0.00
+ 1974317  13 Nov   7 9 Emergence      0  0.00   0.0     0   0.0  0.00  0.00
+ 1975126   6 May 181 1 Term Spklt  2209  1.57  11.8    27   1.2  0.00  0.10
+ 1975157   6 Jun 212 2 End Veg     6566  3.63  14.8    73   1.1  0.00  0.03
+ 1975170  19 Jun 225 3 End Ear Gr  9721  3.09  14.8    69   0.7  0.00  0.00
+ 1975183   2 Jul 238 4 Beg Gr Fil 12717  2.74  14.8    75   0.6  0.03  0.06
+ 1975214   2 Aug 269 5 End Gr Fil 13149  0.36  14.8    88   0.7  0.30  0.91
+ 1975214   2 Aug 269 6 Harvest    13149  0.36  14.8    88   0.7  0.47  1.00
+  
+
+*MAIN GROWTH AND DEVELOPMENT VARIABLES
+
+@     VARIABLE                             SIMULATED     MEASURED
+      --------                             ---------     --------
+      Emergence (DAP)                            7          -99
+      Anthesis (DAP)                           228          228
+      Maturity (DAP)                           269          269
+      Product wt (kg dm/ha;no loss)           6849         5900
+      Product unit weight (g dm)             0.014        0.045
+      Product number (no/m2)                 49466        11800
+      Product number (no/group)              171.0         33.0
+      Product harvest index (ratio)           0.52         0.52
+      Maximum leaf area index                  3.6        -99.0
+      Final leaf number (one axis)            14.8        -99.0
+      Final shoot number (#/m2)                289          358
+      Canopy (tops) wt (kg dm/ha)            13149        11300
+      Vegetative wt (kg dm/ha)                6301         5400
+      Root wt (kg dm/ha)                      1258          -99
+      Assimilate wt (kg dm/ha)               15411          -99
+      Senesced wt (kg dm/ha)                   189          -99
+      Reserves wt (kg dm/ha)                  2916          -99
+      N uptake (kg/ha)                       105.5        -99.0
+      N senesced (kg/ha)                       2.6        -99.0
+      Above-ground N (kg/ha)                  88.5         88.0
+      Root N (kg/ha)                          15.9        -99.0
+      Vegetative N (kg/ha)                    20.0         11.9
+      Product N (kg/ha)                       68.5         76.1
+      Product N harvest index (ratio)         0.77         0.86
+      Product N (%)                            1.0          1.3
+      Vegetative N (%)                         0.3          0.2
+      Leaf+stem wt,anthesis (kg dm/ha)       10510          -99
+      Leaf+stem N,anthesis (kg/ha)            68.4        -99.0
+      Leaf N,anthesis (%)                      3.0        -99.0
+
+*ENVIRONMENTAL AND STRESS FACTORS
+
+ |-----Development Phase------|-------------Environment--------------|----------------Stress-----------------|
+                              |--------Average-------|---Cumulative--|         (0=Min, 1=Max Stress)         |
+                         Time  Temp  Temp Solar Photop         Evapo |----Water---|--Nitrogen--|--Phosphorus-|
+                         Span   Max   Min   Rad  [day]   Rain  Trans  Photo         Photo         Photo
+                         days    °C    °C MJ/m2     hr     mm     mm  synth Growth ' synth Growth  synth Growth
+--------------------------------------------------------------------------------------------------------------
+ Germinate  - Term Spklt  174   9.3   3.1   4.8  11.49  409.8  138.2  0.000  0.000  0.098  0.098 -99.00 -99.00
+ Term Spklt - End Veg      31  14.0   5.3  14.5  17.31   68.6   78.7  0.000  0.000  0.030  0.030 -99.00 -99.00
+ End Veg    - End Ear Gr   13  21.7   9.5  21.8  18.21    7.8   56.1  0.000  0.000  0.000  0.000 -99.00 -99.00
+ End Ear Gr - Beg Gr Fil   13  20.8   9.0  21.3  18.29    8.1   51.2  0.033  0.067  0.056  0.056 -99.00 -99.00
+ Beg Gr Fil - End Gr Fil   31  23.0  12.3  16.8  17.61   18.6   64.6  0.295  0.413  0.914  0.914 -99.00 -99.00
+  
+ Germinate  - End Gr Fil  262  12.7   5.1   9.0  13.57  512.9  388.7  0.037  0.052  0.179  0.179 -99.00 -99.00
+--------------------------------------------------------------------------------------------------------------
+
+
+*RESOURCE PRODUCTIVITY
+
+ Growing season length: 262 days 
+
+ Precipitation during growth season        512.9 mm[rain]
+   Dry Matter Productivity                  2.56 kg[DM]/m3[rain]          =   25.6 kg[DM]/ha per mm[rain]
+   Yield Productivity                       1.34 kg[grain yield]/m3[rain] =   13.4 kg[yield]/ha per mm[rain]
+
+ Evapotranspiration during growth season   388.7 mm[ET]
+   Dry Matter Productivity                  3.38 kg[DM]/m3[ET]            =   33.8 kg[DM]/ha per mm[ET]
+   Yield Productivity                       1.76 kg[grain yield]/m3[ET]   =   17.6 kg[yield]/ha per mm[ET]
+
+ Transpiration during growth season        253.7 mm[EP]
+   Dry Matter Productivity                  5.18 kg[DM]/m3[EP]            =   51.8 kg[DM]/ha per mm[EP]
+   Yield Productivity                       2.70 kg[grain yield]/m3[EP]   =   27.0 kg[yield]/ha per mm[EP]
+
+ N applied during growing season            90.0 kg[N applied]/ha
+   Dry Matter Productivity                 146.1 kg[DM]/kg[N applied]
+   Yield Productivity                       76.1 kg[yield]/kg[N applied]
+
+ N uptake during growing season            105.5 kg[N uptake]/ha
+   Dry Matter Productivity                 124.7 kg[DM]/kg[N uptake]
+   Yield Productivity                       64.9 kg[yield]/kg[N uptake]
+
+--------------------------------------------------------------------------------------------------------------
+
+          WHEAT YIELD :     6849 kg/ha    [Dry weight] 
+
+**************************************************************************************************************
+  
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   5        : 120 KG N/HA               CSCER048 RORO7401    5
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  5   : 120 KG N/HA               CSCER048
+
+
+ CROP           : Wheat            CULTIVAR : MARIS FUNDIN     ECOTYPE :UKWH01
+ STARTING DATE  : NOV  1 1974
+ PLANTING DATE  : NOV  6 1974      PLANTS/m2 :   277.0    ROW SPACING :  17.cm
+ WEATHER        : RORO   1974
+ SOIL           : IBWH980020     TEXTURE : -99   -   Rothamsted
+ SOIL INIT COND : DEPTH:155cm EXTR. H2O:237.5mm  NO3: 44.4kg/ha  NH4: 34.3kg/ha
+ WATER BALANCE  : IRRIGATE ON REPORTED DATE(S)
+ IRRIGATION     :        0 mm IN     0 APPLICATIONS
+ NITROGEN BAL.  : SOIL-N & N-UPTAKE SIMULATION; NO N-FIXATION
+ N-FERTILIZER   :      120 kg/ha IN     1 APPLICATIONS
+ RESIDUE/MANURE : INITIAL :  3000 kg/ha ;       0 kg/ha IN     0 APPLICATIONS
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00
+                  RAIN=    0.00  CO2 =    0.00  DEW =    0.00  WIND=    0.00
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:N  PHOSPH :N  PESTS  :N
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G
+                  CO2 330ppm  NSWIT   :1  EVAP :S  SOIL   :2  STEMP  :D
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :R  FERT :R  RESIDUE:N  HARVEST:M
+                  WEATHER :M  TILLAGE :N
+
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS
+
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %
+-------------------------------------------------------------------------------
+  0-  5 0.110 0.280 0.330 0.170 0.330   1.00   1.10   7.00   6.00   3.00   1.16
+  5- 15 0.130 0.300 0.375 0.170 0.330   0.95   1.15   7.00   5.50   3.00   1.08
+ 15- 25 0.150 0.320 0.420 0.170 0.330   0.90   1.20   7.00   5.00   3.00   1.00
+ 25- 35 0.220 0.370 0.420 0.150 0.330   0.70   1.25   7.00   4.00   3.00   0.68
+ 35- 45 0.220 0.370 0.420 0.150 0.330   0.70   1.25   7.00   4.00   3.00   0.68
+ 45- 55 0.220 0.370 0.420 0.150 0.330   0.50   1.25   7.00   3.00   2.00   0.26
+ 55- 65 0.220 0.370 0.420 0.150 0.330   0.50   1.25   7.00   3.00   2.00   0.26
+ 65- 95 0.220 0.370 0.420 0.150 0.330   0.20   1.25   7.00   2.00   2.00   0.25
+ 95-125 0.220 0.370 0.420 0.150 0.330   0.10   1.25   7.00   0.50   1.00   0.20
+125-155 0.220 0.370 0.420 0.150 0.330   0.05   1.25   7.00   0.50   0.50   0.20
+
+TOT-155  32.0  55.7  64.2  23.8  51.2  <--cm   -  kg/ha-->   44.4   34.3  78675
+SOIL ALBEDO    : 0.14      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00
+RUNOFF CURVE # :60.00      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00
+
+ Wheat            CULTIVAR: IB1015-MARIS FUNDIN       ECOTYPE: UKWH01
+   P1V   P1D    P5    G1    G2    G3 PHINT
+  53.0  82.6 529.3  47.0  60.9  6.67 100.0
+
+
+*SIMULATED CROP AND SOIL STATUS AT MAIN DEVELOPMENT STAGES
+  
+ RUN NO.      5   N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)                     
+
+ ...... DATE ......  GROWTH STAGE BIOMASS   LEAF       CROP N      STRESS
+ YEARDOY DOM MON DAP ............. kg/ha AREA NUMBER  kg/ha   %   H2O    N
+ 1974310   6 Nov 365 7 Sowing         0  0.00   0.0     0   0.0  0.00  0.00
+ 1974312   8 Nov   2 8 Germinate      0  0.00   0.0     0   0.0  0.00  0.00
+ 1974317  13 Nov   7 9 Emergence      0  0.00   0.0     0   0.0  0.00  0.00
+ 1975126   6 May 181 1 Term Spklt  2217  1.58  11.8    28   1.2  0.00  0.10
+ 1975157   6 Jun 212 2 End Veg     6588  3.64  14.8    74   1.1  0.00  0.03
+ 1975170  19 Jun 225 3 End Ear Gr  9744  3.10  14.8    69   0.7  0.00  0.00
+ 1975183   2 Jul 238 4 Beg Gr Fil 12568  2.64  14.8    75   0.6  0.09  0.06
+ 1975214   2 Aug 269 5 End Gr Fil 12897  0.32  14.8    92   0.7  0.36  0.91
+ 1975214   2 Aug 269 6 Harvest    12897  0.32  14.8    92   0.7  0.52  1.00
+  
+
+*MAIN GROWTH AND DEVELOPMENT VARIABLES
+
+@     VARIABLE                             SIMULATED     MEASURED
+      --------                             ---------     --------
+      Emergence (DAP)                            7          -99
+      Anthesis (DAP)                           228          228
+      Maturity (DAP)                           269          269
+      Product wt (kg dm/ha;no loss)           7218         6400
+      Product unit weight (g dm)             0.015        0.044
+      Product number (no/m2)                 49578        13200
+      Product number (no/group)              171.9         33.0
+      Product harvest index (ratio)           0.56         0.52
+      Maximum leaf area index                  3.6        -99.0
+      Final leaf number (one axis)            14.8        -99.0
+      Final shoot number (#/m2)                288          400
+      Canopy (tops) wt (kg dm/ha)            12897        12300
+      Vegetative wt (kg dm/ha)                5680         5900
+      Root wt (kg dm/ha)                      1257          -99
+      Assimilate wt (kg dm/ha)               15158          -99
+      Senesced wt (kg dm/ha)                   189          -99
+      Reserves wt (kg dm/ha)                  2299          -99
+      N uptake (kg/ha)                       109.2        -99.0
+      N senesced (kg/ha)                       2.6        -99.0
+      Above-ground N (kg/ha)                  92.2        107.0
+      Root N (kg/ha)                          15.9        -99.0
+      Vegetative N (kg/ha)                    20.0          9.7
+      Product N (kg/ha)                       72.2         97.3
+      Product N harvest index (ratio)         0.78         0.91
+      Product N (%)                            1.0          1.5
+      Vegetative N (%)                         0.4          0.2
+      Leaf+stem wt,anthesis (kg dm/ha)       10535          -99
+      Leaf+stem N,anthesis (kg/ha)            68.6        -99.0
+      Leaf N,anthesis (%)                      3.0        -99.0
+
+*ENVIRONMENTAL AND STRESS FACTORS
+
+ |-----Development Phase------|-------------Environment--------------|----------------Stress-----------------|
+                              |--------Average-------|---Cumulative--|         (0=Min, 1=Max Stress)         |
+                         Time  Temp  Temp Solar Photop         Evapo |----Water---|--Nitrogen--|--Phosphorus-|
+                         Span   Max   Min   Rad  [day]   Rain  Trans  Photo         Photo         Photo
+                         days    °C    °C MJ/m2     hr     mm     mm  synth Growth ' synth Growth  synth Growth
+--------------------------------------------------------------------------------------------------------------
+ Germinate  - Term Spklt  174   9.3   3.1   4.8  11.49  409.8  138.2  0.000  0.000  0.097  0.097 -99.00 -99.00
+ Term Spklt - End Veg      31  14.0   5.3  14.5  17.31   68.6   78.7  0.000  0.000  0.027  0.027 -99.00 -99.00
+ End Veg    - End Ear Gr   13  21.7   9.5  21.8  18.21    7.8   56.0  0.000  0.000  0.000  0.000 -99.00 -99.00
+ End Ear Gr - Beg Gr Fil   13  20.8   9.0  21.3  18.29    8.1   47.6  0.092  0.173  0.057  0.057 -99.00 -99.00
+ Beg Gr Fil - End Gr Fil   31  23.0  12.3  16.8  17.61   18.6   56.7  0.362  0.486  0.914  0.914 -99.00 -99.00
+  
+ Germinate  - End Gr Fil  262  12.7   5.1   9.0  13.57  512.9  377.2  0.047  0.066  0.179  0.179 -99.00 -99.00
+--------------------------------------------------------------------------------------------------------------
+
+
+*RESOURCE PRODUCTIVITY
+
+ Growing season length: 262 days 
+
+ Precipitation during growth season        512.9 mm[rain]
+   Dry Matter Productivity                  2.51 kg[DM]/m3[rain]          =   25.1 kg[DM]/ha per mm[rain]
+   Yield Productivity                       1.41 kg[grain yield]/m3[rain] =   14.1 kg[yield]/ha per mm[rain]
+
+ Evapotranspiration during growth season   377.2 mm[ET]
+   Dry Matter Productivity                  3.42 kg[DM]/m3[ET]            =   34.2 kg[DM]/ha per mm[ET]
+   Yield Productivity                       1.91 kg[grain yield]/m3[ET]   =   19.1 kg[yield]/ha per mm[ET]
+
+ Transpiration during growth season        242.8 mm[EP]
+   Dry Matter Productivity                  5.31 kg[DM]/m3[EP]            =   53.1 kg[DM]/ha per mm[EP]
+   Yield Productivity                       2.97 kg[grain yield]/m3[EP]   =   29.7 kg[yield]/ha per mm[EP]
+
+ N applied during growing season           120.0 kg[N applied]/ha
+   Dry Matter Productivity                 107.5 kg[DM]/kg[N applied]
+   Yield Productivity                       60.1 kg[yield]/kg[N applied]
+
+ N uptake during growing season            109.2 kg[N uptake]/ha
+   Dry Matter Productivity                 118.1 kg[DM]/kg[N uptake]
+   Yield Productivity                       66.1 kg[yield]/kg[N uptake]
+
+--------------------------------------------------------------------------------------------------------------
+
+          WHEAT YIELD :     7218 kg/ha    [Dry weight] 
+
+**************************************************************************************************************
+  
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   6        : 150 KG N/HA               CSCER048 RORO7401    6
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  6   : 150 KG N/HA               CSCER048
+
+
+ CROP           : Wheat            CULTIVAR : MARIS FUNDIN     ECOTYPE :UKWH01
+ STARTING DATE  : NOV  1 1974
+ PLANTING DATE  : NOV  6 1974      PLANTS/m2 :   277.0    ROW SPACING :  17.cm
+ WEATHER        : RORO   1974
+ SOIL           : IBWH980020     TEXTURE : -99   -   Rothamsted
+ SOIL INIT COND : DEPTH:155cm EXTR. H2O:237.5mm  NO3: 44.4kg/ha  NH4: 34.3kg/ha
+ WATER BALANCE  : IRRIGATE ON REPORTED DATE(S)
+ IRRIGATION     :        0 mm IN     0 APPLICATIONS
+ NITROGEN BAL.  : SOIL-N & N-UPTAKE SIMULATION; NO N-FIXATION
+ N-FERTILIZER   :      150 kg/ha IN     1 APPLICATIONS
+ RESIDUE/MANURE : INITIAL :  3000 kg/ha ;       0 kg/ha IN     0 APPLICATIONS
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00
+                  RAIN=    0.00  CO2 =    0.00  DEW =    0.00  WIND=    0.00
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:N  PHOSPH :N  PESTS  :N
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G
+                  CO2 330ppm  NSWIT   :1  EVAP :S  SOIL   :2  STEMP  :D
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :R  FERT :R  RESIDUE:N  HARVEST:M
+                  WEATHER :M  TILLAGE :N
+
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS
+
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %
+-------------------------------------------------------------------------------
+  0-  5 0.110 0.280 0.330 0.170 0.330   1.00   1.10   7.00   6.00   3.00   1.16
+  5- 15 0.130 0.300 0.375 0.170 0.330   0.95   1.15   7.00   5.50   3.00   1.08
+ 15- 25 0.150 0.320 0.420 0.170 0.330   0.90   1.20   7.00   5.00   3.00   1.00
+ 25- 35 0.220 0.370 0.420 0.150 0.330   0.70   1.25   7.00   4.00   3.00   0.68
+ 35- 45 0.220 0.370 0.420 0.150 0.330   0.70   1.25   7.00   4.00   3.00   0.68
+ 45- 55 0.220 0.370 0.420 0.150 0.330   0.50   1.25   7.00   3.00   2.00   0.26
+ 55- 65 0.220 0.370 0.420 0.150 0.330   0.50   1.25   7.00   3.00   2.00   0.26
+ 65- 95 0.220 0.370 0.420 0.150 0.330   0.20   1.25   7.00   2.00   2.00   0.25
+ 95-125 0.220 0.370 0.420 0.150 0.330   0.10   1.25   7.00   0.50   1.00   0.20
+125-155 0.220 0.370 0.420 0.150 0.330   0.05   1.25   7.00   0.50   0.50   0.20
+
+TOT-155  32.0  55.7  64.2  23.8  51.2  <--cm   -  kg/ha-->   44.4   34.3  78675
+SOIL ALBEDO    : 0.14      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00
+RUNOFF CURVE # :60.00      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00
+
+ Wheat            CULTIVAR: IB1015-MARIS FUNDIN       ECOTYPE: UKWH01
+   P1V   P1D    P5    G1    G2    G3 PHINT
+  53.0  82.6 529.3  47.0  60.9  6.67 100.0
+
+
+*SIMULATED CROP AND SOIL STATUS AT MAIN DEVELOPMENT STAGES
+  
+ RUN NO.      6   N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)                     
+
+ ...... DATE ......  GROWTH STAGE BIOMASS   LEAF       CROP N      STRESS
+ YEARDOY DOM MON DAP ............. kg/ha AREA NUMBER  kg/ha   %   H2O    N
+ 1974310   6 Nov 365 7 Sowing         0  0.00   0.0     0   0.0  0.00  0.00
+ 1974312   8 Nov   2 8 Germinate      0  0.00   0.0     0   0.0  0.00  0.00
+ 1974317  13 Nov   7 9 Emergence      0  0.00   0.0     0   0.0  0.00  0.00
+ 1975126   6 May 181 1 Term Spklt  2227  1.58  11.8    28   1.3  0.00  0.10
+ 1975157   6 Jun 212 2 End Veg     6616  3.65  14.8    74   1.1  0.00  0.02
+ 1975170  19 Jun 225 3 End Ear Gr  9774  3.11  14.8    69   0.7  0.00  0.00
+ 1975183   2 Jul 238 4 Beg Gr Fil 12443  2.65  14.8    75   0.6  0.14  0.06
+ 1975214   2 Aug 269 5 End Gr Fil 12724  0.31  14.8    96   0.8  0.39  0.91
+ 1975214   2 Aug 269 6 Harvest    12724  0.31  14.8    96   0.8  0.49  1.00
+  
+
+*MAIN GROWTH AND DEVELOPMENT VARIABLES
+
+@     VARIABLE                             SIMULATED     MEASURED
+      --------                             ---------     --------
+      Emergence (DAP)                            7          -99
+      Anthesis (DAP)                           228          228
+      Maturity (DAP)                           269          269
+      Product wt (kg dm/ha;no loss)           7623         7600
+      Product unit weight (g dm)             0.015        0.042
+      Product number (no/m2)                 49519        15480
+      Product number (no/group)              172.1         36.0
+      Product harvest index (ratio)           0.60         0.57
+      Maximum leaf area index                  3.7        -99.0
+      Final leaf number (one axis)            14.8        -99.0
+      Final shoot number (#/m2)                288          430
+      Canopy (tops) wt (kg dm/ha)            12724        13400
+      Vegetative wt (kg dm/ha)                5101         5800
+      Root wt (kg dm/ha)                      1260          -99
+      Assimilate wt (kg dm/ha)               14989          -99
+      Senesced wt (kg dm/ha)                   189          -99
+      Reserves wt (kg dm/ha)                  1734          -99
+      N uptake (kg/ha)                       113.3        -99.0
+      N senesced (kg/ha)                       2.6        -99.0
+      Above-ground N (kg/ha)                  96.2        151.0
+      Root N (kg/ha)                          15.9        -99.0
+      Vegetative N (kg/ha)                    20.0         18.8
+      Product N (kg/ha)                       76.2        132.2
+      Product N harvest index (ratio)         0.79         0.88
+      Product N (%)                            1.0          1.7
+      Vegetative N (%)                         0.4          0.3
+      Leaf+stem wt,anthesis (kg dm/ha)       10522          -99
+      Leaf+stem N,anthesis (kg/ha)            68.9        -99.0
+      Leaf N,anthesis (%)                      3.0        -99.0
+
+*ENVIRONMENTAL AND STRESS FACTORS
+
+ |-----Development Phase------|-------------Environment--------------|----------------Stress-----------------|
+                              |--------Average-------|---Cumulative--|         (0=Min, 1=Max Stress)         |
+                         Time  Temp  Temp Solar Photop         Evapo |----Water---|--Nitrogen--|--Phosphorus-|
+                         Span   Max   Min   Rad  [day]   Rain  Trans  Photo         Photo         Photo
+                         days    °C    °C MJ/m2     hr     mm     mm  synth Growth ' synth Growth  synth Growth
+--------------------------------------------------------------------------------------------------------------
+ Germinate  - Term Spklt  174   9.3   3.1   4.8  11.49  409.8  138.2  0.000  0.000  0.097  0.097 -99.00 -99.00
+ Term Spklt - End Veg      31  14.0   5.3  14.5  17.31   68.6   78.7  0.000  0.000  0.024  0.024 -99.00 -99.00
+ End Veg    - End Ear Gr   13  21.7   9.5  21.8  18.21    7.8   56.0  0.000  0.000  0.000  0.000 -99.00 -99.00
+ End Ear Gr - Beg Gr Fil   13  20.8   9.0  21.3  18.29    8.1   44.9  0.137  0.252  0.057  0.057 -99.00 -99.00
+ Beg Gr Fil - End Gr Fil   31  23.0  12.3  16.8  17.61   18.6   53.0  0.391  0.509  0.914  0.914 -99.00 -99.00
+  
+ Germinate  - End Gr Fil  262  12.7   5.1   9.0  13.57  512.9  370.7  0.053  0.073  0.178  0.178 -99.00 -99.00
+--------------------------------------------------------------------------------------------------------------
+
+
+*RESOURCE PRODUCTIVITY
+
+ Growing season length: 262 days 
+
+ Precipitation during growth season        512.9 mm[rain]
+   Dry Matter Productivity                  2.48 kg[DM]/m3[rain]          =   24.8 kg[DM]/ha per mm[rain]
+   Yield Productivity                       1.49 kg[grain yield]/m3[rain] =   14.9 kg[yield]/ha per mm[rain]
+
+ Evapotranspiration during growth season   370.7 mm[ET]
+   Dry Matter Productivity                  3.43 kg[DM]/m3[ET]            =   34.3 kg[DM]/ha per mm[ET]
+   Yield Productivity                       2.06 kg[grain yield]/m3[ET]   =   20.6 kg[yield]/ha per mm[ET]
+
+ Transpiration during growth season        236.7 mm[EP]
+   Dry Matter Productivity                  5.37 kg[DM]/m3[EP]            =   53.7 kg[DM]/ha per mm[EP]
+   Yield Productivity                       3.22 kg[grain yield]/m3[EP]   =   32.2 kg[yield]/ha per mm[EP]
+
+ N applied during growing season           150.0 kg[N applied]/ha
+   Dry Matter Productivity                  84.8 kg[DM]/kg[N applied]
+   Yield Productivity                       50.8 kg[yield]/kg[N applied]
+
+ N uptake during growing season            113.3 kg[N uptake]/ha
+   Dry Matter Productivity                 112.3 kg[DM]/kg[N uptake]
+   Yield Productivity                       67.3 kg[yield]/kg[N uptake]
+
+--------------------------------------------------------------------------------------------------------------
+
+          WHEAT YIELD :     7623 kg/ha    [Dry weight] 
+
+**************************************************************************************************************
+  
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   7        : 180 KG N/HA               CSCER048 RORO7401    7
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  7   : 180 KG N/HA               CSCER048
+
+
+ CROP           : Wheat            CULTIVAR : MARIS FUNDIN     ECOTYPE :UKWH01
+ STARTING DATE  : NOV  1 1974
+ PLANTING DATE  : NOV  6 1974      PLANTS/m2 :   277.0    ROW SPACING :  17.cm
+ WEATHER        : RORO   1974
+ SOIL           : IBWH980020     TEXTURE : -99   -   Rothamsted
+ SOIL INIT COND : DEPTH:155cm EXTR. H2O:237.5mm  NO3: 44.4kg/ha  NH4: 34.3kg/ha
+ WATER BALANCE  : IRRIGATE ON REPORTED DATE(S)
+ IRRIGATION     :        0 mm IN     0 APPLICATIONS
+ NITROGEN BAL.  : SOIL-N & N-UPTAKE SIMULATION; NO N-FIXATION
+ N-FERTILIZER   :      180 kg/ha IN     1 APPLICATIONS
+ RESIDUE/MANURE : INITIAL :  3000 kg/ha ;       0 kg/ha IN     0 APPLICATIONS
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00
+                  RAIN=    0.00  CO2 =    0.00  DEW =    0.00  WIND=    0.00
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:N  PHOSPH :N  PESTS  :N
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G
+                  CO2 330ppm  NSWIT   :1  EVAP :S  SOIL   :2  STEMP  :D
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :R  FERT :R  RESIDUE:N  HARVEST:M
+                  WEATHER :M  TILLAGE :N
+
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS
+
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %
+-------------------------------------------------------------------------------
+  0-  5 0.110 0.280 0.330 0.170 0.330   1.00   1.10   7.00   6.00   3.00   1.16
+  5- 15 0.130 0.300 0.375 0.170 0.330   0.95   1.15   7.00   5.50   3.00   1.08
+ 15- 25 0.150 0.320 0.420 0.170 0.330   0.90   1.20   7.00   5.00   3.00   1.00
+ 25- 35 0.220 0.370 0.420 0.150 0.330   0.70   1.25   7.00   4.00   3.00   0.68
+ 35- 45 0.220 0.370 0.420 0.150 0.330   0.70   1.25   7.00   4.00   3.00   0.68
+ 45- 55 0.220 0.370 0.420 0.150 0.330   0.50   1.25   7.00   3.00   2.00   0.26
+ 55- 65 0.220 0.370 0.420 0.150 0.330   0.50   1.25   7.00   3.00   2.00   0.26
+ 65- 95 0.220 0.370 0.420 0.150 0.330   0.20   1.25   7.00   2.00   2.00   0.25
+ 95-125 0.220 0.370 0.420 0.150 0.330   0.10   1.25   7.00   0.50   1.00   0.20
+125-155 0.220 0.370 0.420 0.150 0.330   0.05   1.25   7.00   0.50   0.50   0.20
+
+TOT-155  32.0  55.7  64.2  23.8  51.2  <--cm   -  kg/ha-->   44.4   34.3  78675
+SOIL ALBEDO    : 0.14      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00
+RUNOFF CURVE # :60.00      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00
+
+ Wheat            CULTIVAR: IB1015-MARIS FUNDIN       ECOTYPE: UKWH01
+   P1V   P1D    P5    G1    G2    G3 PHINT
+  53.0  82.6 529.3  47.0  60.9  6.67 100.0
+
+
+*SIMULATED CROP AND SOIL STATUS AT MAIN DEVELOPMENT STAGES
+  
+ RUN NO.      7   N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)                     
+
+ ...... DATE ......  GROWTH STAGE BIOMASS   LEAF       CROP N      STRESS
+ YEARDOY DOM MON DAP ............. kg/ha AREA NUMBER  kg/ha   %   H2O    N
+ 1974310   6 Nov 365 7 Sowing         0  0.00   0.0     0   0.0  0.00  0.00
+ 1974312   8 Nov   2 8 Germinate      0  0.00   0.0     0   0.0  0.00  0.00
+ 1974317  13 Nov   7 9 Emergence      0  0.00   0.0     0   0.0  0.00  0.00
+ 1975126   6 May 181 1 Term Spklt  2237  1.59  11.8    28   1.3  0.00  0.10
+ 1975157   6 Jun 212 2 End Veg     6634  3.66  14.8    74   1.1  0.00  0.02
+ 1975170  19 Jun 225 3 End Ear Gr  9794  3.12  14.8    70   0.7  0.00  0.00
+ 1975183   2 Jul 238 4 Beg Gr Fil 12375  2.66  14.8    75   0.6  0.16  0.06
+ 1975214   2 Aug 269 5 End Gr Fil 12638  0.29  14.8    99   0.8  0.40  0.91
+ 1975214   2 Aug 269 6 Harvest    12638  0.29  14.8    99   0.8  0.40  1.00
+  
+
+*MAIN GROWTH AND DEVELOPMENT VARIABLES
+
+@     VARIABLE                             SIMULATED     MEASURED
+      --------                             ---------     --------
+      Emergence (DAP)                            7          -99
+      Anthesis (DAP)                           228          228
+      Maturity (DAP)                           269          269
+      Product wt (kg dm/ha;no loss)           7900         7900
+      Product unit weight (g dm)             0.016        0.040
+      Product number (no/m2)                 49427        15640
+      Product number (no/group)              171.9         34.0
+      Product harvest index (ratio)           0.63         0.51
+      Maximum leaf area index                  3.7        -99.0
+      Final leaf number (one axis)            14.8        -99.0
+      Final shoot number (#/m2)                288          460
+      Canopy (tops) wt (kg dm/ha)            12638        15400
+      Vegetative wt (kg dm/ha)                4738         7500
+      Root wt (kg dm/ha)                      1262          -99
+      Assimilate wt (kg dm/ha)               14908          -99
+      Senesced wt (kg dm/ha)                   190          -99
+      Reserves wt (kg dm/ha)                  1387          -99
+      N uptake (kg/ha)                       116.1        -99.0
+      N senesced (kg/ha)                       2.6        -99.0
+      Above-ground N (kg/ha)                  99.0        191.0
+      Root N (kg/ha)                          16.0        -99.0
+      Vegetative N (kg/ha)                    20.0         23.5
+      Product N (kg/ha)                       79.0        167.5
+      Product N harvest index (ratio)         0.80         0.88
+      Product N (%)                            1.0          2.1
+      Vegetative N (%)                         0.4          0.3
+      Leaf+stem wt,anthesis (kg dm/ha)       10503          -99
+      Leaf+stem N,anthesis (kg/ha)            69.1        -99.0
+      Leaf N,anthesis (%)                      3.0        -99.0
+
+*ENVIRONMENTAL AND STRESS FACTORS
+
+ |-----Development Phase------|-------------Environment--------------|----------------Stress-----------------|
+                              |--------Average-------|---Cumulative--|         (0=Min, 1=Max Stress)         |
+                         Time  Temp  Temp Solar Photop         Evapo |----Water---|--Nitrogen--|--Phosphorus-|
+                         Span   Max   Min   Rad  [day]   Rain  Trans  Photo         Photo         Photo
+                         days    °C    °C MJ/m2     hr     mm     mm  synth Growth ' synth Growth  synth Growth
+--------------------------------------------------------------------------------------------------------------
+ Germinate  - Term Spklt  174   9.3   3.1   4.8  11.49  409.8  138.2  0.000  0.000  0.096  0.096 -99.00 -99.00
+ Term Spklt - End Veg      31  14.0   5.3  14.5  17.31   68.6   78.7  0.000  0.000  0.022  0.022 -99.00 -99.00
+ End Veg    - End Ear Gr   13  21.7   9.5  21.8  18.21    7.8   56.0  0.000  0.000  0.000  0.000 -99.00 -99.00
+ End Ear Gr - Beg Gr Fil   13  20.8   9.0  21.3  18.29    8.1   43.2  0.164  0.282  0.057  0.057 -99.00 -99.00
+ Beg Gr Fil - End Gr Fil   31  23.0  12.3  16.8  17.61   18.6   51.1  0.405  0.520  0.914  0.914 -99.00 -99.00
+  
+ Germinate  - End Gr Fil  262  12.7   5.1   9.0  13.57  512.9  367.1  0.056  0.075  0.178  0.178 -99.00 -99.00
+--------------------------------------------------------------------------------------------------------------
+
+
+*RESOURCE PRODUCTIVITY
+
+ Growing season length: 262 days 
+
+ Precipitation during growth season        512.9 mm[rain]
+   Dry Matter Productivity                  2.46 kg[DM]/m3[rain]          =   24.6 kg[DM]/ha per mm[rain]
+   Yield Productivity                       1.54 kg[grain yield]/m3[rain] =   15.4 kg[yield]/ha per mm[rain]
+
+ Evapotranspiration during growth season   367.1 mm[ET]
+   Dry Matter Productivity                  3.44 kg[DM]/m3[ET]            =   34.4 kg[DM]/ha per mm[ET]
+   Yield Productivity                       2.15 kg[grain yield]/m3[ET]   =   21.5 kg[yield]/ha per mm[ET]
+
+ Transpiration during growth season        233.3 mm[EP]
+   Dry Matter Productivity                  5.42 kg[DM]/m3[EP]            =   54.2 kg[DM]/ha per mm[EP]
+   Yield Productivity                       3.39 kg[grain yield]/m3[EP]   =   33.9 kg[yield]/ha per mm[EP]
+
+ N applied during growing season           180.0 kg[N applied]/ha
+   Dry Matter Productivity                  70.2 kg[DM]/kg[N applied]
+   Yield Productivity                       43.9 kg[yield]/kg[N applied]
+
+ N uptake during growing season            116.1 kg[N uptake]/ha
+   Dry Matter Productivity                 108.9 kg[DM]/kg[N uptake]
+   Yield Productivity                       68.1 kg[yield]/kg[N uptake]
+
+--------------------------------------------------------------------------------------------------------------
+
+          WHEAT YIELD :     7900 kg/ha    [Dry weight] 
+
+**************************************************************************************************************
+  
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:19
+
+*RUN   8        : 210 KG N/HA               CSCER048 RORO7401    8
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  8   : 210 KG N/HA               CSCER048
+
+
+ CROP           : Wheat            CULTIVAR : MARIS FUNDIN     ECOTYPE :UKWH01
+ STARTING DATE  : NOV  1 1974
+ PLANTING DATE  : NOV  6 1974      PLANTS/m2 :   277.0    ROW SPACING :  17.cm
+ WEATHER        : RORO   1974
+ SOIL           : IBWH980020     TEXTURE : -99   -   Rothamsted
+ SOIL INIT COND : DEPTH:155cm EXTR. H2O:237.5mm  NO3: 44.4kg/ha  NH4: 34.3kg/ha
+ WATER BALANCE  : IRRIGATE ON REPORTED DATE(S)
+ IRRIGATION     :        0 mm IN     0 APPLICATIONS
+ NITROGEN BAL.  : SOIL-N & N-UPTAKE SIMULATION; NO N-FIXATION
+ N-FERTILIZER   :      210 kg/ha IN     1 APPLICATIONS
+ RESIDUE/MANURE : INITIAL :  3000 kg/ha ;       0 kg/ha IN     0 APPLICATIONS
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00
+                  RAIN=    0.00  CO2 =    0.00  DEW =    0.00  WIND=    0.00
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:N  PHOSPH :N  PESTS  :N
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G
+                  CO2 330ppm  NSWIT   :1  EVAP :S  SOIL   :2  STEMP  :D
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :R  FERT :R  RESIDUE:N  HARVEST:M
+                  WEATHER :M  TILLAGE :N
+
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS
+
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %
+-------------------------------------------------------------------------------
+  0-  5 0.110 0.280 0.330 0.170 0.330   1.00   1.10   7.00   6.00   3.00   1.16
+  5- 15 0.130 0.300 0.375 0.170 0.330   0.95   1.15   7.00   5.50   3.00   1.08
+ 15- 25 0.150 0.320 0.420 0.170 0.330   0.90   1.20   7.00   5.00   3.00   1.00
+ 25- 35 0.220 0.370 0.420 0.150 0.330   0.70   1.25   7.00   4.00   3.00   0.68
+ 35- 45 0.220 0.370 0.420 0.150 0.330   0.70   1.25   7.00   4.00   3.00   0.68
+ 45- 55 0.220 0.370 0.420 0.150 0.330   0.50   1.25   7.00   3.00   2.00   0.26
+ 55- 65 0.220 0.370 0.420 0.150 0.330   0.50   1.25   7.00   3.00   2.00   0.26
+ 65- 95 0.220 0.370 0.420 0.150 0.330   0.20   1.25   7.00   2.00   2.00   0.25
+ 95-125 0.220 0.370 0.420 0.150 0.330   0.10   1.25   7.00   0.50   1.00   0.20
+125-155 0.220 0.370 0.420 0.150 0.330   0.05   1.25   7.00   0.50   0.50   0.20
+
+TOT-155  32.0  55.7  64.2  23.8  51.2  <--cm   -  kg/ha-->   44.4   34.3  78675
+SOIL ALBEDO    : 0.14      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00
+RUNOFF CURVE # :60.00      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00
+
+ Wheat            CULTIVAR: IB1015-MARIS FUNDIN       ECOTYPE: UKWH01
+   P1V   P1D    P5    G1    G2    G3 PHINT
+  53.0  82.6 529.3  47.0  60.9  6.67 100.0
+
+
+*SIMULATED CROP AND SOIL STATUS AT MAIN DEVELOPMENT STAGES
+  
+ RUN NO.      8   N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)                     
+
+ ...... DATE ......  GROWTH STAGE BIOMASS   LEAF       CROP N      STRESS
+ YEARDOY DOM MON DAP ............. kg/ha AREA NUMBER  kg/ha   %   H2O    N
+ 1974310   6 Nov 365 7 Sowing         0  0.00   0.0     0   0.0  0.00  0.00
+ 1974312   8 Nov   2 8 Germinate      0  0.00   0.0     0   0.0  0.00  0.00
+ 1974317  13 Nov   7 9 Emergence      0  0.00   0.0     0   0.0  0.00  0.00
+ 1975126   6 May 181 1 Term Spklt  2248  1.59  11.8    29   1.3  0.00  0.10
+ 1975157   6 Jun 212 2 End Veg     6659  3.67  14.8    74   1.1  0.00  0.02
+ 1975170  19 Jun 225 3 End Ear Gr  9820  3.13  14.8    70   0.7  0.00  0.00
+ 1975183   2 Jul 238 4 Beg Gr Fil 12377  2.66  14.8    75   0.6  0.17  0.06
+ 1975214   2 Aug 269 5 End Gr Fil 12636  0.29  14.8   101   0.8  0.42  0.91
+ 1975214   2 Aug 269 6 Harvest    12636  0.29  14.8   101   0.8  0.40  1.00
+  
+
+*MAIN GROWTH AND DEVELOPMENT VARIABLES
+
+@     VARIABLE                             SIMULATED     MEASURED
+      --------                             ---------     --------
+      Emergence (DAP)                            7          -99
+      Anthesis (DAP)                           228          228
+      Maturity (DAP)                           269          269
+      Product wt (kg dm/ha;no loss)           8074         6800
+      Product unit weight (g dm)             0.016        0.040
+      Product number (no/m2)                 49484        13600
+      Product number (no/group)              172.1         34.0
+      Product harvest index (ratio)           0.64         0.51
+      Maximum leaf area index                  3.7        -99.0
+      Final leaf number (one axis)            14.8        -99.0
+      Final shoot number (#/m2)                288          400
+      Canopy (tops) wt (kg dm/ha)            12636        13300
+      Vegetative wt (kg dm/ha)                4562         6500
+      Root wt (kg dm/ha)                      1264          -99
+      Assimilate wt (kg dm/ha)               14909          -99
+      Senesced wt (kg dm/ha)                   190          -99
+      Reserves wt (kg dm/ha)                  1211          -99
+      N uptake (kg/ha)                       117.9        -99.0
+      N senesced (kg/ha)                       2.6        -99.0
+      Above-ground N (kg/ha)                 100.7        172.0
+      Root N (kg/ha)                          16.0        -99.0
+      Vegetative N (kg/ha)                    20.0         21.1
+      Product N (kg/ha)                       80.7        150.9
+      Product N harvest index (ratio)         0.80         0.88
+      Product N (%)                            1.0          2.2
+      Vegetative N (%)                         0.4          0.3
+      Leaf+stem wt,anthesis (kg dm/ha)       10515          -99
+      Leaf+stem N,anthesis (kg/ha)            69.3        -99.0
+      Leaf N,anthesis (%)                      3.0        -99.0
+
+*ENVIRONMENTAL AND STRESS FACTORS
+
+ |-----Development Phase------|-------------Environment--------------|----------------Stress-----------------|
+                              |--------Average-------|---Cumulative--|         (0=Min, 1=Max Stress)         |
+                         Time  Temp  Temp Solar Photop         Evapo |----Water---|--Nitrogen--|--Phosphorus-|
+                         Span   Max   Min   Rad  [day]   Rain  Trans  Photo         Photo         Photo
+                         days    °C    °C MJ/m2     hr     mm     mm  synth Growth ' synth Growth  synth Growth
+--------------------------------------------------------------------------------------------------------------
+ Germinate  - Term Spklt  174   9.3   3.1   4.8  11.49  409.8  138.2  0.000  0.000  0.096  0.096 -99.00 -99.00
+ Term Spklt - End Veg      31  14.0   5.3  14.5  17.31   68.6   78.7  0.000  0.000  0.020  0.020 -99.00 -99.00
+ End Veg    - End Ear Gr   13  21.7   9.5  21.8  18.21    7.8   56.0  0.000  0.000  0.000  0.000 -99.00 -99.00
+ End Ear Gr - Beg Gr Fil   13  20.8   9.0  21.3  18.29    8.1   42.6  0.172  0.290  0.056  0.056 -99.00 -99.00
+ Beg Gr Fil - End Gr Fil   31  23.0  12.3  16.8  17.61   18.6   50.2  0.417  0.530  0.914  0.914 -99.00 -99.00
+  
+ Germinate  - End Gr Fil  262  12.7   5.1   9.0  13.57  512.9  365.7  0.058  0.077  0.177  0.177 -99.00 -99.00
+--------------------------------------------------------------------------------------------------------------
+
+
+*RESOURCE PRODUCTIVITY
+
+ Growing season length: 262 days 
+
+ Precipitation during growth season        512.9 mm[rain]
+   Dry Matter Productivity                  2.46 kg[DM]/m3[rain]          =   24.6 kg[DM]/ha per mm[rain]
+   Yield Productivity                       1.57 kg[grain yield]/m3[rain] =   15.7 kg[yield]/ha per mm[rain]
+
+ Evapotranspiration during growth season   365.7 mm[ET]
+   Dry Matter Productivity                  3.46 kg[DM]/m3[ET]            =   34.6 kg[DM]/ha per mm[ET]
+   Yield Productivity                       2.21 kg[grain yield]/m3[ET]   =   22.1 kg[yield]/ha per mm[ET]
+
+ Transpiration during growth season        232.1 mm[EP]
+   Dry Matter Productivity                  5.45 kg[DM]/m3[EP]            =   54.5 kg[DM]/ha per mm[EP]
+   Yield Productivity                       3.48 kg[grain yield]/m3[EP]   =   34.8 kg[yield]/ha per mm[EP]
+
+ N applied during growing season           210.0 kg[N applied]/ha
+   Dry Matter Productivity                  60.2 kg[DM]/kg[N applied]
+   Yield Productivity                       38.4 kg[yield]/kg[N applied]
+
+ N uptake during growing season            117.9 kg[N uptake]/ha
+   Dry Matter Productivity                 107.2 kg[DM]/kg[N uptake]
+   Yield Productivity                       68.5 kg[yield]/kg[N uptake]
+
+--------------------------------------------------------------------------------------------------------------
+
+          WHEAT YIELD :     8074 kg/ha    [Dry weight] 
+
+**************************************************************************************************************

@@ -1,0 +1,265 @@
+*WATER BALANCE OUTPUT FILE
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   1        : 0 KG N/HA                 CSCER048 RORO7401    1
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  1   : 0 KG N/HA                 CSCER048
+  
+
+!     WATER BALANCE PARAMETERS
+!     ========================                 --mm--
+
+!     Soil H20 (start) on Year/day 1974/305    511.50
+!     Soil H20 (final) on Year/day 1975/214    419.40
+!     Effective Irrigation                       0.00
+!     Precipitation                            558.10
+!     Water added with new mulch                 0.05
+!     Net lateral flow                           0.00
+!     Drainage                                 290.09
+!     Tiledrain flow                             0.00
+!     Runoff                                     7.86
+!     Mulch evaporation                          0.47
+!     Soil Evaporation                         172.60
+!     Transpiration                            179.16
+!     Total evapotranspiration                 351.77
+!     Total potential evapotranspiration       457.24
+
+!     Initial mulch water content                0.00
+!     Final mulch water content                  0.05
+
+!     Final Balance                             0.004
+
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   2        : 30 KG N/HA                CSCER048 RORO7401    2
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  2   : 30 KG N/HA                CSCER048
+  
+
+!     WATER BALANCE PARAMETERS
+!     ========================                 --mm--
+
+!     Soil H20 (start) on Year/day 1974/305    511.50
+!     Soil H20 (final) on Year/day 1975/214    379.75
+!     Effective Irrigation                       0.00
+!     Precipitation                            558.10
+!     Water added with new mulch                 0.03
+!     Net lateral flow                           0.00
+!     Drainage                                 288.69
+!     Tiledrain flow                             0.00
+!     Runoff                                     7.91
+!     Mulch evaporation                          0.21
+!     Soil Evaporation                         147.50
+!     Transpiration                            245.52
+!     Total evapotranspiration                 393.02
+!     Total potential evapotranspiration       448.52
+
+!     Initial mulch water content                0.00
+!     Final mulch water content                  0.04
+
+!     Final Balance                             0.006
+
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   3        : 60 KG N/HA                CSCER048 RORO7401    3
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  3   : 60 KG N/HA                CSCER048
+  
+
+!     WATER BALANCE PARAMETERS
+!     ========================                 --mm--
+
+!     Soil H20 (start) on Year/day 1974/305    511.50
+!     Soil H20 (final) on Year/day 1975/214    374.98
+!     Effective Irrigation                       0.00
+!     Precipitation                            558.10
+!     Water added with new mulch                 0.03
+!     Net lateral flow                           0.00
+!     Drainage                                 289.01
+!     Tiledrain flow                             0.00
+!     Runoff                                     7.85
+!     Mulch evaporation                          0.20
+!     Soil Evaporation                         141.02
+!     Transpiration                            256.51
+!     Total evapotranspiration                 397.54
+!     Total potential evapotranspiration       446.62
+
+!     Initial mulch water content                0.00
+!     Final mulch water content                  0.04
+
+!     Final Balance                             0.005
+
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   4        : 90 KG N/HA                CSCER048 RORO7401    4
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  4   : 90 KG N/HA                CSCER048
+  
+
+!     WATER BALANCE PARAMETERS
+!     ========================                 --mm--
+
+!     Soil H20 (start) on Year/day 1974/305    511.50
+!     Soil H20 (final) on Year/day 1975/214    378.64
+!     Effective Irrigation                       0.00
+!     Precipitation                            558.10
+!     Water added with new mulch                 0.03
+!     Net lateral flow                           0.00
+!     Drainage                                 289.06
+!     Tiledrain flow                             0.00
+!     Runoff                                     7.87
+!     Mulch evaporation                          0.20
+!     Soil Evaporation                         140.06
+!     Transpiration                            253.75
+!     Total evapotranspiration                 393.81
+!     Total potential evapotranspiration       446.47
+
+!     Initial mulch water content                0.00
+!     Final mulch water content                  0.04
+
+!     Final Balance                             0.006
+
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   5        : 120 KG N/HA               CSCER048 RORO7401    5
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  5   : 120 KG N/HA               CSCER048
+  
+
+!     WATER BALANCE PARAMETERS
+!     ========================                 --mm--
+
+!     Soil H20 (start) on Year/day 1974/305    511.50
+!     Soil H20 (final) on Year/day 1975/214    390.12
+!     Effective Irrigation                       0.00
+!     Precipitation                            558.10
+!     Water added with new mulch                 0.03
+!     Net lateral flow                           0.00
+!     Drainage                                 289.09
+!     Tiledrain flow                             0.00
+!     Runoff                                     7.87
+!     Mulch evaporation                          0.20
+!     Soil Evaporation                         139.53
+!     Transpiration                            242.76
+!     Total evapotranspiration                 382.30
+!     Total potential evapotranspiration       446.78
+
+!     Initial mulch water content                0.00
+!     Final mulch water content                  0.04
+
+!     Final Balance                             0.002
+
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   6        : 150 KG N/HA               CSCER048 RORO7401    6
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  6   : 150 KG N/HA               CSCER048
+  
+
+!     WATER BALANCE PARAMETERS
+!     ========================                 --mm--
+
+!     Soil H20 (start) on Year/day 1974/305    511.50
+!     Soil H20 (final) on Year/day 1975/214    396.56
+!     Effective Irrigation                       0.00
+!     Precipitation                            558.10
+!     Water added with new mulch                 0.03
+!     Net lateral flow                           0.00
+!     Drainage                                 289.09
+!     Tiledrain flow                             0.00
+!     Runoff                                     7.87
+!     Mulch evaporation                          0.21
+!     Soil Evaporation                         139.12
+!     Transpiration                            236.74
+!     Total evapotranspiration                 375.86
+!     Total potential evapotranspiration       446.89
+
+!     Initial mulch water content                0.00
+!     Final mulch water content                  0.04
+
+!     Final Balance                             0.007
+
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:18
+
+*RUN   7        : 180 KG N/HA               CSCER048 RORO7401    7
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  7   : 180 KG N/HA               CSCER048
+  
+
+!     WATER BALANCE PARAMETERS
+!     ========================                 --mm--
+
+!     Soil H20 (start) on Year/day 1974/305    511.50
+!     Soil H20 (final) on Year/day 1975/214    400.15
+!     Effective Irrigation                       0.00
+!     Precipitation                            558.10
+!     Water added with new mulch                 0.03
+!     Net lateral flow                           0.00
+!     Drainage                                 289.09
+!     Tiledrain flow                             0.00
+!     Runoff                                     7.87
+!     Mulch evaporation                          0.21
+!     Soil Evaporation                         138.95
+!     Transpiration                            233.31
+!     Total evapotranspiration                 372.27
+!     Total potential evapotranspiration       446.94
+
+!     Initial mulch water content                0.00
+!     Final mulch water content                  0.04
+
+!     Final Balance                             0.007
+
+
+*DSSAT Cropping System Model Ver. 4.8.2.010 -develop  JUL 08, 2024 16:11:19
+
+*RUN   8        : 210 KG N/HA               CSCER048 RORO7401    8
+ MODEL          : CSCER048 - Wheat
+ EXPERIMENT     : RORO7401 WH N RESPONSE,ROTHAMSTED  8FE(N)  (DSSAT3)
+ DATA PATH      : C:\DSSAT48\Wheat\
+ TREATMENT  8   : 210 KG N/HA               CSCER048
+  
+
+!     WATER BALANCE PARAMETERS
+!     ========================                 --mm--
+
+!     Soil H20 (start) on Year/day 1974/305    511.50
+!     Soil H20 (final) on Year/day 1975/214    401.62
+!     Effective Irrigation                       0.00
+!     Precipitation                            558.10
+!     Water added with new mulch                 0.03
+!     Net lateral flow                           0.00
+!     Drainage                                 289.09
+!     Tiledrain flow                             0.00
+!     Runoff                                     7.87
+!     Mulch evaporation                          0.21
+!     Soil Evaporation                         138.75
+!     Transpiration                            232.05
+!     Total evapotranspiration                 370.80
+!     Total potential evapotranspiration       446.90
+
+!     Initial mulch water content                0.00
+!     Final mulch water content                  0.04
+
+!     Final Balance                             0.006
+
