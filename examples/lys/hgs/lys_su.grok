@@ -1,0 +1,260 @@
+!--------------------------  Problem description
+Arek Field Lysimeter v1
+3 x 3 x 14 Node Model to develop mapping
+Spin-up - Arek's Field Avg P - AET Conditions
+
+
+end title
+
+!--------------------------  Grid generation
+    generate variable rectangles
+        3 !nx
+        0
+        1
+        2
+
+
+        3 !ny
+        0
+        1
+        2
+
+    generate layers interactive
+
+        base elevation
+            elevation constant
+            0
+
+        end ! base elevation
+
+        new layer
+            layer name 
+            NoCoup
+
+            proportional sublayering
+            3
+            0.45
+            0.5
+            0.5
+
+            elevation constant
+            1.45
+        end ! new layer
+
+        new layer
+            layer name
+            Coup
+
+            proportional sublayering
+            10
+            0.005
+            0.01
+            0.01
+            0.01
+            0.01
+            0.01
+            0.01
+            0.03
+            0.03
+            0.03
+
+            elevation constant
+            3
+        end ! new layer
+
+    end ! generate layer interactive
+
+end !grid generation
+
+mesh to tecplot
+lys.dat
+
+!--------------------------  General simulation parameters
+units: kilogram-metre-day
+transient flow
+unsaturated
+
+finite difference mode
+
+remove negative coefficients
+
+no nodal flow check
+
+compute underrelaxation factor
+
+dual nodes for surface flow
+
+!--------------------------  Porous media properties
+
+use domain type
+porous media
+
+properties file
+lys.mprops
+
+! Define whole model as one soil type
+choose elements all
+new zone
+1
+
+clear chosen zones
+clear chosen elements
+
+choose zone number
+1
+read properties
+gen_soil
+
+clear chosen zones
+
+! Start model full of water
+choose nodes all
+initial head surface elevation
+
+clear chosen nodes
+
+! Set measured water table boundary at bottom of model
+choose nodes bottom
+
+create node set
+lys_bottom
+
+clear chosen nodes
+
+boundary condition
+    type
+    head
+
+    node set
+    lys_bottom
+
+    time value table
+    0.0 0.4
+    18262.5 0.4
+    end
+end
+
+!--------------------------  Overland flow properties
+use domain type
+surface
+
+properties file
+lys.oprops
+
+! Set olf properties on top of model to generic grass
+choose faces top
+
+new zone
+1
+
+clear chosen zones
+clear chosen faces
+
+choose zone number 
+1
+read properties
+gen_grass
+
+clear chosen zones
+
+!--------------------------  Weather forcing properties
+
+! Apply P at top - 544.6 = Average annual P for Arek's Field - 400 Average annual AET for Arek's Field
+choose faces top
+
+create face set from chosen faces
+top
+
+clear chosen faces
+
+boundary condition
+    type
+    rain
+
+    face set
+    top
+
+    time value table
+    0.0 0.000395893
+    18262.5 0.000395893
+    end
+
+end
+
+! boundary condition
+!     type
+!     potential evapotranspiration
+
+!     face set
+!     top
+
+!     time value table
+! !--Main PET Series--
+!     end
+
+! end
+
+! !--------------------------  ET properties
+
+! use domain type
+! et
+
+! properties file
+! lys.etprops
+
+! ! set ET properties on top of model to grass
+
+! ! Generic Grass
+! choose faces top
+
+! new zone
+! 1
+
+! clear chosen zones
+! clear chosen faces
+
+! choose zone number
+! 1
+! read properties
+! gen_grass
+
+!--------------------------  Solution controls
+
+Newton maximum iterations
+20
+Jacobian epsilon
+1.0d-6
+Newton absolute convergence criteria
+1.0d-3
+Newton residual convergence criteria
+1.0d-3
+newton maximum update for head
+1
+newton maximum update for depth
+1
+
+!--------------------------  Timestep controls
+newton iteration control
+15
+
+maximum timestep
+10000.0
+minimum timestep
+1E-12
+initial timestep
+1.157407E-5
+maximum timestep multiplier
+2.5
+minimum timestep multiplier
+0.5
+
+output times
+1.157407E-5
+10
+100
+1000
+18262.5
+
+end
+
+!--------------------------  Output
