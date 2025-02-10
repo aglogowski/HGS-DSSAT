@@ -258,3 +258,92 @@ output times
 end
 
 !--------------------------  Output
+
+!--------------------------  Outputs needed for mapping
+choose nodes sheet
+14
+
+write chosen nodes xyz
+lys_nodes_ly0.xyz
+
+clear chosen nodes
+
+choose nodes sheet
+13
+
+write chosen nodes xyz
+lys_nodes_ly1.xyz
+
+clear chosen nodes
+
+choose nodes sheet
+12
+
+write chosen nodes xyz
+lys_nodes_ly2.xyz
+
+clear chosen nodes
+
+choose nodes sheet
+11
+
+write chosen nodes xyz
+lys_nodes_ly3.xyz
+
+clear chosen nodes
+
+choose nodes sheet
+10
+
+write chosen nodes xyz
+lys_nodes_ly4.xyz
+
+clear chosen nodes
+
+choose nodes sheet
+9
+
+write chosen nodes xyz
+lys_nodes_ly5.xyz
+
+clear chosen nodes
+
+choose nodes sheet
+8
+
+write chosen nodes xyz
+lys_nodes_ly6.xyz
+
+clear chosen nodes
+
+choose nodes sheet
+7
+
+write chosen nodes xyz
+lys_nodes_ly7.xyz
+
+clear chosen nodes
+
+choose nodes sheet
+6
+
+write chosen nodes xyz
+lys_nodes_ly8.xyz
+
+clear chosen nodes
+
+choose nodes sheet
+5
+
+write chosen nodes xyz
+lys_nodes_ly9.xyz
+
+clear chosen nodes
+
+choose nodes sheet
+4
+
+write chosen nodes xyz
+lys_nodes_ly10.xyz
+
+clear chosen nodes

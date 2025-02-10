@@ -104,6 +104,7 @@ gen_soil
 
 clear chosen zones
 
+!!--Begin Initial Head Section--
 ! Set initial heads from spin-up output
 choose nodes all
 
@@ -129,6 +130,7 @@ initial head from depth-saturation table
 end
 
 clear chosen nodes
+!!--End Initial Head Section--
 
 ! Set measured water table boundary at bottom of model
 choose nodes bottom
@@ -184,13 +186,15 @@ top
 
 clear chosen faces
 
+
 boundary condition
     type
     rain
 
     face set
     top
-
+    
+!!--Begin Precipitation Time Series Section--
     time value table
     0.0 0.0
     1.0 0.0
@@ -276,8 +280,9 @@ boundary condition
     81.0 0.0
     82.0 0.0
     end
-
+!!--End Precipitation Time Series Section--
 end
+
 
 ! boundary condition
 !     type
@@ -346,7 +351,10 @@ maximum timestep multiplier
 minimum timestep multiplier
 0.5
 
+!--------------------------  Output
+
 output times
+!!--Begin Output Times Section--
 1.157407E-5
 5
 10
@@ -367,6 +375,4 @@ output times
 82
 
 end
-
-!--------------------------  Output
-
+!!--End Output Times Section--
