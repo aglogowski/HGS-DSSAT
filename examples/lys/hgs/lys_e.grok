@@ -72,6 +72,7 @@ transient flow
 unsaturated
 
 finite difference mode
+control volume ! from HTH
 
 remove negative coefficients
 
@@ -80,6 +81,12 @@ no nodal flow check
 compute underrelaxation factor
 
 dual nodes for surface flow
+transport time weighting ! from HTH
+1.0 ! for fully implicit, from FC
+Upstream weighting factor ! from HTH
+1.0
+Upstream weighting of velocities ! from HTH
+1.0 1.0 1.0
 
 !--------------------------  Porous media properties
 
@@ -355,6 +362,145 @@ end
 ! read properties
 ! gen_grass
 
+!--------------------------  Transport properties
+
+! NO3 solute with full default parameters
+
+solute
+    name
+    NO3
+end solute
+
+! NH4 solute with full default parameters
+
+solute
+    name
+    NH4
+end solute
+
+! Boundary condition surface
+use domain type
+surface
+
+clear chosen zones
+clear chosen nodes
+clear chosen elements
+clear chosen faces
+clear chosen segments
+
+choose nodes top
+
+! NH4 and NO3 boundary condition concentrations from first layer of DSSAT model
+
+specified concentration
+1
+0 82 6000. 3000.
+
+clear chosen zones
+clear chosen nodes
+clear chosen elements
+clear chosen faces
+clear chosen segments
+
+! Initial condition porous media
+use domain type
+porous media
+
+! NH4 and NO3 boundary initial concentrations from DSSAT model
+
+clear chosen nodes
+
+choose nodes sheet
+13
+
+initial concentration
+6000.
+3000.
+
+clear chosen nodes
+
+choose nodes sheet
+12
+
+initial concentration
+5500.
+3000. 
+
+clear chosen nodes
+
+choose nodes sheet
+11
+
+initial concentration
+5000.
+3000. 
+
+clear chosen nodes
+
+choose nodes sheet
+10
+
+initial concentration
+4000.
+3000. 
+
+clear chosen nodes
+
+choose nodes sheet
+9
+
+initial concentration
+4000.
+3000. 
+
+clear chosen nodes
+
+choose nodes sheet
+8
+
+initial concentration
+3000.
+2000. 
+
+clear chosen nodes
+
+choose nodes sheet
+7
+
+initial concentration
+3000.
+2000. 
+
+clear chosen nodes
+
+choose nodes sheet
+6
+
+initial concentration
+2000.
+2000. 
+
+clear chosen nodes
+
+choose nodes sheet
+5
+
+initial concentration
+500.
+1000. 
+
+clear chosen nodes
+
+choose nodes sheet
+4
+
+initial concentration
+500.
+500. 
+
+clear chosen nodes
+
+
 !--------------------------  Solution controls
 
 Newton maximum iterations
@@ -369,6 +515,8 @@ newton maximum update for head
 1
 newton maximum update for depth
 1
+Concentration control ! from HTH
+0.5 0.5
 
 !--------------------------  Timestep controls
 newton iteration control
@@ -376,8 +524,10 @@ newton iteration control
 
 maximum timestep
 10000.0
+! minimum timestep
+! 1E-12
 minimum timestep
-1E-12
+1E-20
 initial timestep
 1.157407E-5
 maximum timestep multiplier
