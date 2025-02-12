@@ -153,6 +153,40 @@ boundary condition
     end
 end
 
+! Flux Nodal Section for Coupled Model
+choose nodes sheet
+14
+choose nodes sheet
+13
+choose nodes sheet
+12
+choose nodes sheet
+11
+choose nodes sheet
+10
+choose nodes sheet
+9
+choose nodes sheet
+8
+choose nodes sheet
+7
+choose nodes sheet
+6
+choose nodes sheet
+5
+choose nodes sheet
+4
+
+create node set
+coupled_section
+
+clear chosen nodes
+
+!!--Begin Flux Nodal for DSSAT ET Section--
+
+
+!!--End Flux Nodal for DSSAT ET Section--
+
 !--------------------------  Overland flow properties
 use domain type
 surface
@@ -376,3 +410,8 @@ output times
 
 end
 !!--End Output Times Section--
+
+make observation well from xy
+sat_prof
+1, 1
+0, 14
