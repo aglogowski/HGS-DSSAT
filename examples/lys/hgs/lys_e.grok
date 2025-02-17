@@ -378,33 +378,35 @@ solute
     NH4
 end solute
 
-! Boundary condition surface
-use domain type
-surface
+! ! Boundary condition surface
+! use domain type
+! surface
 
-clear chosen zones
-clear chosen nodes
-clear chosen elements
-clear chosen faces
-clear chosen segments
+! clear chosen zones
+! clear chosen nodes
+! clear chosen elements
+! clear chosen faces
+! clear chosen segments
 
-choose nodes top
+! choose nodes top
 
-! NH4 and NO3 boundary condition concentrations from first layer of DSSAT model
+! ! NH4 and NO3 boundary condition concentrations from first layer of DSSAT model
 
-specified concentration
-1
-0 82 6000. 3000.
+! specified concentration
+! 1
+! 0 82 6000. 3000.
 
-clear chosen zones
-clear chosen nodes
-clear chosen elements
-clear chosen faces
-clear chosen segments
+! clear chosen zones
+! clear chosen nodes
+! clear chosen elements
+! clear chosen faces
+! clear chosen segments
 
 ! Initial condition porous media
 use domain type
 porous media
+
+!!--Begin Solute Transport Initial Concentration Section--
 
 ! NH4 and NO3 boundary initial concentrations from DSSAT model
 
@@ -499,6 +501,8 @@ initial concentration
 500. 
 
 clear chosen nodes
+
+!!--End Solute Transport Initial Concentration Section--
 
 
 !--------------------------  Solution controls

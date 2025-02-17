@@ -374,6 +374,14 @@ choose nodes sheet
 4
 
 write chosen nodes
-node_order.txt
+rz_node_order.txt
+
+clear chosen nodes
+
+! Get full list of nodes for node order for solute initial condition preparation
+choose nodes all
+
+write chosen nodes
+full_node_order.txt
 
 clear chosen nodes
