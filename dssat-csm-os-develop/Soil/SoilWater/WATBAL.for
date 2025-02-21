@@ -95,15 +95,15 @@ C=======================================================================
 
       CHARACTER*1  ISWWAT, MEINF, MESEV, MEEVP
 
-      INTEGER DYNAMIC, L, NLAYR, YRDOY
+      INTEGER DYNAMIC, L, NLAYR, YRDOY, DAS
 
       REAL CN, CRAIN, DRAIN, EXCS, NewSW
       REAL PINF, RUNOFF
       REAL SWCON, TDRAIN, TRUNOF
       REAL TSW, TSWINI, WATAVL, WTDEP
 
-      REAL, DIMENSION(NL) :: DLAYR, DLAYR_YEST, DS, DUL, LL  
-      REAL, DIMENSION(NL) :: SAT, SWCN, SW_AVAIL
+      REAL, DIMENSION(NL) :: DLAYR, DLAYR_YEST, DS, DUL, LL
+      REAL, DIMENSION(NL) :: SAT, SWCN, SW_AVAIL!, SWDELTS_test
 
 !     Flood management variables:
       REAL FLOOD, INFILT, PUDPERC
@@ -133,6 +133,7 @@ C=======================================================================
 !     Transfer values from constructed data types into local variables.
       DYNAMIC = CONTROL % DYNAMIC
       YRDOY   = CONTROL % YRDOY
+      DAS     = CONTROL % DAS
 
       CN     = SOILPROP % CN     
       DLAYR  = SOILPROP % DLAYR  
@@ -159,17 +160,14 @@ C=======================================================================
 !***********************************************************************
       IF (DYNAMIC .EQ. RUNINIT) THEN
 !-----------------------------------------------------------------------
-!***********************************************************************
-!  AREK Turn off IPWBAL and Tile DRAIN SW ajd MgmtWTD prescribe from HGS
-          
-          !     Call IPWBAL to read in values from input file
-!      CALL IPWBAL (CONTROL, LL, NLAYR,                    !Input
-!     &    SW, MgmtWTD)                                    !Output
+!     Call IPWBAL to read in values from input file
+      CALL IPWBAL (CONTROL, LL, NLAYR,                    !Input
+     &    SW, MgmtWTD)                                    !Output
 
 !     Read tile drainage variables from FILEIO
-!      CALL TILEDRAIN(CONTROL, 
-!     &    DLAYR, DUL, ETDR, NLAYR, SAT, SW, SWDELTS,      !Input
-!     &    DRN, SWDELTT, TDFC, TDFD, TDLNO)                !Output
+      CALL TILEDRAIN(CONTROL, 
+     &    DLAYR, DUL, ETDR, NLAYR, SAT, SW, SWDELTS,      !Input
+     &    DRN, SWDELTT, TDFC, TDFD, TDLNO)                !Output
 
 !     Save infiltration and runoff information for floodwater calcs
       FLOODWAT % INFILT = 0.0
@@ -188,29 +186,20 @@ C=======================================================================
       MEINF  = ISWITCH % MEINF
       MESEV  = ISWITCH % MESEV
       MEEVP  = ISWITCH % MEEVP
-!Arek prescribtion needed 
+
       IF (ISWWAT .EQ. 'Y') THEN
         IF (CONTROL%MULTI .GT. 1 .OR. CONTROL%RNMODE .EQ. 'Y') THEN
         !Re-read initial conditions if multi-season or forecast run
-        !!***********************************************************************
-! Arek turn off IPWBAL for multi-sesonal forecast     
-! Arek need to prescribe here something for multiannual simulations
-            
-            
-            
-!          CALL IPWBAL (CONTROL, LL, NLAYR,                !Input
-!     &    SW, MgmtWTD)                                    !Output
+          CALL IPWBAL (CONTROL, LL, NLAYR,                !Input
+     &    SW, MgmtWTD)                                    !Output
         ENDIF
-ENDIF
+      ENDIF
 
 !     Initialize water table
-! Arek Water table is a summary of simulation all variables should be aleady prescribed
-! Arek Needed??for other DSSAT utilietes
-!
-!      Call WaterTable(SEASINIT,  
-!     &  SOILPROP, SW,                                     !Input
-!     &  ActWTD, LatInflow, LatOutflow,                    !Output
-!     &  MgmtWTD, SWDELTW)                                 !Output
+      Call WaterTable(SEASINIT,  
+     &  SOILPROP, SW,                                     !Input
+     &  ActWTD, LatInflow, LatOutflow,                    !Output
+     &  MgmtWTD, SWDELTW)                                 !Output
 
 !     Use inital water table depth and capillary rise to set initial
 !       soil water content
@@ -221,35 +210,30 @@ ENDIF
       WTDEP = 9999. 
         IF (ActWTD .GT. DS(NLAYR)) THEN
 !         Calculate perched water table depth
-! Arek conditioning of ActWTD calculating             
-!          CALL WTDEPT(
-!     &      NLAYR, DLAYR, DS, DUL, SAT, SW,               !Input
-!     &      WTDEP)                                        !Output
-!        ENDIF                   
+          CALL WTDEPT(
+     &      NLAYR, DLAYR, DS, DUL, SAT, SW,               !Input
+     &      WTDEP)                                        !Output
+        ENDIF                   
 
 !     Initialize summary variables
-! Arek Initialize form HGS            
-!      CALL WBSUM(SEASINIT,
-!     &    NLAYR, DRAIN, RAIN, RUNOFF, DLAYR, SW,          !Input
-!     &    CRAIN, TDRAIN, TRUNOF, TSW, TSWINI)             !Output
+      CALL WBSUM(SEASINIT,
+     &    NLAYR, DRAIN, RAIN, RUNOFF, DLAYR, SW,          !Input
+     &    CRAIN, TDRAIN, TRUNOF, TSW, TSWINI)             !Output
 
-! Arek Snowfall not needed 
 !     Initialize snow accumulation
-!      CALL SNOWFALL (SEASINIT,
-!     &    TMAX, RAIN,                                     !Input
-!     &    SNOW, WATAVL)                                   !Output
+      CALL SNOWFALL (SEASINIT,
+     &    TMAX, RAIN,                                     !Input
+     &    SNOW, WATAVL)                                   !Output
 
 !     Initialize mulch water
-! Arek Mulch not needed       
-!      CALL MULCHWATER(CONTROL, ISWITCH,
-!     &    WATAVL, MULCH)
+      CALL MULCHWATER(CONTROL, ISWITCH,
+     &    WATAVL, MULCH)
 
 !     Initialize tile drainage
-! Arek Tiledrain not needed
-!      IF (TDLNO .GT. 0) THEN
-!        CALL TILEDRAIN(CONTROL, 
-!     &    DLAYR, DUL, ETDR, NLAYR, SAT, SW, SWDELTS,      !Input
-!     &    DRN, SWDELTT, TDFC, TDFD, TDLNO)                !Output
+      IF (TDLNO .GT. 0) THEN
+        CALL TILEDRAIN(CONTROL, 
+     &    DLAYR, DUL, ETDR, NLAYR, SAT, SW, SWDELTS,      !Input
+     &    DRN, SWDELTT, TDFC, TDFD, TDLNO)                !Output
       ENDIF
 
       IF (ISWWAT == 'Y') THEN
@@ -265,7 +249,7 @@ ENDIF
      &    CRAIN, DLAYR, FLOODWAT, IRRAMT, LL, MULCH,      !Input
      &    NLAYR, RUNOFF, SOILPROP, SW, TDFC, TDFD,        !Input
      &    TDRAIN, TRUNOF, ActWTD, LatInflow, LatOutflow,  !Input
-     &    EXCS, WTDEP)                                    !Input
+     &    EXCS, WTDEP, SWDELTS)                               !Input
 
         CALL OPSWBL(CONTROL, ISWITCH, 
      &    SOILPROP, SW)                                   !Input
@@ -297,119 +281,110 @@ ENDIF
       !This is needed for winter crops even if water not simulated.
 C-GH   IF (TMAX .LE. 1.0 .OR. SNOW .GT. 0.001) THEN
 C     Conflict with CERES-Wheat
-!      IF (TMAX .LE. 1.0 .OR. SNOW .GT. 0.0) THEN
-!Arek remove snow if conflict maybe needed action fot this condtitioning 
-!        CALL SNOWFALL (RATE,
-!     &    TMAX, RAIN,                                 !Input
-!     &    SNOW, WATAVL)                               !Output
-!      ELSE
-!        WATAVL = RAIN
-!      ENDIF
+      IF (TMAX .LE. 1.0 .OR. SNOW .GT. 0.0) THEN
+        CALL SNOWFALL (RATE,
+     &    TMAX, RAIN,                                 !Input
+     &    SNOW, WATAVL)                               !Output
+      ELSE
+        WATAVL = RAIN
+      ENDIF
 
 !     Rates not calculated unless water switch is on.
- !     IF (ISWWAT .NE. 'Y') RETURN
+      IF (ISWWAT .NE. 'Y') RETURN
 
 !     Maintain water table depth and calculate capillary rise
-!      IF (FLOOD < 1.E-6) THEN
-!        Call WaterTable(RATE,   
-!     &    SOILPROP, SW,                                   !Input
-!     &    ActWTD, LatInflow, LatOutflow,                  !Output
-!     &    MgmtWTD, SWDELTW)                               !Output
-!      ENDIF
+      IF (FLOOD < 1.E-6) THEN
+        Call WaterTable(RATE,   
+     &    SOILPROP, SW,                                   !Input
+     &    ActWTD, LatInflow, LatOutflow,                  !Output
+     &    MgmtWTD, SWDELTW)                               !Output
+      ENDIF
 
 !     Set process rates to zero.
-!      SWDELTS = 0.0
+      SWDELTS = 0.0
       !SWDELTX = 0.0
-!      SWDELTU = 0.0
-!      SWDELTT = 0.0
-!      SWDELTL = 0.0
+      SWDELTU = 0.0
+      SWDELTT = 0.0
+      SWDELTL = 0.0
 
- !     PINF   = 0.0
- !     WINF   = 0.0
- !     INFILT = 0.0
- !     EXCS   = 0.0
- !     DRAIN  = 0.0
+      PINF   = 0.0
+      WINF   = 0.0
+      INFILT = 0.0
+      EXCS   = 0.0
+      DRAIN  = 0.0
 !--------------------------------------------------------------------
       !Puddled conditions added for RICE routines. - Puddled implies
       !  bunded conditions exist and soil has been modified to minimize
       !  percolation.  Perc rates read from irrigation data.
-      ! Arek No pludded whole section comented
-      !IF (PUDDLED) THEN
+      IF (PUDDLED) THEN
       !Puddled field - fill soil profile and limit drainage to PUDPERC
        
         !Water available for infiltration   
-      !  WINF = MAX(0.0, FLOOD + IRRAMT + RAIN)
+        WINF = MAX(0.0, FLOOD + IRRAMT + RAIN)
 
         !First fill soil profile
-      !  INFILT = 0.0
-      !  DO L = 1, NLAYR
-      !    SWDELTS(L) = SAT(L) - SW(L) 
-      !    INFILT = INFILT + SWDELTS(L) * DLAYR(L) * 10.  !(in mm)
-      !    IF (INFILT .GT. WINF) THEN
-      !      SWDELTS(L) = SWDELTS(L) - (INFILT - WINF) / DLAYR(L) / 10.0
-      !      INFILT = WINF
-      !      EXIT
-      !    ENDIF
-      !  ENDDO
+        INFILT = 0.0
+        DO L = 1, NLAYR
+          SWDELTS(L) = SAT(L) - SW(L) 
+          INFILT = INFILT + SWDELTS(L) * DLAYR(L) * 10.  !(in mm)
+          IF (INFILT .GT. WINF) THEN
+            SWDELTS(L) = SWDELTS(L) - (INFILT - WINF) / DLAYR(L) / 10.0
+            INFILT = WINF
+            EXIT
+          ENDIF
+        ENDDO
 
         !Drainage, if any, limited to PUDPERC 
-      !  DRAIN = MIN(PUDPERC, WINF - INFILT)
-      !  INFILT = INFILT + DRAIN
-      !  DO L = 1, NLAYR
-      !    DRN(L) = DRAIN   !used for soil N fluxes
-      !  ENDDO
+        DRAIN = MIN(PUDPERC, WINF - INFILT)
+        INFILT = INFILT + DRAIN
+        DO L = 1, NLAYR
+          DRN(L) = DRAIN   !used for soil N fluxes
+        ENDDO
 
 !--------------------------------------------------------------------
-      !ELSE
+      ELSE
       !Non-puddled, flooded or non-flooded field
-! Arek precribe here values maybe
-!        PINF = 0.0
-!        WINF = 0.0
-!        INFILT = 0.0
+        PINF = 0.0
+        WINF = 0.0
+        INFILT = 0.0
 
 !       -------------------------------------------------------------
-! Arek commenting Bunded       
-        
-!        IF (BUNDED) THEN  !potential for flooding exists
+        IF (BUNDED) THEN  !potential for flooding exists
           !No runoff from field with bund (RICE)
-!          RUNOFF = 0.0
-!          WINF = MAX(0.0, FLOOD + IRRAMT + RAIN)  !(mm)
+          RUNOFF = 0.0
+          WINF = MAX(0.0, FLOOD + IRRAMT + RAIN)  !(mm)
 
 !       -------------------------------------------------------------
-!        ELSE   
+        ELSE   
 !         Upland field
 !         Not bunded, flooded conditions not possible
 
 !         Water first absorbed by mulch, if present
 !         IF (INDEX('RSN',MEINF) .LE. 0) THEN
-! Arek removing Mulch water again 
-!          IF (INDEX('RSM',MEINF) > 0) THEN   
-!            CALL MULCHWATER(CONTROL, ISWITCH,
-!     &            WATAVL, MULCH)
-!          ENDIF
-! Arek removing runoff
-!          CALL RNOFF(
-!     &        CN, LL, MEINF, MULCH, SAT, SW, WATAVL,      !Input
-!     &        RUNOFF)                                     !Output
-! Arek Calculate values here  Bunded ?        
-!          WINF = WATAVL - RUNOFF + IRRAMT     !(mm)
-!        ENDIF
+          IF (INDEX('RSM',MEINF) > 0) THEN   
+            CALL MULCHWATER(CONTROL, ISWITCH,
+     &            WATAVL, MULCH)
+          ENDIF
+
+          CALL RNOFF(
+     &        CN, LL, MEINF, MULCH, SAT, SW, WATAVL,      !Input
+     &        RUNOFF)                                     !Output
+          
+          WINF = WATAVL - RUNOFF + IRRAMT     !(mm)
+        ENDIF
 
 !       Potential for infilitration
-!        PINF = WINF * 0.1                       !(cm)
+        PINF = WINF * 0.1                       !(cm)
 
 !       Call INFIL to calculate infiltration rates on days with irrigation
 !         or rainfall.  Call SATFLO on days with no irrigation or rain
 !         to calculate saturated flow.
-! Arek  Remove infiltration function
 !        IF (PINF .GT. 0.0001) THEN
- 
- 
-!      CALL INFIL(
+!          CALL INFIL(
 !     &      DLAYR, DS, DUL, NLAYR, PINF, SAT, SW,         !Input
 !     &      SWCN, SWCON, MgmtWTD,                         !Input
 !     &      DRAIN, DRN, EXCS, SWDELTS)                    !Output
-!
+
 !          INFILT = 0.0
 !          DO L = 1, NLAYR
 !            INFILT = INFILT + SWDELTS(L) * DLAYR(L) * 10.  !(in mm)
@@ -423,67 +398,67 @@ C     Conflict with CERES-Wheat
 !          ENDIF
 
 !        ELSE
-!Arek Remove Satflo
 !          CALL SATFLO(
 !     &      DLAYR, DUL, NLAYR, SAT, SW, SWCN, SWCON,      !Input
 !     &      DRAIN, DRN, SWDELTS)                          !Output
 !        ENDIF
-!Arek Remove Tile draing
+
 !        IF (TDLNO .GT. 0) THEN
 !          CALL TILEDRAIN(CONTROL, 
 !     &      DLAYR, DUL, ETDR, NLAYR, SAT, SW, SWDELTS,    !Input
 !     &      DRN, SWDELTT, TDFC, TDFD, TDLNO)              !Output
 !        ENDIF
 
-!      ENDIF   !End of IF block for PUDDLED conditions
-
+      ENDIF   !End of IF block for PUDDLED conditions
+      print *, DAS
+      print *, SWDELTS
+      print *, "----\n"
+      
+      CALL process_data(DAS, SWDELTS)
+      
+      print *, SWDELTS
 !-----------------------------------------------------------------------
-
-! Arek removing SW_avilal ? 
-!      IF (FLOOD .LE. 0.0 .AND. MESEV .NE. 'S') THEN
+      IF (FLOOD .LE. 0.0 .AND. MESEV .NE. 'S') THEN
 !       Calculate the availability of soil water for use in UPFLOW.
-!        DO L = 1, NLAYR
-!          SW_AVAIL(L) = MAX(0.0, SW(L) + SWDELTS(L))
-!        ENDDO
+        DO L = 1, NLAYR
+          SW_AVAIL(L) = MAX(0.0, SW(L) + SWDELTS(L))
+        ENDDO
 
 C       Calculate upward movement of water due to evaporation and root 
 C       extraction (based on yesterday's values) for each soil layer.
 !       Don't call when using SALUS soil evaporation routine (MESEV = 'S')
-! Arek do we need up flow URGENT
-!        CALL UP_FLOW(    
-!     &    NLAYR, DLAYR, DUL, LL, SAT, SW, SW_AVAIL,       !Input
-!     &    UPFLOW, SWDELTU)                                !Output
-!      ENDIF
+        CALL UP_FLOW(    
+     &    NLAYR, DLAYR, DUL, LL, SAT, SW, SW_AVAIL,       !Input
+     &    UPFLOW, SWDELTU)                                !Output
+      ENDIF
 
 !-----------------------------------------------------------------------
 !     Check if tillage occurred today -- if so, mix soil water in
 !       tillage depth
-!Arek removing tillage 
-!      IF (TILLVALS % NTIL .GT. 0) THEN
-!        TILDATE = TILLVALS % TILDATE
-!        YRDOY = CONTROL % YRDOY
-!        IF (YRDOY .EQ. TILDATE) THEN
+      IF (TILLVALS % NTIL .GT. 0) THEN
+        TILDATE = TILLVALS % TILDATE
+        YRDOY = CONTROL % YRDOY
+        IF (YRDOY .EQ. TILDATE) THEN
           !Call mixing routine for soil properties
-!          MIXPCT = TILLVALS % TILMIX
-!          TDEP = TILLVALS % TILDEP
+          MIXPCT = TILLVALS % TILMIX
+          TDEP = TILLVALS % TILDEP
 
-!          DO L = 1, NLAYR
+          DO L = 1, NLAYR
             !Depths of soil water (cm)
-!            SW_UNMIX(L) = SW(L) * DLAYR(L)
-!          ENDDO
-! Arek removing Soil mixging 
-!          CALL SoilMixing(DLAYR, MIXPCT, NLAYR, TDEP, SW_UNMIX, SW_MIX)
+            SW_UNMIX(L) = SW(L) * DLAYR(L)
+          ENDDO
 
-!          DO L = 1, NLAYR
+          CALL SoilMixing(DLAYR, MIXPCT, NLAYR, TDEP, SW_UNMIX, SW_MIX)
+
+          DO L = 1, NLAYR
             !Change in SW due to tillage
-!            SWDELTL(L) = SW_MIX(L) / DLAYR(L) - SW(L)
-!          ENDDO
-!         CALL SUMSW(NLAYR, DLAYR, SWDELTL, SWTOT)
-!        ENDIF
-!      ENDIF
+            SWDELTL(L) = SW_MIX(L) / DLAYR(L) - SW(L)
+          ENDDO
+         CALL SUMSW(NLAYR, DLAYR, SWDELTL, SWTOT)
+        ENDIF
+      ENDIF
 !-----------------------------------------------------------------------
 !     Save infiltration and runoff information for floodwater calcs
-! Arek URGENT First prescritipiton needed 
       FLOODWAT % INFILT = INFILT
       FLOODWAT % RUNOFF = RUNOFF
 
@@ -515,7 +490,7 @@ C       extraction (based on yesterday's values) for each soil layer.
 !         prior to updating DLAYR in SOILDYN.
 !         Ultimately, need to compute all SW fluxes as mm, not 
 !         volumetric fraction.
-!Arek Urgent prescribe HGS fluxes here or at the beging of daily integration 
+
           SW_mm(L)      =      SW(L) * DLAYR_YEST(L) * 10. !current SW
           SWDELTS_mm(L) = SWDELTS(L) * DLAYR_YEST(L) * 10. !drainage
           SWDELTX_mm(L) = SWDELTX(L) * DLAYR_YEST(L) * 10. !root extr.
@@ -536,15 +511,14 @@ C       extraction (based on yesterday's values) for each soil layer.
           NewSW = ANINT(SW(L) * 1.e6)/ 1.e6
           IF (abs(NewSW) < 1.e-4) NewSW = 0.0
           SW(L) = NewSW
-ENDDO
+        ENDDO
 
         !Update mulch water content
 !       IF (INDEX('RSN',MEINF) .LE. 0) THEN
-! Arek no mulchwater 
-!        IF (INDEX('RSM',MEINF) > 0) THEN   
-!          CALL MULCHWATER(CONTROL, ISWITCH,
-!     &    WATAVL, MULCH)
-!        ENDIF
+        IF (INDEX('RSM',MEINF) > 0) THEN   
+          CALL MULCHWATER(CONTROL, ISWITCH,
+     &    WATAVL, MULCH)
+        ENDIF
 
 !       CALL SUMSW(NLAYR, DLAYR, SW, SWTOT2)
 !       DIFFSW = SWTOT2 - SWTOT1
@@ -583,7 +557,7 @@ C-----------------------------------------------------------------------
      &    CRAIN, DLAYR, FLOODWAT, IRRAMT, LL, MULCH,      !Input
      &    NLAYR, RUNOFF, SOILPROP, SW, TDFC, TDFD,        !Input
      &    TDRAIN, TRUNOF, ActWTD, LatInflow, LatOutflow,  !Input
-     &    EXCS, WTDEP)                                    !Input
+     &    EXCS, WTDEP, SWDELTS)                               !Input
 
       CALL OPSWBL(CONTROL, ISWITCH, 
      &    SOILPROP, SW)                                   !Input
@@ -596,11 +570,10 @@ C-----------------------------------------------------------------------
      &    TDFC, TDFD, TDRAIN, TRUNOF, TSW, TSWINI)
 
 !     IF (INDEX('RSN',MEINF) .LE. 0) THEN
-! Arek removw mulch
-!      IF (INDEX('RSM',MEINF) > 0) THEN   
-!        CALL MULCHWATER(CONTROL, ISWITCH,
-!     &    WATAVL, MULCH)
-!      ENDIF
+      IF (INDEX('RSM',MEINF) > 0) THEN   
+        CALL MULCHWATER(CONTROL, ISWITCH,
+     &    WATAVL, MULCH)
+      ENDIF
 
 !***********************************************************************
 !***********************************************************************
@@ -614,7 +587,7 @@ C-----------------------------------------------------------------------
      &    CRAIN, DLAYR, FLOODWAT, IRRAMT, LL, MULCH,      !Input
      &    NLAYR, RUNOFF, SOILPROP, SW, TDFC, TDFD,        !Input
      &    TDRAIN, TRUNOF, ActWTD, LatInflow, LatOutflow,  !Input
-     &    EXCS, WTDEP)                                    !Input
+     &    EXCS, WTDEP, SWDELTS)                               !Input
 
       CALL OPSWBL(CONTROL, ISWITCH, 
      &    SOILPROP, SW)                                   !Input
@@ -627,11 +600,10 @@ C-----------------------------------------------------------------------
      &    TDFC, TDFD, TDRAIN, TRUNOF, TSW, TSWINI)
 
 !     IF (INDEX('RSN',MEINF) .LE. 0) THEN
-!Arek remobe mulch      
-!      IF (INDEX('RSM',MEINF) > 0) THEN   
-!        CALL MULCHWATER(CONTROL, ISWITCH,
-!     &    WATAVL, MULCH)
-!      ENDIF
+      IF (INDEX('RSM',MEINF) > 0) THEN   
+        CALL MULCHWATER(CONTROL, ISWITCH,
+     &    WATAVL, MULCH)
+      ENDIF
 
 !***********************************************************************
 !***********************************************************************
