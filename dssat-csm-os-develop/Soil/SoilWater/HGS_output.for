@@ -66,7 +66,7 @@ C=======================================================================
       close(unit_in)
       END SUBROUTINE process_data 
       
-     SUBROUTINE hgs_data(
+      SUBROUTINE hgs_data(
      &    DAS,
      &    SWDELTS,DRN)
 
@@ -82,64 +82,33 @@ C=======================================================================
       INTEGER DYNAMIC
       INTEGER i, DAS, ios
       integer :: unit_in
+      character*80 file_name, full_path, DAS_con
       REAL DRAIN
       REAL, DIMENSION(NL),INTENT(OUT) :: DRN 
       REAL, DIMENSION(NL) :: SWDELTS(NL)
 !-----------------------------------------------------------------------
       !open the file and ready 10 values of DRN
-      
-      open(unit=unit_in, 
-     &    file='C:\Users\glogow0000\HGS-DSSAT\examples\lys\coupled\dssat1_SWDELTS.inp',
-     &    status='old', action='read', iostat=ios)
-          if (ios /= 0) then
-              print *, 'Error opening file:', 
-     &        trim('file')
-              stop
-          end if
-          DO i = 0, DAS
-              read(unit_in, *, iostat=ios) SWDELTS
-                  if (ios /= 0) then
-                      print *, 'Error reading DAS ', DAS
-                      stop
-                  end if
-          ENDDO
-      close(unit_in)
-      
-          open(unit=unit_in, 
-     &    file='C:\Users\glogow0000\HGS-DSSAT\data_dssat\1_DRN.inp',
-     &    status='old', action='read', iostat=ios)
-          if (ios /= 0) then
-              print *, 'Error opening file:', 
-     &        trim('file')
-              stop
-          end if
-          DO i = 1, DAS
-              read(unit_in, *, iostat=ios) DRN
-                  if (ios /= 0) then
-                      print *, 'Error reading DAS ', DAS
-                      stop
-                  end if
-                  
-          ENDDO
-      close(unit_in)
-!      print *, "Das: ", DAS 
-!      print *, "DRN:", DRN 
-!      print* ," DRN(NL):", DRN(NL) 
-!      print*,"SW(L)", SW
-      
-      !-----------------------------------------------------------------------
-!      DO L = 1, NLAYR
-!         SWDELTS(L) = 0.0
-!         SWTEMP(L) = SW(L) - DRN(L)/DLAYR(l)
-!         SWDELTS(L)=SWTEMP(L)-SW(L)
-      
-        
+      file_name = 'C:\Users\glogow0000\HGS-DSSAT\coup_data\1_'
+          write(DAS_con, '(I0)') DAS
+          full_path=TRIM(file_name) // TRIM(DAS_con) // '_DRN.inp' !
           
-!      ENDDO
-!-----------------------------------------------------------------------
-
-
-      END SUBROUTINE process_data 
+          open(unit=unit_in, 
+     &        file=full_path ,
+     &        status='old', action='read', iostat=ios)
+              if (ios /= 0) then
+                  print *, 'Error opening file:', 
+     &            trim('file')
+                  stop
+              end if 
+!              read(unit_in, *, iostat=ios) DRN
+!                  if (ios /= 0) then
+!                      print *, 'Error reading DAS ', DAS
+!                      stop
+!                  end if
+          
+              close(unit_in)
+      print *, full_path
+      END SUBROUTINE hgs_data 
 !-----------------------------------------------------------------------
 !     SNOWFALL VARIABLE DEFINITIONS:
 !-----------------------------------------------------------------------
