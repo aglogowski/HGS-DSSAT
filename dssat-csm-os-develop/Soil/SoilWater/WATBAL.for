@@ -97,7 +97,7 @@ C=======================================================================
 
       INTEGER DYNAMIC, L, NLAYR, YRDOY, DAS
 
-      REAL CN, CRAIN, DRAIN, EXCS, NewSW
+      REAL CN, CRAIN, DRAIN, EXCS, NewSW ,DRAIN_dum
       REAL PINF, RUNOFF
       REAL SWCON, TDRAIN, TRUNOF
       REAL TSW, TSWINI, WATAVL, WTDEP
@@ -249,7 +249,7 @@ C=======================================================================
      &    CRAIN, DLAYR, FLOODWAT, IRRAMT, LL, MULCH,      !Input
      &    NLAYR, RUNOFF, SOILPROP, SW, TDFC, TDFD,        !Input
      &    TDRAIN, TRUNOF, ActWTD, LatInflow, LatOutflow,  !Input
-     &    EXCS, WTDEP, SWDELTS)                               !Input
+     &    EXCS, WTDEP)                                    !Input , SWDELTS
 
         CALL OPSWBL(CONTROL, ISWITCH, 
      &    SOILPROP, SW)                                   !Input
@@ -384,39 +384,33 @@ C     Conflict with CERES-Wheat
 !     &      DLAYR, DS, DUL, NLAYR, PINF, SAT, SW,         !Input
 !     &      SWCN, SWCON, MgmtWTD,                         !Input
 !     &      DRAIN, DRN, EXCS, SWDELTS)                    !Output
-
+!
 !          INFILT = 0.0
 !          DO L = 1, NLAYR
 !            INFILT = INFILT + SWDELTS(L) * DLAYR(L) * 10.  !(in mm)
 !          ENDDO
 !          INFILT = INFILT + DRAIN
-
-          !Excess water not infiltrated is added to overland runoff. 
-          !If bunded, excess water is accounted for in INFILT variable.
+!
+!!          Excess water not infiltrated is added to overland runoff. 
+!!          If bunded, excess water is accounted for in INFILT variable.
 !          IF (EXCS > 0 .AND. .NOT. BUNDED) THEN
 !            RUNOFF = RUNOFF + EXCS * 10.0
 !          ENDIF
-
+!
 !        ELSE
 !          CALL SATFLO(
 !     &      DLAYR, DUL, NLAYR, SAT, SW, SWCN, SWCON,      !Input
 !     &      DRAIN, DRN, SWDELTS)                          !Output
 !        ENDIF
+        IF (TDLNO .GT. 0) THEN
+          CALL TILEDRAIN(CONTROL, 
+     &      DLAYR, DUL, ETDR, NLAYR, SAT, SW, SWDELTS,    !Input
+     &      DRN, SWDELTT, TDFC, TDFD, TDLNO)              !Output
+        ENDIF
 
-!        IF (TDLNO .GT. 0) THEN
-!          CALL TILEDRAIN(CONTROL, 
-!     &      DLAYR, DUL, ETDR, NLAYR, SAT, SW, SWDELTS,    !Input
-!     &      DRN, SWDELTT, TDFC, TDFD, TDLNO)              !Output
-!        ENDIF
-
-      ENDIF   !End of IF block for PUDDLED conditions
-      print *, DAS
-      print *, SWDELTS
-      print *, "----\n"
-      
-      CALL process_data(DAS, SWDELTS)
-      
-      print *, SWDELTS
+        ENDIF   !End of IF block for PUDDLED conditions
+!      Infil and satfolw from HGS take DRN, calulate SWDELTS and sumarazie DRAIN     
+      CALL process_data(DAS, SWDELTS,DRN)
 !-----------------------------------------------------------------------
       IF (FLOOD .LE. 0.0 .AND. MESEV .NE. 'S') THEN
 !       Calculate the availability of soil water for use in UPFLOW.
@@ -557,7 +551,7 @@ C-----------------------------------------------------------------------
      &    CRAIN, DLAYR, FLOODWAT, IRRAMT, LL, MULCH,      !Input
      &    NLAYR, RUNOFF, SOILPROP, SW, TDFC, TDFD,        !Input
      &    TDRAIN, TRUNOF, ActWTD, LatInflow, LatOutflow,  !Input
-     &    EXCS, WTDEP, SWDELTS)                               !Input
+     &    EXCS, WTDEP)                               !Input , SWDELTS
 
       CALL OPSWBL(CONTROL, ISWITCH, 
      &    SOILPROP, SW)                                   !Input
@@ -587,7 +581,7 @@ C-----------------------------------------------------------------------
      &    CRAIN, DLAYR, FLOODWAT, IRRAMT, LL, MULCH,      !Input
      &    NLAYR, RUNOFF, SOILPROP, SW, TDFC, TDFD,        !Input
      &    TDRAIN, TRUNOF, ActWTD, LatInflow, LatOutflow,  !Input
-     &    EXCS, WTDEP, SWDELTS)                               !Input
+     &    EXCS, WTDEP)                               !Input , SWDELTS
 
       CALL OPSWBL(CONTROL, ISWITCH, 
      &    SOILPROP, SW)                                   !Input
