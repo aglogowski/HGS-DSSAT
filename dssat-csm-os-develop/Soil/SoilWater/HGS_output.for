@@ -100,11 +100,11 @@ C=======================================================================
      &            trim('file')
                   stop
               end if 
-!              read(unit_in, *, iostat=ios) DRN
-!                  if (ios /= 0) then
-!                      print *, 'Error reading DAS ', DAS
-!                      stop
-!                  end if
+              read(unit_in, *, iostat=ios) DRN
+                  if (ios /= 0) then
+                      print *, 'Error reading DAS ', DAS
+                      stop
+                  end if
           
               close(unit_in)
       print *, full_path
