@@ -10,7 +10,7 @@ C  Calls    : None
 C=======================================================================
       SUBROUTINE process_data (
      &    DAS,
-     &    SWDELTS)
+     &    SWDELTS,DRN)
 
 !     ------------------------------------------------------------------
       USE ModuleDefs     !Definitions of constructed variable types, 
@@ -24,12 +24,14 @@ C=======================================================================
       INTEGER DYNAMIC
       INTEGER i, DAS, ios
       integer :: unit_in
+      REAL DRAIN
+      REAL, DIMENSION(NL),INTENT(OUT) :: DRN 
       REAL, DIMENSION(NL) :: SWDELTS(NL)
 !-----------------------------------------------------------------------
       !open the file and ready 10 values of DRN
       
       open(unit=unit_in, 
-     &    file='C:\Users\southa0000\Documents\data_dssat\1_DRN.inp',
+     &    file='C:\Users\glogow0000\HGS-DSSAT\data_dssat\1_SWDELTS.inp',
      &    status='old', action='read', iostat=ios)
           if (ios /= 0) then
               print *, 'Error opening file:', 
@@ -42,6 +44,82 @@ C=======================================================================
                       print *, 'Error reading DAS ', DAS
                       stop
                   end if
+          ENDDO
+      close(unit_in)
+      
+          open(unit=unit_in, 
+     &    file='C:\Users\glogow0000\HGS-DSSAT\data_dssat\1_DRN.inp',
+     &    status='old', action='read', iostat=ios)
+          if (ios /= 0) then
+              print *, 'Error opening file:', 
+     &        trim('file')
+              stop
+          end if
+          DO i = 1, DAS
+              read(unit_in, *, iostat=ios) DRN
+                  if (ios /= 0) then
+                      print *, 'Error reading DAS ', DAS
+                      stop
+                  end if
+                  
+          ENDDO
+      close(unit_in)
+      END SUBROUTINE process_data 
+      
+     SUBROUTINE hgs_data(
+     &    DAS,
+     &    SWDELTS,DRN)
+
+!     ------------------------------------------------------------------
+      USE ModuleDefs     !Definitions of constructed variable types, 
+                         ! which contain control information, soil
+                         ! parameters, hourly weather data.
+!     NL defined in ModuleDefs.for
+
+      IMPLICIT NONE
+      SAVE
+      
+      INTEGER DYNAMIC
+      INTEGER i, DAS, ios
+      integer :: unit_in
+      REAL DRAIN
+      REAL, DIMENSION(NL),INTENT(OUT) :: DRN 
+      REAL, DIMENSION(NL) :: SWDELTS(NL)
+!-----------------------------------------------------------------------
+      !open the file and ready 10 values of DRN
+      
+      open(unit=unit_in, 
+     &    file='C:\Users\glogow0000\HGS-DSSAT\examples\lys\coupled\dssat1_SWDELTS.inp',
+     &    status='old', action='read', iostat=ios)
+          if (ios /= 0) then
+              print *, 'Error opening file:', 
+     &        trim('file')
+              stop
+          end if
+          DO i = 0, DAS
+              read(unit_in, *, iostat=ios) SWDELTS
+                  if (ios /= 0) then
+                      print *, 'Error reading DAS ', DAS
+                      stop
+                  end if
+          ENDDO
+      close(unit_in)
+      
+          open(unit=unit_in, 
+     &    file='C:\Users\glogow0000\HGS-DSSAT\data_dssat\1_DRN.inp',
+     &    status='old', action='read', iostat=ios)
+          if (ios /= 0) then
+              print *, 'Error opening file:', 
+     &        trim('file')
+              stop
+          end if
+          DO i = 1, DAS
+              read(unit_in, *, iostat=ios) DRN
+                  if (ios /= 0) then
+                      print *, 'Error reading DAS ', DAS
+                      stop
+                  end if
+                  
           ENDDO
       close(unit_in)
 !      print *, "Das: ", DAS 
