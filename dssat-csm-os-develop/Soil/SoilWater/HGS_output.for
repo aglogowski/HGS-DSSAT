@@ -116,7 +116,7 @@ C=======================================================================
                   SWTEMP(L)=SW(L)+DRN(L)/DLAYR(L)-DRN(L+1)/DLAYR(L)
                   SWDELTS(L)=SWTEMP(L)-SW(L)
               enddo
-               = DRN(NLAYR) * 10.0                  
+                           
               
       print *, full_path
       END SUBROUTINE hgs_data 
