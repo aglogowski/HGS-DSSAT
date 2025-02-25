@@ -74,19 +74,22 @@ unsaturated
 finite difference mode
 ! control volume ! from HTH
 
-remove negative coefficients
+remove negative coefficients ! no in arek et model
 
 no nodal flow check
 
 compute underrelaxation factor
 
-dual nodes for surface flow
+ dual nodes for surface flow ! no in arek et model
 ! transport time weighting ! from HTH
 ! 1.0 ! for fully implicit, from FC
 ! Upstream weighting factor ! from HTH
 ! 1.0
 ! Upstream weighting of velocities ! from HTH
 ! 1.0 1.0 1.0
+!!!! arek tests
+Dual nodes for fracture flow
+Defined flow
 
 !--------------------------  Porous media properties
 
@@ -126,38 +129,35 @@ choose nodes block
 0.0 2.0
 2.2 3.0
 initial head from depth-saturation table
-    0.01 0.25459
-    0.02 0.3085
-    0.03 0.15289
-    0.04 0.15728999999999999
-    0.05 0.1393
-    0.06 0.15569
-    0.07 0.4443
-    0.08 0.3779
+    0.01 0.33
+    0.02 0.33
+    0.03 0.33
+    0.04 0.33
+    0.05 0.33
+    0.06 0.33
+    0.07 0.33
+    0.08 0.33
 end
 
 clear chosen nodes
+
 !!--End Initial Head Section--
 
 ! Set measured water table boundary at bottom of model
-choose nodes bottom
+clear chosen faces
+choose faces bottom
 
-create node set
+create face set from chosen faces
 lys_bottom
 
-clear chosen nodes
 
 boundary condition
-    type
-    head
 
-    node set
-    lys_bottom
-
-    time value table
-    0.0 0.4
-    18262.5 0.4
-    end
+	type
+	free drainage
+	
+	face set
+	lys_bottom
 end
 
 ! Flux Nodal Section for Coupled Model
@@ -1017,3 +1017,7 @@ make observation well from xy
 sat_prof
 0.5, 0.5
 0, 14
+
+make observation point  
+pz1
+1  1  2.85

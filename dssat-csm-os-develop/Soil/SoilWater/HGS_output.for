@@ -67,8 +67,8 @@ C=======================================================================
       END SUBROUTINE process_data 
       
       SUBROUTINE hgs_data(
-     &    DAS,
-     &    SWDELTS,DRN)
+     &    DAS, SW, DLAYR, NLAYR,
+     &    SWDELTS,DRN, DRAIN)
 
 !     ------------------------------------------------------------------
       USE ModuleDefs     !Definitions of constructed variable types, 
@@ -79,13 +79,16 @@ C=======================================================================
       IMPLICIT NONE
       SAVE
       
-      INTEGER DYNAMIC
-      INTEGER i, DAS, ios
+      INTEGER DYNAMIC  
+      INTEGER i, DAS, ios, L, NLAYR
       integer :: unit_in
       character*80 file_name, full_path, DAS_con
       REAL DRAIN
       REAL, DIMENSION(NL),INTENT(OUT) :: DRN 
       REAL, DIMENSION(NL) :: SWDELTS(NL)
+      REAL, DIMENSION(NL) ::SW
+      REAL, DIMENSION(NL) ::SWTEMP
+      REAL, DIMENSION(NL) :: DLAYR
 !-----------------------------------------------------------------------
       !open the file and ready 10 values of DRN
       file_name = 'C:\Users\glogow0000\HGS-DSSAT\coup_data\1_'
@@ -107,6 +110,14 @@ C=======================================================================
                   end if
           
               close(unit_in)
+              
+              Do L=1, 10
+                  
+                  SWTEMP(L)=SW(L)+DRN(L)/DLAYR(L)-DRN(L+1)/DLAYR(L)
+                  SWDELTS(L)=SWTEMP(L)-SW(L)
+              enddo
+               = DRN(NLAYR) * 10.0                  
+              
       print *, full_path
       END SUBROUTINE hgs_data 
 !-----------------------------------------------------------------------

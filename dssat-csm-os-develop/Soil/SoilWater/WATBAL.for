@@ -411,7 +411,9 @@ C     Conflict with CERES-Wheat
         ENDIF   !End of IF block for PUDDLED conditions
 !      Infil and satfolw from HGS take DRN, calulate SWDELTS and sumarazie DRAIN     
 !      CALL process_data(DAS, SWDELTS,DRN)
-      CALL hgs_data(DAS,SWDELTS,DRN)
+      CALL hgs_data(
+     &    DAS, SW,  DLAYR, NLAYR,
+     &    SWDELTS, DRN, DRAIN)
 !-----------------------------------------------------------------------
       IF (FLOOD .LE. 0.0 .AND. MESEV .NE. 'S') THEN
 !       Calculate the availability of soil water for use in UPFLOW.
