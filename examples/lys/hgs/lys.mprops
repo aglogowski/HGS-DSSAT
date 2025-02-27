@@ -21,6 +21,7 @@ gen_soil
 
         table smoothness factor
         1.00E-07
+		generate tables from unsaturated functions
     end
 
 end material
