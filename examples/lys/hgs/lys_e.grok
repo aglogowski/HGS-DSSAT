@@ -88,8 +88,8 @@ compute underrelaxation factor
 ! Upstream weighting of velocities ! from HTH
 ! 1.0 1.0 1.0
 !!!! arek tests
-Dual nodes for fracture flow
-Defined flow
+! Dual nodes for fracture flow
+! Defined flow
 
 !--------------------------  Porous media properties
 
@@ -1021,3 +1021,9 @@ sat_prof
 make observation point  
 pz1
 1  1  2.85
+
+choose faces top
+
+nodal fluid mass balance from shp file
+nfmb_shp.shp
+dupa
