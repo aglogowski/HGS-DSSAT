@@ -110,16 +110,17 @@ C=======================================================================
                   end if
           
               close(unit_in)
-              !DRAIN = DRN(NLAYR)
+              
               Do L=1, 10
                   
                   SWTEMP(L)=SW(L)+DRN(L)/DLAYR(L)-DRN(L+1)/DLAYR(L)
                   SWDELTS(L)=SWTEMP(L)-SW(L)
               enddo
-              print *, "DRAIN"          
-              print *, DRAIN 
-              print *, "SWDELTS"
-              print *, SWDELTS               
+              DRAIN = DRN(NLAYR)
+!              print *, "DRAIN"          
+!              print *, DRAIN 
+!              print *, "SWDELTS"
+!              print *, SWDELTS               
               
       
       END SUBROUTINE hgs_data 
