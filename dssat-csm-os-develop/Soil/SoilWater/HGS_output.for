@@ -94,7 +94,7 @@ C=======================================================================
       file_name = 'C:\Users\glogow0000\HGS-DSSAT\coup_data\1_'
           write(DAS_con, '(I0)') DAS
           full_path=TRIM(file_name) // TRIM(DAS_con) // '_DRN.inp' !
-          
+!          print *, full_path
           open(unit=unit_in, 
      &        file=full_path ,
      &        status='old', action='read', iostat=ios)
@@ -116,9 +116,13 @@ C=======================================================================
                   SWTEMP(L)=SW(L)+DRN(L)/DLAYR(L)-DRN(L+1)/DLAYR(L)
                   SWDELTS(L)=SWTEMP(L)-SW(L)
               enddo
-                           
+              DRAIN = DRN(NLAYR)
+!              print *, "DRAIN"          
+!              print *, DRAIN 
+!              print *, "SWDELTS"
+!              print *, SWDELTS               
               
-      print *, full_path
+      
       END SUBROUTINE hgs_data 
 !-----------------------------------------------------------------------
 !     SNOWFALL VARIABLE DEFINITIONS:

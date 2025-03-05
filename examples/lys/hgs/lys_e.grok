@@ -214,6 +214,7 @@ properties file
 lys.oprops
 
 ! Set olf properties on top of model to generic grass
+clear chosen faces
 choose faces top
 
 new zone
@@ -1042,4 +1043,4 @@ pz1
 
 nodal fluid mass balance from shp file
 nfmb_shp.shp
-full_model
+test
