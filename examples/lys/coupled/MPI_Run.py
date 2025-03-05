@@ -5,14 +5,17 @@ import numpy as np
 
 def main():
     # variables
-    coupled_mod_dir = r'C:\\Users\\southa0000\\Documents\\HGS-DSSAT\\HGS-DSSAT\\examples\\lys\\coupled'
-    coupled_mod_hgs_dir = r'C:\\Users\\southa0000\\Documents\\HGS-DSSAT\\HGS-DSSAT\\examples\\lys\\coupled\\hgs'
-    coupled_mod_dssat_dir = r'C:\\Users\\southa0000\\Documents\\HGS-DSSAT\\HGS-DSSAT\\examples\\lys\\coupled\\dssat'
+    mod_dir = os.path.dirname(os.getcwd())
+    coupled_mod_dir = os.getcwd()
+    coupled_mod_hgs_dir = os.path.join(coupled_mod_dir,'hgs')
+    coupled_mod_dssat_dir = os.path.join(coupled_mod_dir,'dssat')
+    hgs_mod_dir = os.path.join(mod_dir,'hgs')
     model_name = 'lys'
     grok_file_stem = model_name + '_e'
-    mapping_pkl_path = r'C:\\Users\\southa0000\\Documents\\HGS-DSSAT\\HGS-DSSAT\\examples\\lys\\mapping\\lys_mapping.p'
-    rz_node_order_file_path = r'C:\\Users\\southa0000\\Documents\\HGS-DSSAT\\HGS-DSSAT\\examples\\lys\\hgs\\rz_node_order.txt'
-    full_node_order_file_path = r'C:\\Users\\southa0000\\Documents\\HGS-DSSAT\\HGS-DSSAT\\examples\\lys\\hgs\\full_node_order.txt'
+    mapping_dir = os.path.join(mod_dir,'mapping')
+    mapping_pkl_path = os.path.join(mapping_dir,'lys_mapping.p')
+    rz_node_order_file_path = os.path.join(hgs_mod_dir,'rz_node_order.txt')
+    full_node_order_file_path = os.path.join(hgs_mod_dir,'full_node_order.txt')
 
     comm = MPI.COMM_WORLD
     rank = comm.Get_rank()
