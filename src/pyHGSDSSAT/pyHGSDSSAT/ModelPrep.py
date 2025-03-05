@@ -1,10 +1,10 @@
 import os
 from shutil import copy
-from np import arange
+from numpy import arange
 
 
 
-def CreateCoupledModelDir(mod_dir):
+def Create_Coupled_Model_Dir(mod_dir):
     """Create a directory for a coupled HGS-DSSAT model run
 
     Parameters:
@@ -38,7 +38,7 @@ def CreateCoupledModelDir(mod_dir):
 
 
 
-def GetSpinUpHeadsOutputFile(hgs_mod_dir,coupled_mod_hgs_dir,grok_file_stem):
+def Get_Spin_Up_Heads_Output_File(hgs_mod_dir,coupled_mod_hgs_dir,grok_file_stem):
     """Copy spin-up heads output file from HGS
 
     Parameters:
@@ -62,7 +62,7 @@ def GetSpinUpHeadsOutputFile(hgs_mod_dir,coupled_mod_hgs_dir,grok_file_stem):
 
 
 
-def GetHGSPropsFiles(hgs_mod_dir,coupled_mod_hgs_dir,grok_file_stem):
+def Get_HGS_Props_Files(hgs_mod_dir,coupled_mod_hgs_dir,grok_file_stem):
     """Copy props files from HGS
 
     Parameters:
@@ -85,7 +85,24 @@ def GetHGSPropsFiles(hgs_mod_dir,coupled_mod_hgs_dir,grok_file_stem):
 
 
 
-def GetStandaloneGrokLines(grok_file_path):
+def Get_NFMB_Shapefile(hgs_mod_dir,coupled_mod_hgs_dir):
+    """Copy props files from HGS
+
+    Parameters:
+    hgs_mod_dir (str): path to subdirectory containing standalone HGS model
+    coupled_mod_hgs_dir (str): path to subdirectory containing all coupled HGS-DSSAT model files that relate to HGS
+    shape_name (str): name of shape file minus file extension
+
+    Returns:
+    
+   """
+    shp_list = ['.cpg','.dbf','.shp','.shx']
+    shp_list = ['nfmb_shp' + x for x in shp_list]
+    for file in shp_list:
+        copy(os.path.join(hgs_mod_dir,file),os.path.join(coupled_mod_hgs_dir,file))
+
+
+def Get_Standalone_Grok_Lines(grok_file_path):
     """Get lines from standalone grok file as a list of python strings
 
     Parameters:
@@ -102,7 +119,7 @@ def GetStandaloneGrokLines(grok_file_path):
 
 
 
-def GetStandaloneGrokPrecSeries(standalone_grok_lines):
+def Get_Standalone_Grok_Prec_Series(standalone_grok_lines):
     """Get lines containing precipitation series and end day in grok file
 
     Parameters:
@@ -125,14 +142,14 @@ def GetStandaloneGrokPrecSeries(standalone_grok_lines):
     # Get time series lines
     tslines = plines[start+1:end]
     # Get Daily P Series
-    p = [float(x.split(' ')[5].strip()) for x in tslines]
+    p = [float(x.split()[1]) for x in tslines]
     # Get end day
     end_day = len(p)
     return p, end_day
 
 
 
-def CreateDailyCoupledGrokFileDay0(standalone_grok_lines,day,p):
+def Create_Daily_Coupled_Grok_File_Day_0(standalone_grok_lines,day,p):
     """Create coupled model HGS grok file for day 0 (no DSSAT inputs)
 
     Parameters:
@@ -161,7 +178,7 @@ def CreateDailyCoupledGrokFileDay0(standalone_grok_lines,day,p):
 
 
 
-def CreateDailyCoupledGrokFileDayN(standalone_grok_lines,day,p,grok_file_stem):
+def Create_Daily_Coupled_Grok_File_Day_N(standalone_grok_lines,day,p,grok_file_stem):
     """Create coupled model HGS grok file for day n (no DSSAT inputs)
 
     Parameters:
@@ -197,11 +214,11 @@ def CreateDailyCoupledGrokFileDayN(standalone_grok_lines,day,p,grok_file_stem):
     pentry = f'    time value table\n    0.0 {p[day]:.2f}\n    end\n'
     ## Solute Transport IC Section
     # Get start index
-    sticstart = standalone_grok_lines.index('!!--Begin Solute Transport Initial Concentration Section--')
+    sticstart = standalone_grok_lines.index('!!--Begin Solute Transport Initial Concentration Section--\n')
     # Get end index
-    sticend = standalone_grok_lines.index('!!--End Solute Transport Initial Concentration Section--')
+    sticend = standalone_grok_lines.index('!!--End Solute Transport Initial Concentration Section--\n')
     # Build IC Entry
-    sticentry = '! NH4 and NO3 boundary initial concentrations from DSSAT model in root zone and hgs in non-coupled zone\n\nchoose nodes all\n\ninitial concentration from file\niconc.txt\n\n'
+    sticentry = ['! NH4 and NO3 boundary initial concentrations from DSSAT model in root zone and hgs in non-coupled zone\n\n!choose nodes all\n\n!initial concentration from file\n!iconc.txt\n\n']
     ## Output Section
     # Get start index
     ostart = standalone_grok_lines.index('!!--Begin Output Times Section--\n')
@@ -212,7 +229,7 @@ def CreateDailyCoupledGrokFileDayN(standalone_grok_lines,day,p,grok_file_stem):
 
 
 
-def WriteCoupledGrokFile(new_lines,day,coupled_mod_hgs_dir,grok_file_stem):
+def Write_Coupled_Grok_File(new_lines,day,coupled_mod_hgs_dir,grok_file_stem):
     """Create coupled model HGS grok file for day n (no DSSAT inputs)
 
     Parameters:
@@ -232,7 +249,7 @@ def WriteCoupledGrokFile(new_lines,day,coupled_mod_hgs_dir,grok_file_stem):
 
 
 
-def BuildCoupledModelFiles(mod_dir,grok_file_stem):
+def Build_Coupled_Model_Files(mod_dir,grok_file_stem):
     """Create coupled model daily HGS grok files
 
     Parameters:
@@ -244,28 +261,29 @@ def BuildCoupledModelFiles(mod_dir,grok_file_stem):
     """
     ## Build Coupled Model
     # Create Directory Structure
-    coupled_mod_dir,coupled_mod_hgs_dir,coupled_mod_dssat_dir = CreateCoupledModelDir(mod_dir)
+    coupled_mod_dir,coupled_mod_hgs_dir,coupled_mod_dssat_dir = Create_Coupled_Model_Dir(mod_dir)
     # Get HGS standalone model dir
     hgs_mod_dir = os.path.join(mod_dir,'hgs')
     # Get grok file path
     grok_file_path = os.path.join(hgs_mod_dir,grok_file_stem + '.grok')
     # Copy over necessary hgs files
-    GetSpinUpHeadsOutputFile(hgs_mod_dir,coupled_mod_hgs_dir,grok_file_stem)
-    GetHGSPropsFiles(hgs_mod_dir,coupled_mod_hgs_dir,grok_file_stem)
+    Get_Spin_Up_Heads_Output_File(hgs_mod_dir,coupled_mod_hgs_dir,grok_file_stem)
+    Get_HGS_Props_Files(hgs_mod_dir,coupled_mod_hgs_dir,grok_file_stem)
+    Get_NFMB_Shapefile(hgs_mod_dir,coupled_mod_hgs_dir)
     # Get standalone model grok lines and Prec series
-    standalone_grok_lines = GetStandaloneGrokLines(grok_file_path)
-    P, End_Day = GetStandaloneGrokPrecSeries(standalone_grok_lines)
+    standalone_grok_lines = Get_Standalone_Grok_Lines(grok_file_path)
+    P, End_Day = Get_Standalone_Grok_Prec_Series(standalone_grok_lines)
     # Iterate through days to build daily hgs models
     for day in arange(0,End_Day):
         # Day 0 model
         if day == 0:
             # Build text lines
-            new_lines = CreateDailyCoupledGrokFileDay0(standalone_grok_lines,day,P)
+            new_lines = Create_Daily_Coupled_Grok_File_Day_0(standalone_grok_lines,day,P)
             # Write out
-            WriteCoupledGrokFile(new_lines,day,coupled_mod_hgs_dir,grok_file_stem)
+            Write_Coupled_Grok_File(new_lines,day,coupled_mod_hgs_dir,grok_file_stem)
         # All other Day models
         else:
             # Build text lines
-            new_lines = CreateDailyCoupledGrokFileDayN(standalone_grok_lines,day,P,grok_file_stem)
+            new_lines = Create_Daily_Coupled_Grok_File_Day_N(standalone_grok_lines,day,P,grok_file_stem)
             # Write out
-            WriteCoupledGrokFile(new_lines,day,coupled_mod_hgs_dir,grok_file_stem)
+            Write_Coupled_Grok_File(new_lines,day,coupled_mod_hgs_dir,grok_file_stem)

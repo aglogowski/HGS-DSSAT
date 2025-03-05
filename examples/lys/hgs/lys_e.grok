@@ -619,7 +619,7 @@ end
 ! use domain type
 ! porous media
 
-! !!--Begin Solute Transport Initial Concentration Section--
+!!--Begin Solute Transport Initial Concentration Section--
 
 ! ! NH4 and NO3 boundary initial concentrations from DSSAT model
 
@@ -715,7 +715,7 @@ end
 
 ! clear chosen nodes
 
-! !!--End Solute Transport Initial Concentration Section--
+!!--End Solute Transport Initial Concentration Section--
 
 
 !--------------------------  Solution controls

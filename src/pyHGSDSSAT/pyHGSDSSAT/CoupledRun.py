@@ -251,7 +251,7 @@ def HGS_Daily_Loop(day,mapping_pkl_path,rz_node_order_file_path,full_node_order_
         print('Creating nflux filed for DSSAT ET: Day {}'.format(day))
         Build_ET_Time_Value_Table(mapping_pkl_path,rz_node_order_file_path,coupled_mod_hgs_dir,coupled_mod_dssat_dir)
         print('Creating solute IC file for DSSAT solute outputs: Day {}'.format(day))
-        Build_Solute_IC_File(day,mapping_pkl_path,rz_node_order_file_path,full_node_order_file_path,grok_file_stem,coupled_mod_dssat_dir,coupled_mod_hgs_dir)
+        # Build_Solute_IC_File(day,mapping_pkl_path,rz_node_order_file_path,full_node_order_file_path,grok_file_stem,coupled_mod_dssat_dir,coupled_mod_hgs_dir)
     Run_Coupled_Model_HGS_Day(day,grok_file_stem,coupled_mod_hgs_dir,)
 
 def Dummy_DSSAT_1Day_Run():
