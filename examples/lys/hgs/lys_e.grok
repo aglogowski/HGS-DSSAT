@@ -202,6 +202,7 @@ properties file
 lys.oprops
 
 ! Set olf properties on top of model to generic grass
+clear chosen faces
 choose faces top
 
 new zone
