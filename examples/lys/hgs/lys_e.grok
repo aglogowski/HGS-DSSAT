@@ -1,8 +1,7 @@
 !--------------------------  Problem description
-Arek Field Lysimeter v1
-3 x 3 x 14 Node Model to develop mapping
-Event - Experiment forcing
-
+DSSAT Winter Wheat Experiment
+RORO7401.WHX Experiment 1
+3 x 3 x 14 Node Model for model development
 
 end title
 
@@ -74,7 +73,7 @@ unsaturated
 finite difference mode
 ! control volume ! from HTH
 
-remove negative coefficients ! no in arek et model
+! remove negative coefficients ! no in arek et model
 
 no nodal flow check
 
@@ -106,6 +105,8 @@ new zone
 
 clear chosen zones
 clear chosen elements
+clear chosen nodes
+clear chosen faces
 
 choose zone number
 1
@@ -113,6 +114,9 @@ read properties
 gen_soil
 
 clear chosen zones
+clear chosen elements
+clear chosen nodes
+clear chosen faces
 
 !!--Begin Initial Head Section--
 ! Set initial heads from spin-up output
@@ -121,7 +125,10 @@ choose nodes all
 initial head from output file
 lys_suo.head_pm.0005
 
+clear chosen zones
+clear chosen elements
 clear chosen nodes
+clear chosen faces
 
 ! Then force measured saturation values at nodes that intersect the zone of measurement
 choose nodes block
@@ -139,12 +146,14 @@ initial head from depth-saturation table
     0.08 0.33
 end
 
+clear chosen zones
+clear chosen elements
 clear chosen nodes
+clear chosen faces
 
 !!--End Initial Head Section--
 
 ! Set measured water table boundary at bottom of model
-clear chosen faces
 choose faces bottom
 
 create face set from chosen faces
@@ -187,7 +196,10 @@ choose nodes sheet
 create node set
 coupled_section
 
+clear chosen zones
+clear chosen elements
 clear chosen nodes
+clear chosen faces
 
 !!--Begin Flux Nodal for DSSAT ET Section--
 
@@ -208,6 +220,8 @@ new zone
 1
 
 clear chosen zones
+clear chosen elements
+clear chosen nodes
 clear chosen faces
 
 choose zone number 
@@ -216,6 +230,9 @@ read properties
 gen_grass
 
 clear chosen zones
+clear chosen elements
+clear chosen nodes
+clear chosen faces
 
 !--------------------------  Weather forcing properties
 
@@ -225,6 +242,9 @@ choose faces top
 create face set from chosen faces
 top
 
+clear chosen zones
+clear chosen elements
+clear chosen nodes
 clear chosen faces
 
 
@@ -720,8 +740,6 @@ newton iteration control
 
 maximum timestep
 10000.0
-! minimum timestep
-! 1E-12
 minimum timestep
 1E-20
 initial timestep
@@ -1022,8 +1040,6 @@ make observation point
 pz1
 1  1  2.85
 
-choose faces top
-
 nodal fluid mass balance from shp file
 nfmb_shp.shp
-dupa
+full_model

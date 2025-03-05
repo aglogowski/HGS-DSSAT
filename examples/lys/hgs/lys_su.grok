@@ -76,8 +76,6 @@ unsaturated
 
 finite difference mode
 
-remove negative coefficients
-
 no nodal flow check
 
 compute underrelaxation factor
@@ -99,6 +97,8 @@ new zone
 
 clear chosen zones
 clear chosen elements
+clear chosen nodes
+clear chosen faces
 
 choose zone number
 1
@@ -106,12 +106,18 @@ read properties
 gen_soil
 
 clear chosen zones
+clear chosen elements
+clear chosen nodes
+clear chosen faces
 
 ! Start model full of water
 choose nodes all
 initial head surface elevation
 
+clear chosen zones
+clear chosen elements
 clear chosen nodes
+clear chosen faces
 
 ! Set measured water table boundary at bottom of model
 choose nodes bottom
@@ -119,7 +125,10 @@ choose nodes bottom
 create node set
 lys_bottom
 
+clear chosen zones
+clear chosen elements
 clear chosen nodes
+clear chosen faces
 
 boundary condition
     type
@@ -133,6 +142,11 @@ boundary condition
     18262.5 0.4
     end
 end
+
+clear chosen zones
+clear chosen elements
+clear chosen nodes
+clear chosen faces
 
 !--------------------------  Overland flow properties
 use domain type
@@ -148,6 +162,8 @@ new zone
 1
 
 clear chosen zones
+clear chosen elements
+clear chosen nodes
 clear chosen faces
 
 choose zone number 
@@ -156,6 +172,9 @@ read properties
 gen_grass
 
 clear chosen zones
+clear chosen elements
+clear chosen nodes
+clear chosen faces
 
 !--------------------------  Weather forcing properties
 
@@ -165,6 +184,9 @@ choose faces top
 create face set from chosen faces
 top
 
+clear chosen zones
+clear chosen elements
+clear chosen nodes
 clear chosen faces
 
 boundary condition
@@ -180,6 +202,11 @@ boundary condition
     end
 
 end
+
+clear chosen zones
+clear chosen elements
+clear chosen nodes
+clear chosen faces
 
 ! boundary condition
 !     type
