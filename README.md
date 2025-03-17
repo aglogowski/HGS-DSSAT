@@ -1,4 +1,4 @@
-# HGS-DSSAT 1.0 under developemtn
+# HGS-DSSAT 1.0 under development
 February 04, 2025
 This is the private repository for HGS-DSSAT. The codes are developed based on the developments made by Dr. Arkadiusz Glogowski (UNIBAS, Switzerland) and Dr. Qi Tang (UNIBAS & UNINE, Switzerland), who previously developed HGS-PDAF. HGS-DSSAT is currently being developed and maintained by Dr. Arkadiusz Glogowski, Paul Southard and Dr. Qi Tang.
 ## Introduction
