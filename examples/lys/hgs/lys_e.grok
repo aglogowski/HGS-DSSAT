@@ -1,7 +1,8 @@
 !--------------------------  Problem description
-DSSAT Winter Wheat Experiment
-RORO7401.WHX Experiment 1
-3 x 3 x 14 Node Model for model development
+Arek Field Lysimeter v1
+3 x 3 x 14 Node Model to develop mapping
+Event - Experiment forcing
+
 
 end title
 
@@ -73,7 +74,7 @@ unsaturated
 finite difference mode
 ! control volume ! from HTH
 
-! remove negative coefficients ! no in arek et model
+remove negative coefficients ! no in arek et model
 
 no nodal flow check
 
@@ -105,8 +106,6 @@ new zone
 
 clear chosen zones
 clear chosen elements
-clear chosen nodes
-clear chosen faces
 
 choose zone number
 1
@@ -114,9 +113,6 @@ read properties
 gen_soil
 
 clear chosen zones
-clear chosen elements
-clear chosen nodes
-clear chosen faces
 
 !!--Begin Initial Head Section--
 ! Set initial heads from spin-up output
@@ -125,10 +121,7 @@ choose nodes all
 initial head from output file
 lys_suo.head_pm.0005
 
-clear chosen zones
-clear chosen elements
 clear chosen nodes
-clear chosen faces
 
 ! Then force measured saturation values at nodes that intersect the zone of measurement
 choose nodes block
@@ -146,29 +139,29 @@ initial head from depth-saturation table
     0.08 0.33
 end
 
-clear chosen zones
-clear chosen elements
 clear chosen nodes
-clear chosen faces
 
 !!--End Initial Head Section--
 
 ! Set measured water table boundary at bottom of model
-choose faces bottom
+clear chosen faces
+choose nodes bottom
 
-create face set from chosen faces
+create node set
 lys_bottom
 
 
 boundary condition
 
 	type
-	free drainage
-	
-	face set
+	head
+
+	node set
 	lys_bottom
 
-    tecplot output
+	time value table
+	0.0 0.0
+	end
 end
 
 ! Flux Nodal Section for Coupled Model
@@ -198,572 +191,10 @@ choose nodes sheet
 create node set
 coupled_section
 
-clear chosen zones
-clear chosen elements
 clear chosen nodes
-clear chosen faces
 
 !!--Begin Flux Nodal for DSSAT ET Section--
 
-! Set flux nodal to force DSSAT ET
-boundary condition
-    type
-    flux nodal
-
-    node set
-    coupled_section
-
-    time file table
-    1   n1flux.txt
-    1.00069444  none
-    2   n2flux.txt
-    2.00069444  none
-    3   n3flux.txt
-    3.00069444  none
-    4   n4flux.txt
-    4.00069444  none
-    5   n5flux.txt
-    5.00069444  none
-    6   n6flux.txt
-    6.00069444  none
-    7   n7flux.txt
-    7.00069444  none
-    8   n8flux.txt
-    8.00069444  none
-    9   n9flux.txt
-    9.00069444  none
-    10  n10flux.txt
-    10.00069444 none
-    11  n11flux.txt
-    11.00069444 none
-    12  n12flux.txt
-    12.00069444 none
-    13  n13flux.txt
-    13.00069444 none
-    14  n14flux.txt
-    14.00069444 none
-    15  n15flux.txt
-    15.00069444 none
-    16  n16flux.txt
-    16.00069444 none
-    17  n17flux.txt
-    17.00069444 none
-    18  n18flux.txt
-    18.00069444 none
-    19  n19flux.txt
-    19.00069444 none
-    20  n20flux.txt
-    20.00069444 none
-    21  n21flux.txt
-    21.00069444 none
-    22  n22flux.txt
-    22.00069444 none
-    23  n23flux.txt
-    23.00069444 none
-    24  n24flux.txt
-    24.00069444 none
-    25  n25flux.txt
-    25.00069444 none
-    26  n26flux.txt
-    26.00069444 none
-    27  n27flux.txt
-    27.00069444 none
-    28  n28flux.txt
-    28.00069444 none
-    29  n29flux.txt
-    29.00069444 none
-    30  n30flux.txt
-    30.00069444 none
-    31  n31flux.txt
-    31.00069444 none
-    32  n32flux.txt
-    32.00069444 none
-    33  n33flux.txt
-    33.00069444 none
-    34  n34flux.txt
-    34.00069444 none
-    35  n35flux.txt
-    35.00069444 none
-    36  n36flux.txt
-    36.00069444 none
-    37  n37flux.txt
-    37.00069444 none
-    38  n38flux.txt
-    38.00069444 none
-    39  n39flux.txt
-    39.00069444 none
-    40  n40flux.txt
-    40.00069444 none
-    41  n41flux.txt
-    41.00069444 none
-    42  n42flux.txt
-    42.00069444 none
-    43  n43flux.txt
-    43.00069444 none
-    44  n44flux.txt
-    44.00069444 none
-    45  n45flux.txt
-    45.00069444 none
-    46  n46flux.txt
-    46.00069444 none
-    47  n47flux.txt
-    47.00069444 none
-    48  n48flux.txt
-    48.00069444 none
-    49  n49flux.txt
-    49.00069444 none
-    50  n50flux.txt
-    50.00069444 none
-    51  n51flux.txt
-    51.00069444 none
-    52  n52flux.txt
-    52.00069444 none
-    53  n53flux.txt
-    53.00069444 none
-    54  n54flux.txt
-    54.00069444 none
-    55  n55flux.txt
-    55.00069444 none
-    56  n56flux.txt
-    56.00069444 none
-    57  n57flux.txt
-    57.00069444 none
-    58  n58flux.txt
-    58.00069444 none
-    59  n59flux.txt
-    59.00069444 none
-    60  n60flux.txt
-    60.00069444 none
-    61  n61flux.txt
-    61.00069444 none
-    62  n62flux.txt
-    62.00069444 none
-    63  n63flux.txt
-    63.00069444 none
-    64  n64flux.txt
-    64.00069444 none
-    65  n65flux.txt
-    65.00069444 none
-    66  n66flux.txt
-    66.00069444 none
-    67  n67flux.txt
-    67.00069444 none
-    68  n68flux.txt
-    68.00069444 none
-    69  n69flux.txt
-    69.00069444 none
-    70  n70flux.txt
-    70.00069444 none
-    71  n71flux.txt
-    71.00069444 none
-    72  n72flux.txt
-    72.00069444 none
-    73  n73flux.txt
-    73.00069444 none
-    74  n74flux.txt
-    74.00069444 none
-    75  n75flux.txt
-    75.00069444 none
-    76  n76flux.txt
-    76.00069444 none
-    77  n77flux.txt
-    77.00069444 none
-    78  n78flux.txt
-    78.00069444 none
-    79  n79flux.txt
-    79.00069444 none
-    80  n80flux.txt
-    80.00069444 none
-    81  n81flux.txt
-    81.00069444 none
-    82  n82flux.txt
-    82.00069444 none
-    83  n83flux.txt
-    83.00069444 none
-    84  n84flux.txt
-    84.00069444 none
-    85  n85flux.txt
-    85.00069444 none
-    86  n86flux.txt
-    86.00069444 none
-    87  n87flux.txt
-    87.00069444 none
-    88  n88flux.txt
-    88.00069444 none
-    89  n89flux.txt
-    89.00069444 none
-    90  n90flux.txt
-    90.00069444 none
-    91  n91flux.txt
-    91.00069444 none
-    92  n92flux.txt
-    92.00069444 none
-    93  n93flux.txt
-    93.00069444 none
-    94  n94flux.txt
-    94.00069444 none
-    95  n95flux.txt
-    95.00069444 none
-    96  n96flux.txt
-    96.00069444 none
-    97  n97flux.txt
-    97.00069444 none
-    98  n98flux.txt
-    98.00069444 none
-    99  n99flux.txt
-    99.00069444 none
-    100 n100flux.txt
-    100.0006944 none
-    101 n101flux.txt
-    101.0006944 none
-    102 n102flux.txt
-    102.0006944 none
-    103 n103flux.txt
-    103.0006944 none
-    104 n104flux.txt
-    104.0006944 none
-    105 n105flux.txt
-    105.0006944 none
-    106 n106flux.txt
-    106.0006944 none
-    107 n107flux.txt
-    107.0006944 none
-    108 n108flux.txt
-    108.0006944 none
-    109 n109flux.txt
-    109.0006944 none
-    110 n110flux.txt
-    110.0006944 none
-    111 n111flux.txt
-    111.0006944 none
-    112 n112flux.txt
-    112.0006944 none
-    113 n113flux.txt
-    113.0006944 none
-    114 n114flux.txt
-    114.0006944 none
-    115 n115flux.txt
-    115.0006944 none
-    116 n116flux.txt
-    116.0006944 none
-    117 n117flux.txt
-    117.0006944 none
-    118 n118flux.txt
-    118.0006944 none
-    119 n119flux.txt
-    119.0006944 none
-    120 n120flux.txt
-    120.0006944 none
-    121 n121flux.txt
-    121.0006944 none
-    122 n122flux.txt
-    122.0006944 none
-    123 n123flux.txt
-    123.0006944 none
-    124 n124flux.txt
-    124.0006944 none
-    125 n125flux.txt
-    125.0006944 none
-    126 n126flux.txt
-    126.0006944 none
-    127 n127flux.txt
-    127.0006944 none
-    128 n128flux.txt
-    128.0006944 none
-    129 n129flux.txt
-    129.0006944 none
-    130 n130flux.txt
-    130.0006944 none
-    131 n131flux.txt
-    131.0006944 none
-    132 n132flux.txt
-    132.0006944 none
-    133 n133flux.txt
-    133.0006944 none
-    134 n134flux.txt
-    134.0006944 none
-    135 n135flux.txt
-    135.0006944 none
-    136 n136flux.txt
-    136.0006944 none
-    137 n137flux.txt
-    137.0006944 none
-    138 n138flux.txt
-    138.0006944 none
-    139 n139flux.txt
-    139.0006944 none
-    140 n140flux.txt
-    140.0006944 none
-    141 n141flux.txt
-    141.0006944 none
-    142 n142flux.txt
-    142.0006944 none
-    143 n143flux.txt
-    143.0006944 none
-    144 n144flux.txt
-    144.0006944 none
-    145 n145flux.txt
-    145.0006944 none
-    146 n146flux.txt
-    146.0006944 none
-    147 n147flux.txt
-    147.0006944 none
-    148 n148flux.txt
-    148.0006944 none
-    149 n149flux.txt
-    149.0006944 none
-    150 n150flux.txt
-    150.0006944 none
-    151 n151flux.txt
-    151.0006944 none
-    152 n152flux.txt
-    152.0006944 none
-    153 n153flux.txt
-    153.0006944 none
-    154 n154flux.txt
-    154.0006944 none
-    155 n155flux.txt
-    155.0006944 none
-    156 n156flux.txt
-    156.0006944 none
-    157 n157flux.txt
-    157.0006944 none
-    158 n158flux.txt
-    158.0006944 none
-    159 n159flux.txt
-    159.0006944 none
-    160 n160flux.txt
-    160.0006944 none
-    161 n161flux.txt
-    161.0006944 none
-    162 n162flux.txt
-    162.0006944 none
-    163 n163flux.txt
-    163.0006944 none
-    164 n164flux.txt
-    164.0006944 none
-    165 n165flux.txt
-    165.0006944 none
-    166 n166flux.txt
-    166.0006944 none
-    167 n167flux.txt
-    167.0006944 none
-    168 n168flux.txt
-    168.0006944 none
-    169 n169flux.txt
-    169.0006944 none
-    170 n170flux.txt
-    170.0006944 none
-    171 n171flux.txt
-    171.0006944 none
-    172 n172flux.txt
-    172.0006944 none
-    173 n173flux.txt
-    173.0006944 none
-    174 n174flux.txt
-    174.0006944 none
-    175 n175flux.txt
-    175.0006944 none
-    176 n176flux.txt
-    176.0006944 none
-    177 n177flux.txt
-    177.0006944 none
-    178 n178flux.txt
-    178.0006944 none
-    179 n179flux.txt
-    179.0006944 none
-    180 n180flux.txt
-    180.0006944 none
-    181 n181flux.txt
-    181.0006944 none
-    182 n182flux.txt
-    182.0006944 none
-    183 n183flux.txt
-    183.0006944 none
-    184 n184flux.txt
-    184.0006944 none
-    185 n185flux.txt
-    185.0006944 none
-    186 n186flux.txt
-    186.0006944 none
-    187 n187flux.txt
-    187.0006944 none
-    188 n188flux.txt
-    188.0006944 none
-    189 n189flux.txt
-    189.0006944 none
-    190 n190flux.txt
-    190.0006944 none
-    191 n191flux.txt
-    191.0006944 none
-    192 n192flux.txt
-    192.0006944 none
-    193 n193flux.txt
-    193.0006944 none
-    194 n194flux.txt
-    194.0006944 none
-    195 n195flux.txt
-    195.0006944 none
-    196 n196flux.txt
-    196.0006944 none
-    197 n197flux.txt
-    197.0006944 none
-    198 n198flux.txt
-    198.0006944 none
-    199 n199flux.txt
-    199.0006944 none
-    200 n200flux.txt
-    200.0006944 none
-    201 n201flux.txt
-    201.0006944 none
-    202 n202flux.txt
-    202.0006944 none
-    203 n203flux.txt
-    203.0006944 none
-    204 n204flux.txt
-    204.0006944 none
-    205 n205flux.txt
-    205.0006944 none
-    206 n206flux.txt
-    206.0006944 none
-    207 n207flux.txt
-    207.0006944 none
-    208 n208flux.txt
-    208.0006944 none
-    209 n209flux.txt
-    209.0006944 none
-    210 n210flux.txt
-    210.0006944 none
-    211 n211flux.txt
-    211.0006944 none
-    212 n212flux.txt
-    212.0006944 none
-    213 n213flux.txt
-    213.0006944 none
-    214 n214flux.txt
-    214.0006944 none
-    215 n215flux.txt
-    215.0006944 none
-    216 n216flux.txt
-    216.0006944 none
-    217 n217flux.txt
-    217.0006944 none
-    218 n218flux.txt
-    218.0006944 none
-    219 n219flux.txt
-    219.0006944 none
-    220 n220flux.txt
-    220.0006944 none
-    221 n221flux.txt
-    221.0006944 none
-    222 n222flux.txt
-    222.0006944 none
-    223 n223flux.txt
-    223.0006944 none
-    224 n224flux.txt
-    224.0006944 none
-    225 n225flux.txt
-    225.0006944 none
-    226 n226flux.txt
-    226.0006944 none
-    227 n227flux.txt
-    227.0006944 none
-    228 n228flux.txt
-    228.0006944 none
-    229 n229flux.txt
-    229.0006944 none
-    230 n230flux.txt
-    230.0006944 none
-    231 n231flux.txt
-    231.0006944 none
-    232 n232flux.txt
-    232.0006944 none
-    233 n233flux.txt
-    233.0006944 none
-    234 n234flux.txt
-    234.0006944 none
-    235 n235flux.txt
-    235.0006944 none
-    236 n236flux.txt
-    236.0006944 none
-    237 n237flux.txt
-    237.0006944 none
-    238 n238flux.txt
-    238.0006944 none
-    239 n239flux.txt
-    239.0006944 none
-    240 n240flux.txt
-    240.0006944 none
-    241 n241flux.txt
-    241.0006944 none
-    242 n242flux.txt
-    242.0006944 none
-    243 n243flux.txt
-    243.0006944 none
-    244 n244flux.txt
-    244.0006944 none
-    245 n245flux.txt
-    245.0006944 none
-    246 n246flux.txt
-    246.0006944 none
-    247 n247flux.txt
-    247.0006944 none
-    248 n248flux.txt
-    248.0006944 none
-    249 n249flux.txt
-    249.0006944 none
-    250 n250flux.txt
-    250.0006944 none
-    251 n251flux.txt
-    251.0006944 none
-    252 n252flux.txt
-    252.0006944 none
-    253 n253flux.txt
-    253.0006944 none
-    254 n254flux.txt
-    254.0006944 none
-    255 n255flux.txt
-    255.0006944 none
-    256 n256flux.txt
-    256.0006944 none
-    257 n257flux.txt
-    257.0006944 none
-    258 n258flux.txt
-    258.0006944 none
-    259 n259flux.txt
-    259.0006944 none
-    260 n260flux.txt
-    260.0006944 none
-    261 n261flux.txt
-    261.0006944 none
-    262 n262flux.txt
-    262.0006944 none
-    263 n263flux.txt
-    263.0006944 none
-    264 n264flux.txt
-    264.0006944 none
-    265 n265flux.txt
-    265.0006944 none
-    266 n266flux.txt
-    266.0006944 none
-    267 n267flux.txt
-    267.0006944 none
-    268 n268flux.txt
-    268.0006944 none
-    269 n269flux.txt
-    269.0006944 none
-    270 n270flux.txt
-    270.0006944 none
-    271 n271flux.txt
-    271.0006944 none
-    272 n272flux.txt
-    272.0006944 none
-    273 n273flux.txt
-    273.0006944 none
-    274 n274flux.txt
-    274.0006944 none
-    end
-end
 
 !!--End Flux Nodal for DSSAT ET Section--
 
@@ -775,15 +206,12 @@ properties file
 lys.oprops
 
 ! Set olf properties on top of model to generic grass
-clear chosen faces
 choose faces top
 
 new zone
 1
 
 clear chosen zones
-clear chosen elements
-clear chosen nodes
 clear chosen faces
 
 choose zone number 
@@ -792,9 +220,6 @@ read properties
 gen_grass
 
 clear chosen zones
-clear chosen elements
-clear chosen nodes
-clear chosen faces
 
 !--------------------------  Weather forcing properties
 
@@ -804,9 +229,6 @@ choose faces top
 create face set from chosen faces
 top
 
-clear chosen zones
-clear chosen elements
-clear chosen nodes
 clear chosen faces
 
 
@@ -1180,7 +602,7 @@ end
 ! use domain type
 ! porous media
 
-!!--Begin Solute Transport Initial Concentration Section--
+! !!--Begin Solute Transport Initial Concentration Section--
 
 ! ! NH4 and NO3 boundary initial concentrations from DSSAT model
 
@@ -1276,7 +698,7 @@ end
 
 ! clear chosen nodes
 
-!!--End Solute Transport Initial Concentration Section--
+! !!--End Solute Transport Initial Concentration Section--
 
 
 !--------------------------  Solution controls
@@ -1300,10 +722,10 @@ newton maximum update for depth
 newton iteration control
 15
 
-! ADD SATURATION CONTROL
-
 maximum timestep
 10000.0
+! minimum timestep
+! 1E-12
 minimum timestep
 1E-20
 initial timestep
@@ -1603,6 +1025,8 @@ sat_prof
 make observation point  
 pz1
 1  1  2.85
+
+choose faces top
 
 nodal fluid mass balance from shp file
 nfmb_shp.shp
