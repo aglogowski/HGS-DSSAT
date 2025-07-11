@@ -1,0 +1,25 @@
+*MANAGEMENT OPERATIONS EVENT SUMMARY
+
+*DSSAT Cropping System Model Ver. 4.8.5.021 -develop  JUL 11, 2025 15:07:12
+!---------------------------------------------------------------------------------------------
+@RUN Date........  DOY    DAS    DAP  CR  Stage         Operation       Quantities
+!---------------------------------------------------------------------------------------------
+   1 FEB 25, 1982  056      1      0  MZ  14 Start Sim 
+   1 FEB 26, 1982  057      2      0  MZ                Planting       
+   1 FEB 26, 1982  057      2      0  MZ  07 Sowing    
+   1 FEB 27, 1982  058      3      1  MZ  08 Germinate 
+   1 MAR  4, 1982  063      8      6  MZ                Irrigation        13.0 mm
+   1 MAR  9, 1982  068     13     11  MZ  09 Emergence 
+   1 MAR 27, 1982  086     31     29  MZ  01 End Juveni
+   1 APR  1, 1982  091     36     34  MZ  02 Floral Ini
+   1 APR  7, 1982  097     42     40  MZ                Fertilizer         27. kg[N]/ha 
+   1 APR 12, 1982  102     47     45  MZ                Fertilizer         35. kg[N]/ha 
+   1 MAY 13, 1982  133     78     76  MZ  03 75% Silkin
+   1 MAY 17, 1982  137     82     80  MZ                Fertilizer         54. kg[N]/ha 
+   1 MAY 24, 1982  144     89     87  MZ  04 Beg Gr Fil
+   1 JUL  2, 1982  183    128    126  MZ  05 End Gr Fil
+   1 JUL  4, 1982  185    130    128  MZ  16 Harvest   
+   1 JUL  4, 1982  185    130    128  MZ                End simulation 
+                                             100.0 % yield harvested     2143. kg/ha
+                                               0.0 % by-product harv        0. kg/ha
+ 

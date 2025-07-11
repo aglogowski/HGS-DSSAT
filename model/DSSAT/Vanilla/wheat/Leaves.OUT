@@ -1,0 +1,31 @@
+$LEAF SIZES
+
+*RUN 1    :SWSW7501WH 1 N RESPONSE,SWIF CSCER048                             
+
+! LEAF NUMBER    8.9
+! LEAF NUMBER WHEN INCREASE FACTOR CHANGED   4.0
+! AREA OF LEAF WHEN FACTOR CHANGED   3.65
+
+@ LNUM AREAP AREA1 AREAT AREAS  T#PL  T#AL  WFLF  NFLF  AFLF  TFLF DAYSG
+     1   3.0   2.4   2.4   2.4   1.0   250   0.1   0.0   0.0   0.0   4.0
+     2   3.1   1.9   1.9   1.9   1.0   250   0.4   0.4   0.0   0.0   3.0
+     3   3.3   2.1   2.1   2.1   1.0   250   0.1   0.3   0.0   0.0   7.0
+     4   3.5   2.7   3.3   3.3   1.7   428   0.0   0.2   0.0   0.0   6.0
+     5   3.6   3.2   6.9   6.9   2.8   711   0.0   0.1   0.0   0.0   6.0
+     6   4.7   4.6  13.8  13.8   3.7   915   0.0   0.0   0.0   0.0   5.0
+     7   6.2   4.8  17.5  17.5   4.9  1236   0.0   0.1   0.0   0.1   4.0
+     8   8.0   4.5  20.2  20.2   5.6  1391   0.0   0.3   0.0   0.1   4.0
+     9  10.4   5.1  24.0  24.0   2.4   592   0.2   0.5   0.2   0.0   4.0
+  
+! LNUM  = Number of leaf on main axis
+! AREAP = Potential area of leaf (cm2)
+! AREA1 = Area of leaf on main axis (cm2)
+! AREAT = Area of leaves on all axes at leaf position (cm2) 
+! AREAS = Area of leaves senesced at leaf position (cm2)
+! T#PL  = Tiller number/plant at leaf position
+! T#AL  = Tiller number/area(m2) at leaf position
+! WFLF  = Water stress factor for leaf (0-1,0=0 stress)
+! NFLF  = N stress factor for leaf (0-1,0=0 stress)
+! AFLF  = Assimilate factor for leaf (0-1,0=0 no limitation)
+! TFLF  = Temperature factor for leaf (0-1,1=0 no limitation)
+! DAYSG = Number of days of growth   
