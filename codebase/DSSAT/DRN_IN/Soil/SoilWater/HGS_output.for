@@ -31,7 +31,7 @@ C=======================================================================
       !open the file and ready 10 values of DRN
       
       open(unit=unit_in, 
-     &    file='C:\Users\glogow0000\HGS-DSSAT\data_dssat\1_SWDELTS.inp',
+     &    file='.\data\1_SWDELTS.inp',
      &    status='old', action='read', iostat=ios)
           if (ios /= 0) then
               print *, 'Error opening file:', 
@@ -48,7 +48,7 @@ C=======================================================================
       close(unit_in)
       
           open(unit=unit_in, 
-     &    file='C:\Users\glogow0000\HGS-DSSAT\data_dssat\1_DRN.inp',
+     &    file='.\data\1_DRN.inp',
      &    status='old', action='read', iostat=ios)
           if (ios /= 0) then
               print *, 'Error opening file:', 
@@ -91,7 +91,7 @@ C=======================================================================
       REAL, DIMENSION(NL) :: DLAYR
 !-----------------------------------------------------------------------
       !open the file and ready 10 values of DRN
-      file_name = 'C:\Users\glogow0000\HGS-DSSAT\coup_data\1_'
+      file_name = '.\coup_data\1_'
           write(DAS_con, '(I0)') DAS
           full_path=TRIM(file_name) // TRIM(DAS_con) // '_DRN.inp' !
 !          print *, full_path
