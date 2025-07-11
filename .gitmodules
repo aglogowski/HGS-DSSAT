@@ -1,0 +1,3 @@
+[submodule "codebase/DSSAT/Vanilla"]
+	path = codebase/DSSAT/Vanilla
+	url = https://github.com/DSSAT/dssat-csm-os.git
