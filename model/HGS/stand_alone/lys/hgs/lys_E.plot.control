@@ -1,0 +1,96 @@
+tecplot mode
+! tecplot binary mode
+! tecplot binary flush interval
+! 1
+! tecplot binary append
+! truncate time domain
+! 0.0  1.0E+20
+! number of digits for output file suffix
+! 4
+end
+write pm domain file
+! no pm layer numbers
+! no pm column numbers
+! no pm element thickness
+! no pm cutoff wall
+! no pm heads
+! no pm pressure heads
+! no pm environmental head
+! no pm saturations
+! no pm volumetric water content
+! no pm ice saturation
+! no pm linear velocities (vx, vy, vz)
+! no pm concentrations
+! no pm immobile/isotope fractionation concentrations
+! no pm redox capacity
+! no pm mass sorbed
+! no pm peclet number
+! no pm diffusion peclet number
+! no pm element k
+! no pm element porosity
+! no pm element specific storage
+! no pm element tortuosity
+! no pm element fraction of compressible interbeds
+! no pm element volume
+! no pm permafrost
+! no pm flux (qx, qy, qz)
+! no pm tvk (kx, ky, kz)
+! no pm time varying porosity
+! no pm time varying specific storage
+! no pm local probability
+! no pm et3d
+! no pm depth to water table
+! no pm time varying topography
+! no pm time varying topography zones
+! no pm hmc fractions
+! no pm fluid density
+! truncate pm domain
+! -1.00000E+20 1.00000E+20
+! -1.00000E+20 1.00000E+20
+! -1.00000E+20 1.00000E+20
+! truncate pm domain by layer
+! -1.00000E+20 1.00000E+20
+! -1.00000E+20 1.00000E+20
+!            0        1000
+end
+!---------------------------------------------
+write olf domain file
+! no olf cutoff wall
+! no olf heads
+! no olf linear velocities (vx, vy, vz)
+! no olf concentrations
+! no olf immobile/isotope fractionation concentrations
+! no olf redox capacity
+! no olf friction (nx, ny)
+! no olf/pm exchange flux
+! no olf/pm solute exchange
+! no olf et
+! no olf max water depth
+! no olf time varying topography
+! no olf rain and snowmelt package
+! no olf hmc fractions
+! no olf flow rates
+! truncate olf domain
+! -1.00000E+20 1.00000E+20
+! -1.00000E+20 1.00000E+20
+! -1.00000E+20 1.00000E+20
+! truncate olf domain by layer
+! -1.00000E+20 1.00000E+20
+! -1.00000E+20 1.00000E+20
+!            0        1000
+! compare surface water depth
+! -1.0E+20  1.0E+20
+! -1.0E+20  1.0E+20
+! -1.0E+20  1.0E+20
+end
+!---------------------------------------------
+! Additional post-processing commands
+! simulation time unit conversion factor
+! 0.0  1.0
+! plot pm zone isopach structure
+! plot pm depth below ground surface
+! interpolate depth to gw table
+end
+!---------------------------------------------
+write time series file
+end

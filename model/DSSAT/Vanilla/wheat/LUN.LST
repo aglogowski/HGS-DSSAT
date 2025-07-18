@@ -1,8 +1,4 @@
-*Summary of files opened during simulation
-
-Unit  File
-Num.  Variable Name
-*DSSAT Cropping System Model Ver. 4.8.5.021   -develop    JUL 11, 2025; 15:11:37
+*DSSAT Cropping System Model Ver. 4.8.5.021   -develop    JUL 17, 2025; 15:20:30
 
  Unit  Filename
   501  OPCLR
@@ -31,7 +27,6 @@ Num.  Variable Name
    63  GHG.OUT   
   105  SoilNiBal.OUT
    43  SoilNi.OUT
-   55  Mulch.OUT
   110  SWBAL
   510  SWBSUM
    48  OUTWAT

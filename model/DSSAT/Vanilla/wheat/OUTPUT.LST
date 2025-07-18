@@ -8,7 +8,6 @@ SoilNi.OUT         Daily inorganic soil N output file
 SoilTemp.OUT       Daily soil temperature output file                
 SoilWat.OUT        Daily soil water output file                      
 Weather.OUT        Daily weather output file                         
-Mulch.OUT          Daily surface mulch output file                   
 GHG.OUT            Greenhouse gas emissions report                   
 N2O.OUT            Soil N2O and N2 daily emissions output            
 PlantGr2.OUT       Wheat and barley specific output file             

@@ -88,13 +88,13 @@ Can.J.Soil Sci. 57:311-327; Can.J.Soil.Sci. 58:39-51
  6 75141 FE017 AP001    10   123     0     0     0     0   -99 -99
  7 75141 FE017 AP001    10   164     0     0     0     0   -99 -99
 
-*SIMULATION CONTROLS
+*SIMULATION CONTROLS changed mulch infil options
 @N GENERAL     NYERS NREPS START SDATE RSEED SNAME.................... SMODEL
  1 GE              1     1     S 75132  2150 N RESPONSE,SWIFT CURRENT
 @N OPTIONS     WATER NITRO SYMBI PHOSP POTAS DISES  CHEM  TILL   CO2
  1 OP              Y     Y     N     N     N     N     N     N     M
 @N METHODS     WTHER INCON LIGHT EVAPO INFIL PHOTO HYDRO NSWIT MESOM MESEV MESOL
- 1 ME              M     M     E     R     S     C     R     1     G     S     2
+ 1 ME              M     M     E     F     N     C     R     1     G     S     2
 @N MANAGEMENT  PLANT IRRIG FERTI RESID HARVS
  1 MA              R     R     R     N     M
 @N OUTPUTS     FNAME OVVEW SUMRY FROPT GROUT CAOUT WAOUT NIOUT MIOUT DIOUT VBOSE CHOUT OPOUT
