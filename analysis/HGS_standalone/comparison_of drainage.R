@@ -30,14 +30,60 @@ data_lines <- hgs_drn[data_start_index:length(hgs_drn)]
 data <- read.table(text = paste(data_lines, collapse = "\n"))
 colnames(data)=var_names
 
-
+et_flow=seq.int(19,by=16,length.out = 13)
 up_inf=seq.int(23,by=16,length.out = 13)
 down_inf=seq.int(25,by=16,length.out = 13)
 all=c(1,up_inf,down_inf)
 all=sort(all)
 hgs_drain_sel=data[,all]
+#### et ####
+hgs_et_sel=data[,c(1,7,et_flow)]
+hgs_et_sel$time_d=hgs_et_sel$Time[1]
+hgs_et_sel$time_d[2:116]=hgs_et_sel$Time[2:116]-hgs_et_sel$Time[1:115]
+hgs_et_sel%>%
+  mutate(L13=(ET13)*time_d/4*100,
+         L12=(ET12)*time_d/4*100,
+         L11=(ET11)*time_d/4*100,
+         L10=(ET10)*time_d/4*100,
+         L09=(ET09)*time_d/4*100,
+         L08=(ET08)*time_d/4*100,
+         L07=(ET07)*time_d/4*100,
+         L06=(ET06)*time_d/4*100,
+         L05=(ET05)*time_d/4*100,
+         L04=(ET04)*time_d/4*100,         
+         L03=(ET03)*time_d/4*100,  
+         L02=(ET02)*time_d/4*100,  
+         L01=(ET01)*time_d/4*100,
+         time_d=floor(Time)+1)%>%
+  group_by(time_d)%>%
+  summarise(L13=sum(L13),
+            L12=sum(L12),
+            L11=sum(L11),
+            L10=sum(L10),
+            L09=sum(L09),
+            L08=sum(L08),
+            L07=sum(L07),
+            L06=sum(L06),
+            L05=sum(L05),
+            L04=sum(L04),
+            L03=sum(L03),
+            L02=sum(L02),
+            L01=sum(L01))->hgs_et
+hgs_et=hgs_et[c(1:103),c(1,3:11)]
+colnames(hgs_et)=c("time","3.0","2.95","2.85","2.7","2.55","2.4","2.25","2.1","1.8")
+
+
+
+hgs_et$model="hgs"
+#dssat_et$model="dssat"
+df_test=hgs_et#rbind(hgs_et,dssat_et)
+df_test=df_test[,c(1,11,2:10)]
+df_test%>%
+  gather("Depth","ET",`3.0`:`1.8`)->df_plot_et
+#### drain ####
 hgs_drain_sel$time_d=hgs_drain_sel$Time[1]
 hgs_drain_sel$time_d[2:116]=hgs_drain_sel$Time[2:116]-hgs_drain_sel$Time[1:115]
+
 hgs_drain_sel%>%
   mutate(L13=(`QVU+13`+`QVD+13`)*time_d/4*100,
          L12=(`QVU+12`+`QVD+12`)*time_d/4*100,
@@ -107,3 +153,11 @@ ggplot() +
   labs(x = "Time", y = "Drained (mm/d)", color = "model") +
   facet_wrap(~Depth)+
   theme_minimal()
+
+
+ggplot() +
+  geom_line(data = df_plot_et, aes(x = time, y =ET, col = model), size = 1) +
+  labs(x = "Time", y = "ET (mm/d)", color = "model") +
+  facet_wrap(~Depth)+
+  theme_minimal()
+colSums(df_test[,c(3:11)])
