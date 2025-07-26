@@ -1,0 +1,8 @@
+*WATER BALANCE SUMMARY OUTPUT FILE
+
+*DSSAT Cropping System Model Ver. 4.8.5.021 -my_coup_branch  JUL 26, 2025 17:03:17
+
+!                           |----- Initial Water Content (mm) -----|------ Final Water Content (mm) -------|-------- Water Additions (mm) ---------|--------------- Water Losses (mm) ---------------|-----------|
+!                           |    Soil     Mulch     Flood      Snow      Soil     Mulch     Flood      Snow    Precip     Irrig   LatFlow   Residue      Evap  Transpir    Runoff  Drainage   Tile Dr     Balance
+@  Run FILEX          TN CR     SWTDi     MWTDi     FWTDi    SNOWDi      SWTD      MWTD      FWTD     SNOWD      PRCM      IRRC     LATFC     RESAC      ESCM      EPCM      ROCM      DRCM      TDFC     CUMWBAL
+     1 SWSW7501.WHX    1 WH    358.50      0.00      0.00      0.00    275.27      0.00      0.00      0.00    162.00      0.00      0.00      0.00    131.95    113.27      0.00      0.00      0.00      0.0015

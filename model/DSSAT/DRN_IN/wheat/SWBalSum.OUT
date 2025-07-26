@@ -6,3 +6,4 @@
 !                           |    Soil     Mulch     Flood      Snow      Soil     Mulch     Flood      Snow    Precip     Irrig   LatFlow   Residue      Evap  Transpir    Runoff  Drainage   Tile Dr     Balance
 @  Run FILEX          TN CR     SWTDi     MWTDi     FWTDi    SNOWDi      SWTD      MWTD      FWTD     SNOWD      PRCM      IRRC     LATFC     RESAC      ESCM      EPCM      ROCM      DRCM      TDFC     CUMWBAL
      1 RORO7401.WHX    1 WH    511.50      0.00      0.00      0.00    419.41      0.05      0.00      0.00    558.10      0.00      0.00      0.05    173.07    179.16      7.86      0.00      0.00    290.0940
+     1 RORO7401.WHX    1 WH    511.50      0.00      0.00      0.00    419.41      0.05      0.00      0.00    558.10      0.00      0.00      0.05    173.07    179.16      7.86      0.00      0.00    290.0940

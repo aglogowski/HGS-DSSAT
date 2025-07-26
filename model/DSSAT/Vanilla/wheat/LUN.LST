@@ -1,4 +1,4 @@
-*DSSAT Cropping System Model Ver. 4.8.5.021   -develop    JUL 26, 2025; 15:58:29
+*DSSAT Cropping System Model Ver. 4.8.5.021   -develop    JUL 26, 2025; 16:50:48
 
  Unit  Filename
   501  OPCLR
@@ -33,10 +33,3 @@
   511  OUTSWL
    47  OUTT
    32  OUTET
-   39  PlantGro.OUT
-   40  PlantN.OUT
-   67  PlantGr2.OUT
-   68  PlantGrf.OUT
-  512  Leaves.OUT
-    8  FILEA
-  513  FILET

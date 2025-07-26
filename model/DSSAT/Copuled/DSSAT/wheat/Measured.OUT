@@ -1,0 +1,10 @@
+$TIME_COURSE(MEASURED)
+  
+*DATA(T):SWSW7501WH 1 C1 0 KG N/HA DRY RESPONSE,SWIFT                           
+  
+@TRNO   DATE  CWAD  T#AD  LAID   DAP   DAS                                                                                                                                          
+     1 75167    49   164  0.17    22    35                                                                                                                                          
+     1 75174   192   411  0.42    29    42                                                                                                                                          
+     1 75192  2039   608  1.22    47    60                                                                                                                                          
+     1 75204  2987   411  0.48    59    72                                                                                                                                          
+     1 75233  3781   395   0.0    88   101                                                                                                                                          
