@@ -1,10 +1,9 @@
 
 *SOIL N BALANCE - CENTURY ROUTINES
 
-*DSSAT Cropping System Model Ver. 4.8.5.021 -develop  JUL 17, 2025 15:20:30
+*DSSAT Cropping System Model Ver. 4.8.5.021 -develop  JUL 26, 2025 16:50:48
 
 !                              |--------------- Initial N State Variables ----------------|----------------- Final N State Variables -----------------|------------- N Additions -------------|---------------- N Subtractions -----------------|--Mineralization---|----- Seasonal Balance -----|
 !                              |----------------- Organic ----------------------|         |------------------ Organic ----------------------|         |  Harvest   Applied                    |              Tile-     Plant     N gas     Flood|   Miner-    Immob-|                            |
 !                              | Surface      SOM1      SOM2      SOM3    Litter     Inorg|  Surface      SOM1      SOM2      SOM3    Litter     Inorg|  Residue   Residue  Fertiliz   Senesed|  Leached   drained    Uptake    Losses    Losses|   alized    ilized|Inorganic   Organic   Overall
 @Run FILEX               TN CR     SN0Di    S1NTDi    S2NTDi    S3NTDi     LNTDi     NIADi      SN0D     S1NTD     S2NTD     S3NTD      LNTD      NIAD      HRNH     RESNC      NICM     SNNTC      NLCM      TDFC      NUCM     NGasC      RNRO      NMNC      NIMC    InNBal   OrgNBal     SNBAL
-   1 SWSW7501.WHX         1 WH      0.00      0.00   6408.00      0.00     11.40     68.82      0.60      0.00   6400.32      0.00      8.99     25.68      0.00      0.00      0.00      0.95      0.00      0.00     53.14      0.44      0.00     10.62      0.19      0.00     -0.00     -0.00
