@@ -57,7 +57,7 @@ dual nodes for surface flow
 use domain type
 porous media
 properties file
-lys.mprops
+lys_e.mprops
 choose elements all
 new zone
 1
@@ -117,10 +117,45 @@ time value table
 0.0 0.3
 end
 end
+choose nodes sheet
+14
+choose nodes sheet
+13
+choose nodes sheet
+12
+choose nodes sheet
+11
+choose nodes sheet
+10
+choose nodes sheet
+9
+choose nodes sheet
+8
+choose nodes sheet
+7
+choose nodes sheet
+6
+choose nodes sheet
+5
+choose nodes sheet
+4
+create node set
+coupled_section
+clear chosen zones
+clear chosen elements
+clear chosen nodes
+clear chosen faces
+choose nodes all
+write chosen nodes xyz
+pm_nodes.txt
+clear chosen zones
+clear chosen elements
+clear chosen nodes
+clear chosen faces
 use domain type
 surface
 properties file
-lys.oprops
+lys_e.oprops
 choose faces top
 new zone
 1
@@ -131,6 +166,14 @@ choose zone number
 read properties
 gen_grass
 clear chosen zones
+clear chosen faces
+choose surface flow nodes
+write chosen nodes xyz
+olf_nodes.txt
+clear chosen zones
+clear chosen elements
+clear chosen nodes
+clear chosen faces
 choose faces top
 create face set from chosen faces
 top
@@ -358,7 +401,7 @@ end
 use domain type
 et
 properties file
-lys.etprops
+lys_e.etprops
 choose faces top
 new zone
 1

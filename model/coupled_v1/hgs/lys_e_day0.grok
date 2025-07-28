@@ -66,6 +66,8 @@ end title
 
 end !grid generation
 
+
+
 !--------------------------  General simulation parameters
 units: kilogram-metre-day
 transient flow
@@ -188,41 +190,19 @@ boundary condition
 	end
 end
 
-! Flux Nodal Section for Coupled Model
-choose nodes sheet
-14
-choose nodes sheet
-13
-choose nodes sheet
-12
-choose nodes sheet
-11
-choose nodes sheet
-10
-choose nodes sheet
-9
-choose nodes sheet
-8
-choose nodes sheet
-7
-choose nodes sheet
-6
-choose nodes sheet
-5
-choose nodes sheet
-4
+!!--Begin Flux Nodal for DSSAT ET Section--
 
-create node set
-coupled_section
+!!--End Flux Nodal for DSSAT ET Section--
+
+choose nodes all
+
+write chosen nodes xyz
+pm_nodes.txt
 
 clear chosen zones
 clear chosen elements
 clear chosen nodes
 clear chosen faces
-
-!!--Begin Flux Nodal for DSSAT ET Section--
-
-!!--End Flux Nodal for DSSAT ET Section--
 
 !--------------------------  Overland flow properties
 use domain type
@@ -246,6 +226,18 @@ read properties
 gen_grass
 
 clear chosen zones
+clear chosen faces
+
+choose surface flow nodes
+
+write chosen nodes xyz
+olf_nodes.txt
+
+clear chosen zones
+clear chosen elements
+clear chosen nodes
+clear chosen faces
+
 
 !--------------------------  Weather forcing properties
 
@@ -380,3 +372,8 @@ choose faces top
 nodal fluid mass balance from shp file
 nfmb_shp.shp
 test
+
+nodal fluid mass balance from shp file
+c:\Users\southa0000\Documents\HGS_DSSAT_Devel\HGS-DSSAT\model\coupled_v1\mapping\cv_dssatmod_1.shp
+nfmb_dssat_id_1
+
