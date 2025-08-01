@@ -1,0 +1,553 @@
+[33mcommit 96578b860d158febdc41ba0da2c2619c9e0c53ee[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdev[m[33m, [m[1;31morigin/dev[m[33m)[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Mon Jul 28 14:13:14 2025 +0200
+
+    Updated Mapping functions for codebase
+
+[33mcommit c848eb2f8eccd5d8039f6c3ebfe28a3d0d0be11a[m
+Merge: bd0ad2c e99b0f3
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Sat Jul 26 17:19:22 2025 +0200
+
+    Merge branch 'dev' of https://github.com/aglogowski/HGS-DSSAT into dev
+
+[33mcommit bd0ad2c15087955251156803b627d1cfd5ddd4e5[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Sat Jul 26 17:11:57 2025 +0200
+
+    Added ModelPrep module from pyHGSDSSAT and created coupled model HGS files
+
+[33mcommit e99b0f35114d17fa86d0dd78f424b9ee1477f1ac[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Sat Jul 26 17:04:52 2025 +0200
+
+    adding RWU to copuled solution
+
+[33mcommit b4b42cbd373f222898a0a6f3899e1bacf145d971[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Sat Jul 26 16:30:47 2025 +0200
+
+    add couple approach
+
+[33mcommit b3a0467f0315f4e7a3b4c16bcce2d25b8ef5c184[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Fri Jul 18 15:55:08 2025 +0200
+
+    remove old files
+
+[33mcommit 7bdf2d81a69d64490dd08b7ce5bcdc3ab4850e98[m
+Merge: 7dfcb9c 9dd65b0
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Fri Jul 18 15:46:33 2025 +0200
+
+    Merge branch 'dev' of https://github.com/aglogowski/HGS-DSSAT into dev
+
+[33mcommit 7dfcb9cffe3fda2f28801fa05ae1a1b6c6660fc0[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Fri Jul 18 15:40:32 2025 +0200
+
+    push changes with analys of both stand alone models HGS and DSSAT have same water balance
+
+[33mcommit 9dd65b02603171fabb23e0f6fa003d9a3ffa49fb[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Fri Jul 11 16:17:03 2025 +0200
+
+    make DRN vesrion unliked to origin DSSAT repo
+
+[33mcommit ee2d44fffb47de324f7a49dc04133c78e45ad972[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Fri Jul 11 15:50:02 2025 +0200
+
+    changing path to relative in DRN_in solution WORKING
+
+[33mcommit d673ef4086f30e0a4880e47ea11f99bb76a390a1[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Fri Jul 11 15:47:47 2025 +0200
+
+    changing path to relative in DRN_in solution WORKING
+
+[33mcommit 59003bc3d3ff39b6502b78ca50d8f5f9e0d9b7fa[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Fri Jul 11 15:26:10 2025 +0200
+
+    add winer wheat output files replace them with proper maize and wheat
+
+[33mcommit 30f85d8779e3a454bbb6da29716bb314eaddf090[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Fri Jul 11 15:19:26 2025 +0200
+
+    adding Vanila model results
+
+[33mcommit 40046ac4ec5919908c9eddae057e2a82e40c878e[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Fri Jul 11 15:17:52 2025 +0200
+
+    Removed unused files
+
+[33mcommit f610a2f2ddad8ecd81a0c0467361a9c3b42fb7d4[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Fri Jul 11 14:32:27 2025 +0200
+
+    Add DSSAT DRN capability to take from other model
+
+[33mcommit c9633bb5a0da9638b57f385bc65bcc90806f9447[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Fri Jul 11 14:27:00 2025 +0200
+
+    Add DSSAT DRN capability to take from other model
+
+[33mcommit aac6ff78698ba77e60743259de069a358ff8dd3c[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Fri Jul 11 13:34:07 2025 +0200
+
+    Remove unused files
+
+[33mcommit 6c0f106bcae1197ae30da22da7d106e258e94986[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Fri Jul 11 13:31:40 2025 +0200
+
+    Cleaning repo adding DSSAT submodule
+
+[33mcommit 813195c6dbbe174c530339018b23fb6ca706e1c3[m
+Author: Arkadiusz Głogowski <40592724+aglogowski@users.noreply.github.com>
+Date:   Thu Jul 10 10:03:14 2025 +0200
+
+    Update README.md
+
+[33mcommit 0936c7b6e59738adec3213206bd393431dbeff91[m
+Author: Arkadiusz Głogowski <40592724+aglogowski@users.noreply.github.com>
+Date:   Thu Jul 10 10:02:21 2025 +0200
+
+    Update README.md
+
+[33mcommit fc2c9763a675811dfe2c9fb9952374ea98f0f5a5[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Thu Jul 10 09:54:18 2025 +0200
+
+    adding DRN files
+
+[33mcommit a7a4828cdb2279ba5fba9fa0ee07a6c1b542ed7e[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Thu Jul 10 09:50:08 2025 +0200
+
+    adding corrected grok file with head boundry
+
+[33mcommit 9dce0b88eba797cd6bd3be33ebb77597a8c56e24[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Mon Jul 7 09:52:11 2025 +0200
+
+    Updated nflux creation script to assign days correctly
+
+[33mcommit e711f2d4d1e8d682d2d04e696447868bf3ffc5ba[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Thu Mar 27 14:21:58 2025 +0100
+
+    Added relevant files for tracking drainage and comparing, with ET from DSSAT
+
+[33mcommit 1f5aef0f5aa6475dbaa02d58b9d608fffbee06f1[m
+Merge: e3a5a7f 5f674ca
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Thu Mar 27 11:37:55 2025 +0100
+
+    Merge branch 'dev' of https://github.com/aglogowski/HGS-DSSAT into dev
+
+[33mcommit e3a5a7f2d4f50165c36afde14a1d9eb6367d4827[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Thu Mar 27 11:36:45 2025 +0100
+
+    Paul updates scripts in anticipation of merge
+
+[33mcommit 5f674ca10d691288216b43a4ae50fed36fd6eedd[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Thu Mar 27 11:33:58 2025 +0100
+
+    whole et dssat winter wheat
+
+[33mcommit 745710d0c546c0db58e81fae1ff6e9d44585c021[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Thu Mar 27 11:13:44 2025 +0100
+
+    et winter wheat dssat
+
+[33mcommit c013b6afa7f77d9f1bb3b5bd26a491a4fdfad24d[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Wed Mar 5 14:04:46 2025 +0100
+
+    Added lys mapping for MPI Run script
+
+[33mcommit 2cc6a9ae0e8dcf283e105683fa9d6d302894f325[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Wed Mar 5 11:48:50 2025 +0100
+
+    Added coupled model creation notebook using package function calls
+
+[33mcommit e1c82da9163058c917b1af731fc39ae7506e32cb[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Wed Mar 5 11:06:41 2025 +0100
+
+    Modified vital files to use relative paths
+
+[33mcommit b1897573ba77770a2888c183068a764d480726bd[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Wed Mar 5 10:53:02 2025 +0100
+
+    Adding various mapping files
+
+[33mcommit f79b4edaa9dc4976fa6743e323bcafedbdab7bbe[m
+Merge: cb0ce8b 888ce9c
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Wed Mar 5 10:50:51 2025 +0100
+
+    Resolved conflicts between Arek's grok and mine
+
+[33mcommit cb0ce8b180e44428718c66087d800c5b2f8ba616[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Wed Mar 5 10:47:19 2025 +0100
+
+    Clean up Model Creation
+
+[33mcommit 888ce9c0bb06d822e2f68c2edac96ecbe8ba9338[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Wed Mar 5 10:01:28 2025 +0100
+
+    changes from Brayden implemented
+
+[33mcommit 504e6635d27afa1102eb62e4e2b0d492b1041c5d[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Mon Mar 3 15:05:42 2025 +0100
+
+    small update
+
+[33mcommit ee8faee8ccb4e8491226ca4828956998de3c4059[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Thu Feb 27 23:08:31 2025 +0100
+
+    koniec psot in Florida
+
+[33mcommit fb0e514b35373c3df090f76133b6fb45e8abf06d[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Thu Feb 27 16:20:13 2025 +0100
+
+    Furtehr updates to HGS Flux files
+
+[33mcommit 55dab7f49270eab12a7b6da38c94033baedcfb20[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Thu Feb 27 16:09:58 2025 +0100
+
+    Updated file format for HGS fluxes
+
+[33mcommit 03c74d4f442cb2852ee26edb056b637d43798110[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Thu Feb 27 15:47:32 2025 +0100
+
+    Added script and output files for new HGS fluxes
+
+[33mcommit 45fefb6b8bfca82b5ff4c7da57f5ab1cdeae6d74[m
+Merge: f396cbc 1a22a44
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Wed Feb 26 19:52:48 2025 +0100
+
+    Merge branch 'main' of https://github.com/aglogowski/HGS-DSSAT
+
+[33mcommit f396cbc18892555e29497e786ab693c24de2ef9b[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Wed Feb 26 19:51:45 2025 +0100
+
+    Added beginnings of package to control execution and an example MPI Run script with dummy DSSAT
+
+[33mcommit 1a22a4462a72da984f5761f5efbef5e0e15e2d71[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Tue Feb 25 21:31:21 2025 +0100
+
+    porus media properties updated
+
+[33mcommit 4695a5c6fc94d261199789bfcd64f75cc8b6c95d[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Tue Feb 25 21:04:56 2025 +0100
+
+    new subrutine and better HGS initials
+
+[33mcommit 9252b7444d0febc7b5dcc6e471fb7e9762646c52[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Tue Feb 25 21:04:05 2025 +0100
+
+    new subrutine and better HGS initials
+
+[33mcommit a92e2b352d44298bda1e4618c0c057c08bb19304[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Tue Feb 25 15:48:16 2025 +0100
+
+    Updated grok to remove ST
+
+[33mcommit a11f096218bff38c95e053a2dd9ad003d5f89bed[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Mon Feb 24 22:51:36 2025 +0100
+
+    running dummy HGS output fiels in DSSAT
+
+[33mcommit 508f24e504f14ab727d8c8cd0d503c7a3d840926[m
+Merge: c22163a 0295aad
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Mon Feb 24 22:44:34 2025 +0100
+
+    Merge branch 'dev'
+
+[33mcommit 0295aadce8adee878889eea2697b7edc0a1930e6[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Mon Feb 24 22:44:26 2025 +0100
+
+    modified file structure for HGS fluxes
+
+[33mcommit c22163aa230fa02f1cd43086c0166958871f736d[m
+Merge: 24fb532 c3ce910
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Mon Feb 24 22:40:34 2025 +0100
+
+    Merge branch 'main' of https://github.com/aglogowski/HGS-DSSAT
+
+[33mcommit 24fb5328d6b12bf87f690cab7da9c6803d96cb67[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Mon Feb 24 22:40:17 2025 +0100
+
+    running hgs_data subrutine
+
+[33mcommit c3ce910873666f4c0f659767f6ae137cae572d23[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Mon Feb 24 22:20:10 2025 +0100
+
+    Extra files to run hgs model
+
+[33mcommit f77affa4d8e04755a029ba1747d4de2fadcf70f9[m
+Merge: abd5255 64704a2
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Mon Feb 24 22:12:49 2025 +0100
+
+    Merge branch 'main' of https://github.com/aglogowski/HGS-DSSAT
+
+[33mcommit 64704a29cecebca06d1b0d8651343824381f40bf[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Mon Feb 24 21:39:01 2025 +0100
+
+    shorter path
+
+[33mcommit 19ece0d90db5d594aa8e4b8735934102414f4c4e[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Mon Feb 24 21:37:34 2025 +0100
+
+    shorter path
+
+[33mcommit 1d188d76e09b11cdb49184599aa382c8e7f304ef[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Mon Feb 24 21:34:28 2025 +0100
+
+    new hgs subrutine
+
+[33mcommit e684f2abfde68bdc32091d911fcb475949abad87[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Mon Feb 24 21:33:09 2025 +0100
+
+    change HGS output location
+
+[33mcommit 9868810edbb804e1c1bac9fb936cdaba9f59d3c0[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Mon Feb 24 21:14:16 2025 +0100
+
+    add actual grok file
+
+[33mcommit afeff8f6b5307df6a4c111642bbba17e23eafa1a[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Mon Feb 24 21:11:24 2025 +0100
+
+    remove output files
+
+[33mcommit abd5255cb5236222ad1b965227126f163436f905[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Mon Feb 24 20:58:45 2025 +0100
+
+    Updated Example model grok file
+
+[33mcommit 8a286d1572a7512aba121ffc9fd4a1abaaf3c38d[m
+Merge: 54aef6f d5eab04
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Mon Feb 24 20:20:30 2025 +0100
+
+    Merge branch 'main' of https://github.com/aglogowski/HGS-DSSAT
+
+[33mcommit 54aef6fd8bc90177cb83e66a4ffa287450203fd4[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Mon Feb 24 20:18:20 2025 +0100
+
+    #	modified:   PlantGr2.OUT
+
+[33mcommit d5eab04e0043a32070e5455f6cb3d0053ae7b42e[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Mon Feb 24 20:10:06 2025 +0100
+
+    Added Example HGS Flux output files
+
+[33mcommit 398dfffd3cff0f6f849d27f7f9e06284ff1e3d49[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Fri Feb 21 16:36:01 2025 +0100
+
+    Added changes to DSSAT code to test loading in prescribed drainage VSWC changes
+
+[33mcommit 8d1423dffe485dabd709738f891e7b2d7368ca99[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Wed Feb 19 22:47:23 2025 +0100
+
+    Added test fluxes file to debug new WatBal module
+
+[33mcommit e9b43730effc74b8e3a32635ab9d83631261ba02[m
+Author: Arkadiusz Robert Glogowski <arkadiusz.glogowski@unibas.ch>
+Date:   Wed Feb 19 21:22:52 2025 +0100
+
+    modifying structure and watbal.for file
+
+[33mcommit 5dc20590652693cd970c6e7d7261e3cfd84b7fd6[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Mon Feb 17 17:44:18 2025 +0100
+
+    Pushed updated Coupled Model script and added DSSAT source code
+
+[33mcommit f9ba3085c2a8e585d7b569473976139f32d91459[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Wed Feb 12 21:12:05 2025 +0100
+
+    Update grok to include solute transport for NO3 and NH4 with default HGS solute parameters
+
+[33mcommit e38e8a6a8fb937357b8c8de4913251174bec6a11[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Wed Feb 12 15:45:23 2025 +0100
+
+    Added code to bring DSSAT ET in as Flux Nodal + Check spreadsheet
+
+[33mcommit 450b60df9d3335f933c79dc2de9779ebbff1aa5e[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Mon Feb 10 21:24:03 2025 +0100
+
+    updating groks for mapping needs and coupled model needs
+
+[33mcommit ed3e6694085d7fe35b07b48ac3f0676b9ff9278c[m
+Merge: ddc3341 4eb4e6d
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Mon Feb 10 21:20:32 2025 +0100
+
+    Merge branch 'main' of https://github.com/aglogowski/HGS-DSSAT
+
+[33mcommit ddc3341403fb5d5ce7ccaabb244634634416bf9b[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Mon Feb 10 21:20:15 2025 +0100
+
+    completed mapping file
+
+[33mcommit 4eb4e6d1fb47381acf785fcb0677565030781a33[m
+Author: arek <glogowski.arek@gmail.com>
+Date:   Mon Feb 10 18:41:25 2025 +0100
+
+    Add ET conversion scripts to HGS input
+
+[33mcommit 54ba93cec96088ef51ba8f0520f5b5ac0096041a[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Fri Feb 7 16:28:43 2025 +0100
+
+    Add NetCDF files from example model
+
+[33mcommit 307827c10da900edcb45ff5b7a8a487a94383585[m
+Author: arek <glogowski.arek@gmail.com>
+Date:   Thu Feb 6 17:12:40 2025 +0100
+
+    no3 and no4 output files
+
+[33mcommit 16831c39353dab8937620d55eaff5001db78a54e[m
+Author: arek <glogowski.arek@gmail.com>
+Date:   Thu Feb 6 17:06:30 2025 +0100
+
+    taking outputs from DSSAT NH4and NO3
+
+[33mcommit 71dbb50a997fb403c18c3d12c19b941d37dc6d05[m
+Merge: e568596 0f6283f
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Tue Feb 4 22:05:18 2025 +0100
+
+    Merge branch 'dev'
+    
+    Add example model to main
+
+[33mcommit 0f6283f2bd6e76a57eee1472746ca8b2b871cf47[m
+Author: [paul s] <paul.southard@unibas.ch>
+Date:   Tue Feb 4 22:00:06 2025 +0100
+
+    Add HGS example model
+
+[33mcommit e5685966eb772746e2c6a0507c64be9eff9b883a[m
+Author: arek <glogowski.arek@gmail.com>
+Date:   Tue Feb 4 21:27:35 2025 +0100
+
+    upadate
+
+[33mcommit e028473e79d1013d9d148a12fdf8f488cdcc5cdc[m
+Author: Arkadiusz Głogowski <40592724+aglogowski@users.noreply.github.com>
+Date:   Tue Feb 4 21:03:10 2025 +0100
+
+    Add files via upload
+
+[33mcommit 7e406af8436f16b906cf225290fb17232f78ff3a[m
+Author: Arkadiusz Głogowski <40592724+aglogowski@users.noreply.github.com>
+Date:   Tue Feb 4 21:02:39 2025 +0100
+
+    Delete HGSBinaryFile.f90
+
+[33mcommit 0b5fa2690ea4869fa8cb2104a47e20afbb1f5202[m
+Author: Arkadiusz Głogowski <40592724+aglogowski@users.noreply.github.com>
+Date:   Tue Feb 4 21:02:26 2025 +0100
+
+    Delete extract_tables.ipynb
+
+[33mcommit e0edf47bd6b951cbb32446d3cf918fc728069030[m
+Author: Arkadiusz Głogowski <40592724+aglogowski@users.noreply.github.com>
+Date:   Tue Feb 4 20:58:34 2025 +0100
+
+    Add files via upload
+    
+    Upload data and basic scripts
+
+[33mcommit 8e7616bba062e8d86e1c817d0a59fbe9d08c5e09[m
+Author: oschilling <73875989+oschilling@users.noreply.github.com>
+Date:   Tue Feb 4 16:01:54 2025 +0100
+
+    Update README.md
+    
+    updated the text
+
+[33mcommit 8efe255e2e49ebf8551e9a3ffebc3a564ff05da4[m
+Merge: d2e637b 51e8a43
+Author: Arkadiusz Głogowski <40592724+aglogowski@users.noreply.github.com>
+Date:   Mon Jan 27 13:47:47 2025 +0100
+
+    Merge pull request #1 from aglogowski/branch_b_main
+    
+    Branch b main
+
+[33mcommit 51e8a4338a4043153354aceec2b7134db5796a54[m
+Author: Arkadiusz Głogowski <40592724+aglogowski@users.noreply.github.com>
+Date:   Mon Jan 27 13:46:34 2025 +0100
+
+    Update README.md
+
+[33mcommit 7392019b2639d601f31cd9637d9693d998f5f2f0[m
+Author: Arkadiusz Głogowski <40592724+aglogowski@users.noreply.github.com>
+Date:   Mon Jan 27 13:39:00 2025 +0100
+
+    Add files via upload
+
+[33mcommit d2e637b4c5cfbb85bfb5f7568cd0c13d328b2718[m
+Author: aglogowski <glogowski.arek@gmail.com>
+Date:   Mon Oct 14 15:17:06 2024 +0200
+
+    first commit
+
+[33mcommit 0a315eef785ac3ef365f9db2fb259865e02f49db[m
+Author: Arkadiusz Głogowski <40592724+aglogowski@users.noreply.github.com>
+Date:   Mon Oct 14 11:38:49 2024 +0200
+
+    Initial commit

@@ -292,6 +292,41 @@ def Write_Coupled_Grok_File(new_lines,day,coupled_mod_hgs_dir,model_name):
             file.write(entry)
 
 
+def Get_DSSAT_Model_Files(dssat_mod_dir,coupled_mod_dssat_dir,dm_area_shp_dict):
+    """Copy model files from DSSAT into each DSSAT zone model firectory
+
+    Parameters:
+    dssat_mod_dir (str): path to subdirectory containing standalone DSSAT model
+    coupled_mod_dssat_dir (str): path to subdirectory containing all coupled HGS-DSSAT model files that relate to DSSAT
+    dm_area_shp_dict (dict): dictionary detailing area and shapefile path for each DSSAT model's associated nodal control volume
+
+    Returns:
+    
+   """
+    ## Make DSSAT zone model directory
+    # Get all DSSAT Zone ID Values
+    ID_Vals = list(dm_area_shp_dict.keys())
+    # Iterate to make directories and copy files
+    for id in ID_Vals:
+        # Make zone subdirectory
+        zone_dir = os.path.join(coupled_mod_dssat_dir,str(id))
+        try:
+            os.mkdir(zone_dir)
+        except:
+            print(zone_dir + ' already exists')
+        # Copy in necessary DSSAT files
+        for file in os.listdir(dssat_mod_dir):
+            print(file)
+            if ('.' in file) & (not ('.OUT' in file)):
+                print(file)
+                copy(os.path.join(dssat_mod_dir,file),os.path.join(zone_dir,file))
+        # Make data directory to store coupling data
+        zone_data_dir = os.path.join(zone_dir,'data')
+        try:
+            os.mkdir(zone_data_dir)
+        except:
+            print(zone_data_dir + ' already exists')
+
 
 def Build_Coupled_Model_Files(mod_dir,model_name,coupled_model_name,hgs_mod_dir,dssat_mod_dir,hnsdb_dict,dm_area_shp_dict):
     """Create coupled model daily HGS grok files
@@ -320,6 +355,8 @@ def Build_Coupled_Model_Files(mod_dir,model_name,coupled_model_name,hgs_mod_dir,
     # Copy over necessary hgs files
     Get_HGS_Props_Files(hgs_mod_dir,coupled_mod_hgs_dir,model_name)
     Get_NFMB_Shapefile(hgs_mod_dir,coupled_mod_hgs_dir)
+    # Copy over DSSAT model into zone directories
+    Get_DSSAT_Model_Files(dssat_mod_dir,coupled_mod_dssat_dir,dm_area_shp_dict)
     # Get standalone model grok lines and Prec series
     standalone_grok_lines = Get_Standalone_Grok_Lines(grok_file_path)
     P, End_Day = Get_Standalone_Grok_Prec_Series(standalone_grok_lines)
