@@ -1,0 +1,39 @@
+TITLE = "Transient newton iteration summary"
+VARIABLES="Time","Absolute error","Residual error","Residual 2-norm error","Number of iterations","Time step","Number of solver iterations","CPU Time","Wall Time","Percent Done"
+DATASETAUXDATA Source="HydroGeoSphere, Aquanty Inc."
+DATASETAUXDATA HGS_Version="2845"
+DATASETAUXDATA Date_Created="2025-08-04T11:45:15+02:00"
+DATASETAUXDATA Model_Prefix="lys_e_day1"
+DATASETAUXDATA Mass_Base_Unit="kg"
+DATASETAUXDATA Length_Base_Unit="m"
+DATASETAUXDATA Time_Base_Unit="d"
+DATASETAUXDATA Temperature_Base_Unit="deg C"
+# Time units: (d)
+# Absolute error units: (m)
+# Residual error units: (m^3 d^-1)
+# Residual 2-norm error units: (m^3 d^-1)
+# Time step units: (d)
+# CPU Time units: (s)
+# Wall Time units: (s)
+VARAUXDATA 1 Units="(d)"
+VARAUXDATA 2 Units="(m)"
+VARAUXDATA 3 Units="(m^3 d^-1)"
+VARAUXDATA 4 Units="(m^3 d^-1)"
+VARAUXDATA 6 Units="(d)"
+VARAUXDATA 8 Units="(s)"
+VARAUXDATA 9 Units="(s)"
+ZONE T="lys_e_day1"
+ 1.157407000000000E-005   9.2783273757E-005   9.1543319767E-006   1.5154760225E-005         2   1.1574070000E-005         2           0.03           0.03   0.00
+ 4.050924500000000E-005   6.6736140742E-007   1.4424096357E-006   3.0283781892E-006         3   2.8935175000E-005         3           0.05           0.04   0.00
+ 1.128471825000000E-004   6.0197472826E-006   1.5007944204E-006   3.0736447544E-006         3   7.2337937500E-005         3           0.05           0.05   0.01
+ 2.936920262500000E-004   1.2083164155E-004   1.6610898117E-006   2.7864366372E-006         3   1.8084484375E-004         3           0.05           0.06   0.03
+ 6.944400000000001E-004   7.5577686012E-006   2.1090036991E-006   4.4515916472E-006         4   4.0074797375E-004         4           0.05           0.07   0.07
+ 1.146552109375000E-003   3.8476756649E-007   2.1098316042E-006   4.4746880473E-006         2   4.5211210938E-004         2           0.05           0.08   0.11
+ 2.276832382812500E-003   9.2841248411E-007   2.1095164002E-006   4.4740257479E-006         2   1.1302802734E-003         2           0.06           0.09   0.23
+ 5.102533066406250E-003   1.7018001701E-003   3.4970290465E-006   7.3963360632E-006         1   2.8257006836E-003         1           0.06           0.10   0.51
+ 1.216678477539062E-002   4.0078568168E-006   2.1067463086E-006   4.4685054259E-006         2   7.0642517090E-003         2           0.08           0.10   1.22
+ 2.982741404785157E-002   3.2886095799E-005   2.1020735837E-006   4.4767461830E-006         2   1.7660629272E-002         2           0.08           0.11   2.98
+ 7.397898722900392E-002   2.0909418480E-004   2.0911035285E-006   5.0221470017E-006         2   4.4151573181E-002         2           0.09           0.12   7.40
+ 1.843579201818848E-001   1.0491293982E-003   7.3282810719E-006   1.1829399593E-005         2   1.1037893295E-001         2           0.09           0.13  18.44
+ 4.603052525640869E-001   9.1523205431E-005   2.0142452205E-006   4.2727691607E-006         3   2.7594733238E-001         4           0.11           0.14  46.03
+ 1.000000000000000E+000   1.4987204382E-004   1.9371957179E-006   4.1093060487E-006         3   5.3969474744E-001         5           0.11           0.15 100.00

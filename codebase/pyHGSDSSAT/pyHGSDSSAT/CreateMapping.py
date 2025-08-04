@@ -177,10 +177,10 @@ def DevelopHorizontalMapping(all_cv_shapefile_path,coupled_mod_mapping_dir):
     # Load cv shapefile
     all_cv = gpd.read_file(all_cv_shapefile_path)
     print(all_cv)
-    # Develop horizontal dictionary that maps HGS node cv numbers to DSSAT models
+    # Develop horizontal dictionary that maps HGS node cv numbers to DSSAT models and includes area information
     hncvdm_dict = {}
     for entry in all_cv['node_id'].values:
-        hncvdm_dict[entry] = all_cv.loc[all_cv['node_id'] == entry,'dssat_id'].values[0]
+        hncvdm_dict[entry] = [all_cv.loc[all_cv['node_id'] == entry,'dssat_id'].values[0],all_cv.loc[all_cv['node_id'] == entry,'area'].values[0]]
     # Create individual shapefiles of the area of nodal control volumes used for each dssat model and store areas and shapefile paths in a dictionary
     dm_area_shp_dict = {}
     for id_val in all_cv['dssat_id'].unique():

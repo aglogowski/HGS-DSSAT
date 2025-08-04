@@ -1,100 +1,150 @@
 import os
 import numpy as np
 import pandas as pd
+import pickle as pkl
 
-def GenerateNodalFluxTimeValueTableDSSATET(mapping_pkl_path,rz_node_order_file_path,coupled_mod_hgs_dir,coupled_mod_dssat_dir):
+def ExposeMappingVariables(coupled_mod_dir):
+    """
+
+    Parameters:
+    coupled_mod_dir (str): path to coupled model
+            
+    Returns:
+    mapping_dict (dict): dictionary containing all mapping information
+
+    """
+    # Get path
+    mapping_dict_path = os.path.join(coupled_mod_dir,r'mapping\mapping_pkl.p')
+    # Unpickle the file
+    with open(mapping_dict_path,'rb') as file:
+        mapping = pkl.load(file)
+    return mapping
+
+def GenerateNodalFluxTimeValueTableDSSATET(mapping,day,coupled_mod_hgs_dir,coupled_mod_dssat_dir):
     """Build the daily ET Time Value tables, to bring DSSAT evaporation outputs into HGS
 
     Parameters:
-    mapping_pkl_path (str): path to pickle file containing mapping information
-    rz_node_order_file_path (str): path to file containing the order of HGS nodes in the root zone
+    mapping(dict): mapping dictionary
+    day (int): day of simulation
     coupled_mod_hgs_dir (str): path to coupled model HGS subdirectory
     coupled_mod_dssat_dir (str): path to coupled model DSSAT subdirectory
-        
             
     Returns:
 
-   """
-    # Load node list
-    with open(rz_node_order_file_path,'r') as file:
-        lines = file.readlines()
-    nodes = [int(x.strip()) for x in lines]
-    # Load mapping pickle
-    with open(mapping_pkl_path,'rb') as file:
-        map_dict = pkl.load(file)
-    for day in range(275):
-        # Blank list for vals
-        vals = []
-        # Load CSV's
-        # Identify path to DSSAT Surface ET file
-        surface_data_path = os.path.join(coupled_mod_dssat_dir,'Full_SurfaceET.txt')
-        # Load
-        surface_data = pd.read_csv(surface_data_path, sep = '\s+')['EOAA'].values
-        # Identify path to DSSAT Soil ET file
-        soil_data_path = os.path.join(coupled_mod_dssat_dir,'Full_SoilET.txt')
-        # Load
-        soil_data = pd.read_csv(soil_data_path, sep = '\s+')
-        # Iterate through nodes
-        for node in nodes:
-            # Get DSSAT location information
-            dssat_model,sheet,area_stat = map_dict[node]
-            # Get surface ET and half of soil layer 1 for sheet 0
-            if sheet == 0:
-                # Grab val up from surface file
-                valup = surface_data[day]
-                # Grab val down from soil file layer 1
-                valdn = soil_data['ES{}D'.format(sheet + 1)].values[day]
-                # Set value to full surface ET + 1/2 of layer 1 ET
-                val = (valup + (0.5*valdn)) * -1 * 24. * 60. / 1000. * (1./area_stat)
-            # For bottom node sheet, just get half of last DSSAT layer
-            elif sheet == 10:
-                # Grab val down from soil file layer 1
-                valup = soil_data['ES{}D'.format(sheet)].values[day]
-                # Set value to 1/2 of layer 10 ET
-                val = ((0.5*valup)) * -1 * 24. * 60. / 1000. * (1./area_stat)
-            # For all other sheets, take half of layer above and half of layer below
+    """
+    ## NEED TO CHECK IF SORTING HAS ANY POSSIBILITY OF GETTING MESSED UP
+    ## Get # Nodes in Nodeset
+    # Get # of HGS Node Sheets in Coupled Zone
+    sheets_list = list(mapping['hnsdb'].keys())
+    sheets_list.sort()
+    nodes_list = list(mapping['hncvdm'].keys())
+    nodes_list.sort()
+    print(sheets_list,nodes_list)
+    num_nodes = len(sheets_list) * len(nodes_list)
+    ## Get DSSAT ET Vals
+    # Blank dict to store values
+    vals_dict = {}
+    # Iterate through DSSAT model id's
+    model_ids_list = list(mapping['dm_area_shp'].keys())
+    for id in model_ids_list:
+        # Dict
+        vals_dict[id] = {}
+        # Load ET Out File
+        dssat_zone_mod_path = os.path.join(coupled_mod_dssat_dir,str(id))
+        etout_path = os.path.join(dssat_zone_mod_path,'ET.OUT')
+        et_df = pd.read_csv(etout_path, skiprows = 12, sep = '\s+')
+        print(et_df)
+        # Load RWU File
+        dssat_zone_mod_data_path = os.path.join(dssat_zone_mod_path,'data')
+        rwu_path = os.path.join(dssat_zone_mod_data_path,'RWU.txt')
+        headers = ['day']
+        for n in np.arange(1,21):
+            headers.append(str(n))
+        rwu_df = pd.read_csv(rwu_path, names=headers, sep = '\s+')
+        print(rwu_df)
+        # Iterate through DSSAT Model Layers
+        layers_list = list(mapping['dlhl'].keys())
+        for layer in layers_list:
+            vals_dict[id][layer] = et_df.iloc[-2,:]['ES{}D'.format(layer)] + rwu_df.iloc[-2,:][str(layer)]
+    print(vals_dict)
+    ## Store HGS Nodal Flux vals
+    vals_list = []
+    # Iterate through node sheets from lowest to highest
+    for i,sheet in enumerate(sheets_list):
+        print(i,sheet)
+        # Iterate through nodes in each node sheet
+        for node in nodes_list:
+            # Get DSSAT Model id
+            id = mapping['hncvdm'][node][0]
+            area = mapping['hncvdm'][node][1]
+            # Deal with Bottom Sheet
+            if i == 0:
+                ## Up Flux
+                # Get DSSAT Layer #
+                dslay = mapping['hnsdb'][sheet] - 1
+                # Get DSSAT flux
+                uflux = vals_dict[id][dslay]
+                # Get HGS equivalent ET Flux
+                val = uflux * -1 * 24. * 60. / 1000. * area
+                vals_list.append(val)
+            # Deal with Top Sheet
+            elif i == len(sheets_list)-1:
+                ## Down Flux
+                # Get DSSAT Layer #
+                dslay = mapping['hnsdb'][sheet]
+                # Get DSSAT flux
+                dflux = vals_dict[id][dslay]
+                # Get HGS equivalent ET Flux
+                val = dflux * -1 * 24. * 60. / 1000. * area
+                vals_list.append(val)
+            # All other sheets
             else:
-                # Grab val down from soil file layer 1
-                valup = soil_data['ES{}D'.format(sheet)].values[day]
-                # Grab val down from soil file layer 1
-                valdn = soil_data['ES{}D'.format(sheet + 1)].values[day]
-                # Set value to 1/2 of layer n ET and 1/2 of layer n+1 ET
-                val = ((0.5*valdn) + (0.5*valup)) * -1 * 24. * 60. / 1000. * (1./area_stat)
-            # Convert DSSAT total mm to HGS total m3 and then multiply by minutes in a day to force all to be taken out in first minute of day
-            vals.append(val)
-        print(vals)
-        # Write out nflux.txt file
-        nflux_path = os.path.join(coupled_mod_hgs_dir,'n{}flux.txt'.format(day))
-        with open(nflux_path,'w') as file:
-            file.write(str(len(vals))+'\n')
-            lines = []
-            for val in vals:
-                lines.append(str(val)+'\n')
-            lines[-1] = lines[-1][:-1]
-            for line in lines:
-                file.write(line)
+                ## Up Flux
+                # Get DSSAT Layer #
+                dslay = mapping['hnsdb'][sheet] - 1
+                # Get DSSAT flux
+                uflux = vals_dict[id][dslay]
+                ## Down Flux
+                # Get DSSAT Layer #
+                dslay = mapping['hnsdb'][sheet]
+                # Get DSSAT flux
+                dflux = vals_dict[id][dslay]
+                # Get HGS equivalent ET Flux
+                val = ((0.5*uflux) + (0.5*dflux)) * -1 * 24. * 60. / 1000. * area
+                vals_list.append(val)
+    ## Write out file
+    # nflux file path
+    nflux_path = os.path.join(coupled_mod_hgs_dir,'nflux.txt')
+    # Write vals from val list
+    with open(nflux_path,'w') as file:
+        file.write(str(num_nodes) + '\n')
+        for val in vals_list:
+            file.write(str(val) + '\n')
 
-def GenerateDRNFileFromHGSNFMB(model_name,coupled_mod_hgs_dir,coupled_mod_dssat_dir,dm_area_shp_dict,hldl_dict,day):
-    """Generate Shapefile of HGS nodes and control volumes to assist in mapping process used to link DSSAT models to HGS zones.
+
+def GenerateDSSATDailyDRNHGSNodalFlux(mapping,day,model_name,coupled_mod_hgs_dir,coupled_mod_dssat_dir):
+    """Generate daily DRN file for each DSSAT model that summarizes downward flux through each nodesheet according to HGS model.
 
     Parameters:
+    mapping(dict): mapping dictionary
+    day (int): day of simulation
     model_name (str):
-    coupled_mod_hgs_dir (str):
-    coupled_mod_dssat_dir (str):
-    dm_area_shp_dict (dict):
-    hldl_dict (dict):
-    day (int): 
+    coupled_mod_hgs_dir (str): path to coupled model HGS subdirectory
+    coupled_mod_dssat_dir (str): path to coupled model DSSAT subdirectory
 
     Returns:
-
     
     """
+    # Get right dictionary
+    dm_area_shp_dict = mapping['dm_area_shp']
+    # Get list of Zones (combinations of nodal control volumes)/DSSAT Model ID's
+    zones_list = list(dm_area_shp_dict.keys())
     # Iterate through DSSAT model id's
-    for id in list(dm_area_shp_dict.keys()):
+    for id in zones_list:
         # Get area of nodal control volume
         area = dm_area_shp_dict[id]
         # Get path to nfmb file
-        nfmb_path = os.path.join(coupled_mod_hgs_dir,model_name +str(day)+'o.nodal_fluid_mass_balance.nfmb_dssat_id_'+id+'.dat')
+        nfmb_path = os.path.join(coupled_mod_hgs_dir,model_name+'_day'+str(day)+'o.nodal_fluid_mass_balance.nfmb_dssat_id_'+str(id)+'.dat')
         # Open file and grab area and variable list
         with open(nfmb_path,'r') as file:
             for i,line in enumerate(file.readlines()):
@@ -111,7 +161,8 @@ def GenerateDRNFileFromHGSNFMB(model_name,coupled_mod_hgs_dir,coupled_mod_dssat_
         df['Time Inc'] = df['Time'].diff()
         df.loc[0,'Time Inc'] = df['Time'].values[0]
         # Iterate thru node sheets to get drainage fluxes
-        node_sheets = list(hldl_dict.keys())
+        hnsdb_dict = mapping['hnsdb']
+        node_sheets = list(hnsdb_dict.keys())
         top_node_sheet = np.max(node_sheets)
         bottom_node_sheet = np.min(node_sheets)
         Net_Q_Vals = []
@@ -120,7 +171,8 @@ def GenerateDRNFileFromHGSNFMB(model_name,coupled_mod_hgs_dir,coupled_mod_dssat_
             df[net_q_name] = df.apply(lambda x: (x['QVD+{:02d}'.format(i)]+-1*(x['QVD-{:02d}'.format(i)]))*x['Time Inc']/area*100., axis = 1)
             Net_Q_Vals.append(df[net_q_name].sum())
         # Write out to file
-        drn_path = os.path.join(coupled_mod_dssat_dir,'{}_{}_DRN.inp'.format(id,day))
+        zone_mod_path = os.path.join(coupled_mod_dssat_dir,r'{}\data'.format(id))
+        drn_path = os.path.join(zone_mod_path,'DRN_{}.inp'.format(day))
         with open(drn_path,'w') as file:
             line = ''
             for val in Net_Q_Vals:

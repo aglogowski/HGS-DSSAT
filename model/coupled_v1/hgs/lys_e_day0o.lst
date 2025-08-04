@@ -1,0 +1,749 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@                                                                      @@
+@@   HYDROGEOSPHERE: 3-D coupled surface/subsurface flow and transport  @@
+@@                                                                      @@
+@@   REVISION:   2845                                                   @@
+@@   BUILD DATE: 2025-06-02                                             @@
+@@   BUILD INFO: 64-bit                                                 @@
+@@                                                                      @@
+@@   (c) Aquanty, Inc.                                                  @@
+@@       www.aquanty.com                                                @@
+@@       support@aquanty.com                                            @@
+@@                                                                      @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ 
+PROBLEM TITLE:
+Arek Field Lysimeter v1 stand alone DSSAT SWSW7501.WHX
+3 x 3 x 14 Node Model to develop mapping
+Event - Experiment forcing
+ 
+ 
+ 1. Initial time =  0.000000000000000E+000
+
+----------------------------------------------------------------------------------
+                      SOLUTION FOR TIMESTEP      1                          
+----------------------------------------------------------------------------------
+Global target time:  1.0000000000E+00(     1 of      1)
+ %done      Time             delta_t          Tnext
+  0.00 0.0000000000E+00 1.1574070000E-05 1.1574070000E-05 Accept timestep
+     Calculating transient flow solution...
+
+Summary of nonlinear iteration
+ Iter Relfac          Delval    @Node  @NodePM  NcNode        Resval    @Node  @NodePM  NcNode Solv  Dom
+    0(Initial)     0.000                                -1.53015E-04       95       95      56
+    1  1.000      3.3781E-07       68       68       0   7.97362E-02       14       14       9    1 pm,pm
+ CONVERGENCE: delval  =  3.3781E-07 <  1.0000E-05
+              resval  =  7.9736E-02 <  1.0000E-05
+ 
+
+---------------------------------------------------------------------------------------------------
+ FLUID BALANCE, TIME:   1.157407000000000E-005
+---------------------------------------------------------------------------------------------------
+RATE OF FLUID EXCHANGE [L**3/T]
+Boundary condition name               IN                       OUT                      NET(IN-OUT)
+Head_1                          1.6368738368E+004        0.0000000000E+000        1.6368738368E+004        porous media
+Rain_2                          0.0000000000E+000        0.0000000000E+000        0.0000000000E+000      overland media
+TOTAL:[NET1(+),NET1(-),NET1]    1.6368738368E+004        0.0000000000E+000        1.6368738368E+004
+  
+RATE OF FLUID ACCUMULATION [L**3/T]
+   Porous medium                1.6368419423E+004
+   Overland                     0.0000000000E+000
+   NET2 ACCUMULATION RATE                                                         1.6368419423E+004
+  
+FLUID BALANCE ERROR
+   Absolute: (NET1-NET2)                                                          3.1894490428E-001
+   Relative: (NET1-NET2)/(abs(NET1)+abs(NET2))/2.0                                1.9485192106E-005
+   Percent:   abs(NET1-NET2)/[max{NET1(+),abs(NET1(-)}]*100.0                     1.9485002272E-003
+ 
+FLUID EXCHANGE BETWEEN SURFACE (DUAL NODES) AND SUBSURFACE DOMAIN [L**3/T]
+  Infiltration                  5.6243169801E-006
+  Exfiltration                  0.0000000000E+000
+---------------------------------------------------------------------------------------------------
+
+  
+ Variable             Max. change     Target change   Dt multiplier   At node
+ ========             ===========     =============   =============   =======
+ Head                 0.33781E-06        1000.0           0.29603E+10      64
+ Saturation           0.43000            1.0000            2.3256           1
+ NR Iteration          1.0000            15.000            15.000           0
+ Timestep multiplier:    2.32558139534884     
+ Accepted solution at time:   1.157407000000000E-005
+
+----------------------------------------------------------------------------------
+                      SOLUTION FOR TIMESTEP      2                          
+----------------------------------------------------------------------------------
+Global target time:  1.0000000000E+00(     1 of      1)
+ %done      Time             delta_t          Tnext
+  0.00 1.1574070000E-05 2.6916441860E-05 3.8490511860E-05 Accept timestep
+     Calculating transient flow solution...
+
+Summary of nonlinear iteration
+ Iter Relfac          Delval    @Node  @NodePM  NcNode        Resval    @Node  @NodePM  NcNode Solv  Dom
+    0(Initial)     0.000                                 7.97362E-02       14       14      65
+    1  1.000      1.0263E-04       14       14       9   1.06431E-04       14       14       9    1 pm,pm
+    2  1.000      1.3699E-07       14       14       0  -1.40608E-06      122      113       0    1 pm,of
+ CONVERGENCE: delval  =  1.3699E-07 <  1.0000E-05
+              resval  =  1.4061E-06 <  1.0000E-05
+ 
+
+---------------------------------------------------------------------------------------------------
+ FLUID BALANCE, TIME:   3.849051186046511E-005
+---------------------------------------------------------------------------------------------------
+RATE OF FLUID EXCHANGE [L**3/T]
+Boundary condition name               IN                       OUT                      NET(IN-OUT)
+Head_1                          3.1875982044E-001        0.0000000000E+000        3.1875982044E-001        porous media
+Rain_2                          0.0000000000E+000        0.0000000000E+000        0.0000000000E+000      overland media
+TOTAL:[NET1(+),NET1(-),NET1]    3.1875982044E-001        0.0000000000E+000        3.1875982044E-001
+  
+RATE OF FLUID ACCUMULATION [L**3/T]
+   Porous medium                3.1875923955E-001
+   Overland                     0.0000000000E+000
+   NET2 ACCUMULATION RATE                                                         3.1875923955E-001
+  
+FLUID BALANCE ERROR
+   Absolute: (NET1-NET2)                                                          5.8088601462E-007
+   Relative: (NET1-NET2)/(abs(NET1)+abs(NET2))/2.0                                1.8223330127E-006
+   Percent:   abs(NET1-NET2)/[max{NET1(+),abs(NET1(-)}]*100.0                     1.8223313523E-004
+ 
+FLUID EXCHANGE BETWEEN SURFACE (DUAL NODES) AND SUBSURFACE DOMAIN [L**3/T]
+  Infiltration                  5.6243179439E-006
+  Exfiltration                  0.0000000000E+000
+---------------------------------------------------------------------------------------------------
+
+  
+ Variable             Max. change     Target change   Dt multiplier   At node
+ ========             ===========     =============   =============   =======
+ Head                 0.10277E-03        1000.0           0.97305E+07      10
+ Saturation           0.97417E-05        1.0000           0.10265E+06      10
+ NR Iteration          2.0000            15.000            7.5000           0
+ Timestep multiplier:    7.50000000000000     
+ 
+ Minimum dt_multiplier    >    Maximum allowed
+   7.50000000000000       >    2.50000000000000     
+ Timestep multiplier:    2.50000000000000     
+ Accepted solution at time:   3.849051186046511E-005
+
+----------------------------------------------------------------------------------
+                      SOLUTION FOR TIMESTEP      3                          
+----------------------------------------------------------------------------------
+Global target time:  1.0000000000E+00(     1 of      1)
+ %done      Time             delta_t          Tnext
+  0.00 3.8490511860E-05 6.7291104651E-05 1.0578161651E-04 Accept timestep
+     Calculating transient flow solution...
+
+Summary of nonlinear iteration
+ Iter Relfac          Delval    @Node  @NodePM  NcNode        Resval    @Node  @NodePM  NcNode Solv  Dom
+    0(Initial)     0.000                                 7.97320E-02       14       14      65
+    1  1.000      2.5654E-04       11       11       9   1.03020E-04       14       14       9    1 pm,pm
+    2  1.000      3.3142E-07       10       10       0  -1.40608E-06      122      113       0    1 pm,of
+ CONVERGENCE: delval  =  3.3142E-07 <  1.0000E-05
+              resval  =  1.4061E-06 <  1.0000E-05
+ 
+
+---------------------------------------------------------------------------------------------------
+ FLUID BALANCE, TIME:   1.057816165116279E-004
+---------------------------------------------------------------------------------------------------
+RATE OF FLUID EXCHANGE [L**3/T]
+Boundary condition name               IN                       OUT                      NET(IN-OUT)
+Head_1                          3.1871872179E-001        0.0000000000E+000        3.1871872179E-001        porous media
+Rain_2                          0.0000000000E+000        0.0000000000E+000        0.0000000000E+000      overland media
+TOTAL:[NET1(+),NET1(-),NET1]    3.1871872179E-001        0.0000000000E+000        3.1871872179E-001
+  
+RATE OF FLUID ACCUMULATION [L**3/T]
+   Porous medium                3.1871815934E-001
+   Overland                     0.0000000000E+000
+   NET2 ACCUMULATION RATE                                                         3.1871815934E-001
+  
+FLUID BALANCE ERROR
+   Absolute: (NET1-NET2)                                                          5.6244713681E-007
+   Relative: (NET1-NET2)/(abs(NET1)+abs(NET2))/2.0                                1.7647147614E-006
+   Percent:   abs(NET1-NET2)/[max{NET1(+),abs(NET1(-)}]*100.0                     1.7647132043E-004
+ 
+FLUID EXCHANGE BETWEEN SURFACE (DUAL NODES) AND SUBSURFACE DOMAIN [L**3/T]
+  Infiltration                  5.6243203533E-006
+  Exfiltration                  0.0000000000E+000
+---------------------------------------------------------------------------------------------------
+
+  
+ Variable             Max. change     Target change   Dt multiplier   At node
+ ========             ===========     =============   =============   =======
+ Head                 0.25687E-03        1000.0           0.38931E+07      10
+ Saturation           0.24351E-04        1.0000            41066.          10
+ NR Iteration          2.0000            15.000            7.5000           0
+ Timestep multiplier:    7.50000000000000     
+ 
+ Minimum dt_multiplier    >    Maximum allowed
+   7.50000000000000       >    2.50000000000000     
+ Timestep multiplier:    2.50000000000000     
+ Accepted solution at time:   1.057816165116279E-004
+
+----------------------------------------------------------------------------------
+                      SOLUTION FOR TIMESTEP      4                          
+----------------------------------------------------------------------------------
+Global target time:  1.0000000000E+00(     1 of      1)
+ %done      Time             delta_t          Tnext
+  0.01 1.0578161651E-04 1.6822776163E-04 2.7400937814E-04 Accept timestep
+     Calculating transient flow solution...
+
+Summary of nonlinear iteration
+ Iter Relfac          Delval    @Node  @NodePM  NcNode        Resval    @Node  @NodePM  NcNode Solv  Dom
+    0(Initial)     0.000                                 7.97218E-02       14       14      65
+    1  1.000      6.4104E-04       10       10       9   9.45003E-05       14       14       9    1 pm,pm
+    2  1.000      7.5960E-07       11       11       0  -1.40608E-06      122      113       0    1 pm,of
+ CONVERGENCE: delval  =  7.5960E-07 <  1.0000E-05
+              resval  =  1.4061E-06 <  1.0000E-05
+ 
+
+---------------------------------------------------------------------------------------------------
+ FLUID BALANCE, TIME:   2.740093781395348E-004
+---------------------------------------------------------------------------------------------------
+RATE OF FLUID EXCHANGE [L**3/T]
+Boundary condition name               IN                       OUT                      NET(IN-OUT)
+Head_1                          3.1861603386E-001        0.0000000000E+000        3.1861603386E-001        porous media
+Rain_2                          0.0000000000E+000        0.0000000000E+000        0.0000000000E+000      overland media
+TOTAL:[NET1(+),NET1(-),NET1]    3.1861603386E-001        0.0000000000E+000        3.1861603386E-001
+  
+RATE OF FLUID ACCUMULATION [L**3/T]
+   Porous medium                3.1861551802E-001
+   Overland                     0.0000000000E+000
+   NET2 ACCUMULATION RATE                                                         3.1861551802E-001
+  
+FLUID BALANCE ERROR
+   Absolute: (NET1-NET2)                                                          5.1584076732E-007
+   Relative: (NET1-NET2)/(abs(NET1)+abs(NET2))/2.0                                1.6190057313E-006
+   Percent:   abs(NET1-NET2)/[max{NET1(+),abs(NET1(-)}]*100.0                     1.6190044207E-004
+ 
+FLUID EXCHANGE BETWEEN SURFACE (DUAL NODES) AND SUBSURFACE DOMAIN [L**3/T]
+  Infiltration                  5.6243263758E-006
+  Exfiltration                  0.0000000000E+000
+---------------------------------------------------------------------------------------------------
+
+  
+ Variable             Max. change     Target change   Dt multiplier   At node
+ ========             ===========     =============   =============   =======
+ Head                 0.64180E-03        1000.0           0.15581E+07      10
+ Saturation           0.60858E-04        1.0000            16432.          10
+ NR Iteration          2.0000            15.000            7.5000           0
+ Timestep multiplier:    7.50000000000000     
+ 
+ Minimum dt_multiplier    >    Maximum allowed
+   7.50000000000000       >    2.50000000000000     
+ Timestep multiplier:    2.50000000000000     
+ Accepted solution at time:   2.740093781395348E-004
+
+----------------------------------------------------------------------------------
+                      SOLUTION FOR TIMESTEP      5                          
+----------------------------------------------------------------------------------
+Global target time:  1.0000000000E+00(     1 of      1)
+ %done      Time             delta_t          Tnext
+  0.03 2.7400937814E-04 4.2056940407E-04 6.9457878221E-04 Accept timestep
+     Calculating transient flow solution...
+
+Summary of nonlinear iteration
+ Iter Relfac          Delval    @Node  @NodePM  NcNode        Resval    @Node  @NodePM  NcNode Solv  Dom
+    0(Initial)     0.000                                 7.96960E-02       14       14      65
+    1  1.000      1.6007E-03       10       10      27   7.32453E-05       14       14       9    1 pm,pm
+    2  1.000      1.4699E-06       10       10       0  -1.40609E-06      122      113       0    1 pm,of
+ CONVERGENCE: delval  =  1.4699E-06 <  1.0000E-05
+              resval  =  1.4061E-06 <  1.0000E-05
+ 
+
+---------------------------------------------------------------------------------------------------
+ FLUID BALANCE, TIME:   6.945787822093023E-004
+---------------------------------------------------------------------------------------------------
+RATE OF FLUID EXCHANGE [L**3/T]
+Boundary condition name               IN                       OUT                      NET(IN-OUT)
+Head_1                          3.1835968016E-001        0.0000000000E+000        3.1835968016E-001        porous media
+Rain_2                          0.0000000000E+000        0.0000000000E+000        0.0000000000E+000      overland media
+TOTAL:[NET1(+),NET1(-),NET1]    3.1835968016E-001        0.0000000000E+000        3.1835968016E-001
+  
+RATE OF FLUID ACCUMULATION [L**3/T]
+   Porous medium                3.1835928058E-001
+   Overland                     0.0000000000E+000
+   NET2 ACCUMULATION RATE                                                         3.1835928058E-001
+  
+FLUID BALANCE ERROR
+   Absolute: (NET1-NET2)                                                          3.9958336057E-007
+   Relative: (NET1-NET2)/(abs(NET1)+abs(NET2))/2.0                                1.2551325944E-006
+   Percent:   abs(NET1-NET2)/[max{NET1(+),abs(NET1(-)}]*100.0                     1.2551318068E-004
+ 
+FLUID EXCHANGE BETWEEN SURFACE (DUAL NODES) AND SUBSURFACE DOMAIN [L**3/T]
+  Infiltration                  5.6243414264E-006
+  Exfiltration                  0.0000000000E+000
+---------------------------------------------------------------------------------------------------
+
+  
+ Variable             Max. change     Target change   Dt multiplier   At node
+ ========             ===========     =============   =============   =======
+ Head                 0.16022E-02        1000.0           0.62414E+06      10
+ Saturation           0.15202E-03        1.0000            6578.0          10
+ NR Iteration          2.0000            15.000            7.5000           0
+ Timestep multiplier:    7.50000000000000     
+ 
+ Minimum dt_multiplier    >    Maximum allowed
+   7.50000000000000       >    2.50000000000000     
+ Timestep multiplier:    2.50000000000000     
+ Accepted solution at time:   6.945787822093023E-004
+
+----------------------------------------------------------------------------------
+                      SOLUTION FOR TIMESTEP      6                          
+----------------------------------------------------------------------------------
+Global target time:  1.0000000000E+00(     1 of      1)
+ %done      Time             delta_t          Tnext
+  0.07 6.9457878221E-04 1.0514235102E-03 1.7460022924E-03 Accept timestep
+     Calculating transient flow solution...
+
+Summary of nonlinear iteration
+ Iter Relfac          Delval    @Node  @NodePM  NcNode        Resval    @Node  @NodePM  NcNode Solv  Dom
+    0(Initial)     0.000                                 7.96318E-02       14       14      65
+    1  1.000      3.9903E-03       10       10      63   2.03842E-05       14       14       5    1 pm,pm
+    2  1.000      1.0192E-06       12       12       0  -1.40609E-06      122      113       0    1 pm,of
+ CONVERGENCE: delval  =  1.0192E-06 <  1.0000E-05
+              resval  =  1.4061E-06 <  1.0000E-05
+ 
+
+---------------------------------------------------------------------------------------------------
+ FLUID BALANCE, TIME:   1.746002292383721E-003
+---------------------------------------------------------------------------------------------------
+RATE OF FLUID EXCHANGE [L**3/T]
+Boundary condition name               IN                       OUT                      NET(IN-OUT)
+Head_1                          3.1772107356E-001        0.0000000000E+000        3.1772107356E-001        porous media
+Rain_2                          0.0000000000E+000        0.0000000000E+000        0.0000000000E+000      overland media
+TOTAL:[NET1(+),NET1(-),NET1]    3.1772107356E-001        0.0000000000E+000        3.1772107356E-001
+  
+RATE OF FLUID ACCUMULATION [L**3/T]
+   Porous medium                3.1772096190E-001
+   Overland                     0.0000000000E+000
+   NET2 ACCUMULATION RATE                                                         3.1772096190E-001
+  
+FLUID BALANCE ERROR
+   Absolute: (NET1-NET2)                                                          1.1165848424E-007
+   Relative: (NET1-NET2)/(abs(NET1)+abs(NET2))/2.0                                3.5143562435E-007
+   Percent:   abs(NET1-NET2)/[max{NET1(+),abs(NET1(-)}]*100.0                     3.5143556260E-005
+ 
+FLUID EXCHANGE BETWEEN SURFACE (DUAL NODES) AND SUBSURFACE DOMAIN [L**3/T]
+  Infiltration                  5.6243790174E-006
+  Exfiltration                  0.0000000000E+000
+---------------------------------------------------------------------------------------------------
+
+  
+ Variable             Max. change     Target change   Dt multiplier   At node
+ ========             ===========     =============   =============   =======
+ Head                 0.39913E-02        1000.0           0.25055E+06      10
+ Saturation           0.37929E-03        1.0000            2636.5          10
+ NR Iteration          2.0000            15.000            7.5000           0
+ Timestep multiplier:    7.50000000000000     
+ 
+ Minimum dt_multiplier    >    Maximum allowed
+   7.50000000000000       >    2.50000000000000     
+ Timestep multiplier:    2.50000000000000     
+ Accepted solution at time:   1.746002292383721E-003
+
+----------------------------------------------------------------------------------
+                      SOLUTION FOR TIMESTEP      7                          
+----------------------------------------------------------------------------------
+Global target time:  1.0000000000E+00(     1 of      1)
+ %done      Time             delta_t          Tnext
+  0.17 1.7460022924E-03 2.6285587754E-03 4.3745610678E-03 Accept timestep
+     Calculating transient flow solution...
+
+Summary of nonlinear iteration
+ Iter Relfac          Delval    @Node  @NodePM  NcNode        Resval    @Node  @NodePM  NcNode Solv  Dom
+    0(Initial)     0.000                                 7.94718E-02       14       14      65
+    1  1.000      9.9039E-03       10       10      72  -1.10061E-04       14       14       9    1 pm,pm
+    2 0.9991     -1.3641E-05       10       10       9  -1.40612E-06      122      113       0    1 pm,of
+ CONVERGENCE: delval  =  1.3641E-05 <  1.0000E-05
+              resval  =  1.4061E-06 <  1.0000E-05
+ 
+
+---------------------------------------------------------------------------------------------------
+ FLUID BALANCE, TIME:   4.374561067819767E-003
+---------------------------------------------------------------------------------------------------
+RATE OF FLUID EXCHANGE [L**3/T]
+Boundary condition name               IN                       OUT                      NET(IN-OUT)
+Head_1                          3.1613862537E-001        0.0000000000E+000        3.1613862537E-001        porous media
+Rain_2                          0.0000000000E+000        0.0000000000E+000        0.0000000000E+000      overland media
+TOTAL:[NET1(+),NET1(-),NET1]    3.1613862537E-001        0.0000000000E+000        3.1613862537E-001
+  
+RATE OF FLUID ACCUMULATION [L**3/T]
+   Porous medium                3.1613962270E-001
+   Overland                     0.0000000000E+000
+   NET2 ACCUMULATION RATE                                                         3.1613962270E-001
+  
+FLUID BALANCE ERROR
+   Absolute: (NET1-NET2)                                                         -9.9733497416E-007
+   Relative: (NET1-NET2)/(abs(NET1)+abs(NET2))/2.0                                3.1547344139E-006
+   Percent:   abs(NET1-NET2)/[max{NET1(+),abs(NET1(-)}]*100.0                     3.1547393900E-004
+ 
+FLUID EXCHANGE BETWEEN SURFACE (DUAL NODES) AND SUBSURFACE DOMAIN [L**3/T]
+  Infiltration                  5.6244727736E-006
+  Exfiltration                  0.0000000000E+000
+---------------------------------------------------------------------------------------------------
+
+  
+ Variable             Max. change     Target change   Dt multiplier   At node
+ ========             ===========     =============   =============   =======
+ Head                 0.98903E-02        1000.0           0.10111E+06      10
+ Saturation           0.94351E-03        1.0000            1059.9          10
+ NR Iteration          2.0000            15.000            7.5000           0
+ Timestep multiplier:    7.50000000000000     
+ 
+ Minimum dt_multiplier    >    Maximum allowed
+   7.50000000000000       >    2.50000000000000     
+ Timestep multiplier:    2.50000000000000     
+ Accepted solution at time:   4.374561067819767E-003
+
+----------------------------------------------------------------------------------
+                      SOLUTION FOR TIMESTEP      8                          
+----------------------------------------------------------------------------------
+Global target time:  1.0000000000E+00(     1 of      1)
+ %done      Time             delta_t          Tnext
+  0.44 4.3745610678E-03 6.5713969386E-03 1.0945958006E-02 Accept timestep
+     Calculating transient flow solution...
+
+Summary of nonlinear iteration
+ Iter Relfac          Delval    @Node  @NodePM  NcNode        Resval    @Node  @NodePM  NcNode Solv  Dom
+    0(Initial)     0.000                                 7.90754E-02       14       14      65
+    1  1.000      2.4321E-02       10       10      81  -4.25777E-04       14       14       9    1 pm,pm
+    2 0.9965     -1.2921E-04       11       11       9  -2.08282E-06       14       14       0    1 pm,pm
+ CONVERGENCE: delval  =  1.2921E-04 <  1.0000E-05
+              resval  =  2.0828E-06 <  1.0000E-05
+ 
+
+---------------------------------------------------------------------------------------------------
+ FLUID BALANCE, TIME:   1.094595800640988E-002
+---------------------------------------------------------------------------------------------------
+RATE OF FLUID EXCHANGE [L**3/T]
+Boundary condition name               IN                       OUT                      NET(IN-OUT)
+Head_1                          3.1226788326E-001        0.0000000000E+000        3.1226788326E-001        porous media
+Rain_2                          0.0000000000E+000        0.0000000000E+000        0.0000000000E+000      overland media
+TOTAL:[NET1(+),NET1(-),NET1]    3.1226788326E-001        0.0000000000E+000        3.1226788326E-001
+  
+RATE OF FLUID ACCUMULATION [L**3/T]
+   Porous medium                3.1227621302E-001
+   Overland                     0.0000000000E+000
+   NET2 ACCUMULATION RATE                                                         3.1227621302E-001
+  
+FLUID BALANCE ERROR
+   Absolute: (NET1-NET2)                                                         -8.3297567601E-006
+   Relative: (NET1-NET2)/(abs(NET1)+abs(NET2))/2.0                                2.6674679369E-005
+   Percent:   abs(NET1-NET2)/[max{NET1(+),abs(NET1(-)}]*100.0                     2.6675035143E-003
+ 
+FLUID EXCHANGE BETWEEN SURFACE (DUAL NODES) AND SUBSURFACE DOMAIN [L**3/T]
+  Infiltration                  5.6247057865E-006
+  Exfiltration                  0.0000000000E+000
+---------------------------------------------------------------------------------------------------
+
+  
+ Variable             Max. change     Target change   Dt multiplier   At node
+ ========             ===========     =============   =============   =======
+ Head                 0.24192E-01        1000.0            41336.          10
+ Saturation           0.23299E-02        1.0000            429.20          10
+ NR Iteration          2.0000            15.000            7.5000           0
+ Timestep multiplier:    7.50000000000000     
+ 
+ Minimum dt_multiplier    >    Maximum allowed
+   7.50000000000000       >    2.50000000000000     
+ Timestep multiplier:    2.50000000000000     
+ Accepted solution at time:   1.094595800640988E-002
+
+----------------------------------------------------------------------------------
+                      SOLUTION FOR TIMESTEP      9                          
+----------------------------------------------------------------------------------
+Global target time:  1.0000000000E+00(     1 of      1)
+ %done      Time             delta_t          Tnext
+  1.09 1.0945958006E-02 1.6428492346E-02 2.7374450353E-02 Accept timestep
+     Calculating transient flow solution...
+
+Summary of nonlinear iteration
+ Iter Relfac          Delval    @Node  @NodePM  NcNode        Resval    @Node  @NodePM  NcNode Solv  Dom
+    0(Initial)     0.000                                 7.81056E-02       14       14      65
+    1  1.000      5.8199E-02       16       16      81  -1.15421E-03       14       14       9    1 pm,pm
+    2 0.9905     -8.3302E-04       11       11       9  -1.26783E-05       14       14       1    1 pm,pm
+    3  1.000     -9.1543E-06       10       10       0  -1.40632E-06      122      113       0    1 pm,of
+ CONVERGENCE: delval  =  9.1543E-06 <  1.0000E-05
+              resval  =  1.4063E-06 <  1.0000E-05
+ 
+
+---------------------------------------------------------------------------------------------------
+ FLUID BALANCE, TIME:   2.737445035288517E-002
+---------------------------------------------------------------------------------------------------
+RATE OF FLUID EXCHANGE [L**3/T]
+Boundary condition name               IN                       OUT                      NET(IN-OUT)
+Head_1                          3.0308947648E-001        0.0000000000E+000        3.0308947648E-001        porous media
+Rain_2                          0.0000000000E+000        0.0000000000E+000        0.0000000000E+000      overland media
+TOTAL:[NET1(+),NET1(-),NET1]    3.0308947648E-001        0.0000000000E+000        3.0308947648E-001
+  
+RATE OF FLUID ACCUMULATION [L**3/T]
+   Porous medium                3.0308954121E-001
+   Overland                     0.0000000000E+000
+   NET2 ACCUMULATION RATE                                                         3.0308954121E-001
+  
+FLUID BALANCE ERROR
+   Absolute: (NET1-NET2)                                                         -6.4725577897E-008
+   Relative: (NET1-NET2)/(abs(NET1)+abs(NET2))/2.0                                2.1355268331E-007
+   Percent:   abs(NET1-NET2)/[max{NET1(+),abs(NET1(-)}]*100.0                     2.1355270611E-005
+ 
+FLUID EXCHANGE BETWEEN SURFACE (DUAL NODES) AND SUBSURFACE DOMAIN [L**3/T]
+  Infiltration                  5.6252798028E-006
+  Exfiltration                  0.0000000000E+000
+---------------------------------------------------------------------------------------------------
+
+  
+ Variable             Max. change     Target change   Dt multiplier   At node
+ ========             ===========     =============   =============   =======
+ Head                 0.57365E-01        1000.0            17432.          10
+ Saturation           0.56533E-02        1.0000            176.89          10
+ NR Iteration          3.0000            15.000            5.0000           0
+ Timestep multiplier:    5.00000000000000     
+ 
+ Minimum dt_multiplier    >    Maximum allowed
+   5.00000000000000       >    2.50000000000000     
+ Timestep multiplier:    2.50000000000000     
+ Accepted solution at time:   2.737445035288517E-002
+
+----------------------------------------------------------------------------------
+                      SOLUTION FOR TIMESTEP     10                          
+----------------------------------------------------------------------------------
+Global target time:  1.0000000000E+00(     1 of      1)
+ %done      Time             delta_t          Tnext
+  2.74 2.7374450353E-02 4.1071230866E-02 6.8445681219E-02 Accept timestep
+     Calculating transient flow solution...
+
+Summary of nonlinear iteration
+ Iter Relfac          Delval    @Node  @NodePM  NcNode        Resval    @Node  @NodePM  NcNode Solv  Dom
+    0(Initial)     0.000                                 7.58062E-02       14       14      65
+    1  1.000      0.1311           10       10      90  -2.65040E-03       14       14       9    1 pm,pm
+    2 0.9785     -4.2700E-03       10       10       9  -6.29365E-05       14       14       9    1 pm,pm
+    3  1.000     -1.0163E-04       10       10       9  -1.40667E-06      122      113       0    1 pm,of
+ CONVERGENCE: delval  =  1.0163E-04 <  1.0000E-05
+              resval  =  1.4067E-06 <  1.0000E-05
+ 
+
+---------------------------------------------------------------------------------------------------
+ FLUID BALANCE, TIME:   6.844568121907339E-002
+---------------------------------------------------------------------------------------------------
+RATE OF FLUID EXCHANGE [L**3/T]
+Boundary condition name               IN                       OUT                      NET(IN-OUT)
+Head_1                          2.8279060259E-001        0.0000000000E+000        2.8279060259E-001        porous media
+Rain_2                          0.0000000000E+000        0.0000000000E+000        0.0000000000E+000      overland media
+TOTAL:[NET1(+),NET1(-),NET1]    2.8279060259E-001        0.0000000000E+000        2.8279060259E-001
+  
+RATE OF FLUID ACCUMULATION [L**3/T]
+   Porous medium                2.8279090315E-001
+   Overland                     0.0000000000E+000
+   NET2 ACCUMULATION RATE                                                         2.8279090315E-001
+  
+FLUID BALANCE ERROR
+   Absolute: (NET1-NET2)                                                         -3.0055674266E-007
+   Relative: (NET1-NET2)/(abs(NET1)+abs(NET2))/2.0                                1.0628238003E-006
+   Percent:   abs(NET1-NET2)/[max{NET1(+),abs(NET1(-)}]*100.0                     1.0628243651E-004
+ 
+FLUID EXCHANGE BETWEEN SURFACE (DUAL NODES) AND SUBSURFACE DOMAIN [L**3/T]
+  Infiltration                  5.6266629355E-006
+  Exfiltration                  0.0000000000E+000
+---------------------------------------------------------------------------------------------------
+
+  
+ Variable             Max. change     Target change   Dt multiplier   At node
+ ========             ===========     =============   =============   =======
+ Head                 0.12687            1000.0            7882.2          10
+ Saturation           0.13186E-01        1.0000            75.840          10
+ NR Iteration          3.0000            15.000            5.0000           0
+ Timestep multiplier:    5.00000000000000     
+ 
+ Minimum dt_multiplier    >    Maximum allowed
+   5.00000000000000       >    2.50000000000000     
+ Timestep multiplier:    2.50000000000000     
+ Accepted solution at time:   6.844568121907339E-002
+
+----------------------------------------------------------------------------------
+                      SOLUTION FOR TIMESTEP     11                          
+----------------------------------------------------------------------------------
+Global target time:  1.0000000000E+00(     1 of      1)
+ %done      Time             delta_t          Tnext
+  6.84 6.8445681219E-02 1.0267807717E-01 1.7112375838E-01 Accept timestep
+     Calculating transient flow solution...
+
+Summary of nonlinear iteration
+ Iter Relfac          Delval    @Node  @NodePM  NcNode        Resval    @Node  @NodePM  NcNode Solv  Dom
+    0(Initial)     0.000                                 7.07208E-02       14       14      66
+    1  1.000      0.2603           10       10      90  -4.97666E-03       14       14       9    1 pm,pm
+    2 0.9600     -1.5940E-02       12       12       9  -2.24219E-04       14       14       9    1 pm,pm
+    3  1.000     -7.2433E-04       10       10       9  -1.40745E-06      122      113       0    1 pm,of
+ CONVERGENCE: delval  =  7.2433E-04 <  1.0000E-05
+              resval  =  1.4075E-06 <  1.0000E-05
+ 
+
+---------------------------------------------------------------------------------------------------
+ FLUID BALANCE, TIME:   0.171123758384544     
+---------------------------------------------------------------------------------------------------
+RATE OF FLUID EXCHANGE [L**3/T]
+Boundary condition name               IN                       OUT                      NET(IN-OUT)
+Head_1                          2.4371387759E-001        0.0000000000E+000        2.4371387759E-001        porous media
+Rain_2                          0.0000000000E+000        0.0000000000E+000        0.0000000000E+000      overland media
+TOTAL:[NET1(+),NET1(-),NET1]    2.4371387759E-001        0.0000000000E+000        2.4371387759E-001
+  
+RATE OF FLUID ACCUMULATION [L**3/T]
+   Porous medium                2.4371493603E-001
+   Overland                     0.0000000000E+000
+   NET2 ACCUMULATION RATE                                                         2.4371493603E-001
+  
+FLUID BALANCE ERROR
+   Absolute: (NET1-NET2)                                                         -1.0584363028E-006
+   Relative: (NET1-NET2)/(abs(NET1)+abs(NET2))/2.0                                4.3429369509E-006
+   Percent:   abs(NET1-NET2)/[max{NET1(+),abs(NET1(-)}]*100.0                     4.3429463815E-004
+ 
+FLUID EXCHANGE BETWEEN SURFACE (DUAL NODES) AND SUBSURFACE DOMAIN [L**3/T]
+  Infiltration                  5.6298159882E-006
+  Exfiltration                  0.0000000000E+000
+---------------------------------------------------------------------------------------------------
+
+  
+ Variable             Max. change     Target change   Dt multiplier   At node
+ ========             ===========     =============   =============   =======
+ Head                 0.24423            1000.0            4094.5          11
+ Saturation           0.28403E-01        1.0000            35.207          11
+ NR Iteration          3.0000            15.000            5.0000           0
+ Timestep multiplier:    5.00000000000000     
+ 
+ Minimum dt_multiplier    >    Maximum allowed
+   5.00000000000000       >    2.50000000000000     
+ Timestep multiplier:    2.50000000000000     
+ Accepted solution at time:   0.171123758384544     
+
+----------------------------------------------------------------------------------
+                      SOLUTION FOR TIMESTEP     12                          
+----------------------------------------------------------------------------------
+Global target time:  1.0000000000E+00(     1 of      1)
+ %done      Time             delta_t          Tnext
+ 17.11 1.7112375838E-01 2.5669519291E-01 4.2781895130E-01 Accept timestep
+     Calculating transient flow solution...
+
+Summary of nonlinear iteration
+ Iter Relfac          Delval    @Node  @NodePM  NcNode        Resval    @Node  @NodePM  NcNode Solv  Dom
+    0(Initial)     0.000                                 6.09311E-02       14       14      70
+    1  1.000      0.4122           14       14      99  -6.79779E-03       14       14      18    1 pm,pm
+    2 0.9418     -3.7049E-02       14       14      27  -4.63800E-04       14       14       9    1 pm,pm
+    3  1.000     -2.5788E-03       10       10      18  -1.40901E-06      122      113       0    1 pm,of
+ CONVERGENCE: delval  =  2.5788E-03 <  1.0000E-05
+              resval  =  1.4090E-06 <  1.0000E-05
+ 
+
+---------------------------------------------------------------------------------------------------
+ FLUID BALANCE, TIME:   0.427818951298220     
+---------------------------------------------------------------------------------------------------
+RATE OF FLUID EXCHANGE [L**3/T]
+Boundary condition name               IN                       OUT                      NET(IN-OUT)
+Head_1                          1.8375569138E-001        0.0000000000E+000        1.8375569138E-001        porous media
+Rain_2                          0.0000000000E+000        0.0000000000E+000        0.0000000000E+000      overland media
+TOTAL:[NET1(+),NET1(-),NET1]    1.8375569138E-001        0.0000000000E+000        1.8375569138E-001
+  
+RATE OF FLUID ACCUMULATION [L**3/T]
+   Porous medium                1.8375834797E-001
+   Overland                     0.0000000000E+000
+   NET2 ACCUMULATION RATE                                                         1.8375834797E-001
+  
+FLUID BALANCE ERROR
+   Absolute: (NET1-NET2)                                                         -2.6565898664E-006
+   Relative: (NET1-NET2)/(abs(NET1)+abs(NET2))/2.0                                1.4457079632E-005
+   Percent:   abs(NET1-NET2)/[max{NET1(+),abs(NET1(-)}]*100.0                     1.4457184136E-003
+ 
+FLUID EXCHANGE BETWEEN SURFACE (DUAL NODES) AND SUBSURFACE DOMAIN [L**3/T]
+  Infiltration                  5.6360596946E-006
+  Exfiltration                  0.0000000000E+000
+---------------------------------------------------------------------------------------------------
+
+  
+ Variable             Max. change     Target change   Dt multiplier   At node
+ ========             ===========     =============   =============   =======
+ Head                 0.37474            1000.0            2668.5          14
+ Saturation           0.53413E-01        1.0000            18.722          12
+ NR Iteration          3.0000            15.000            5.0000           0
+ Timestep multiplier:    5.00000000000000     
+ 
+ Minimum dt_multiplier    >    Maximum allowed
+   5.00000000000000       >    2.50000000000000     
+ Timestep multiplier:    2.50000000000000     
+ Accepted solution at time:   0.427818951298220     
+
+----------------------------------------------------------------------------------
+                      SOLUTION FOR TIMESTEP     13                          
+----------------------------------------------------------------------------------
+Global target time:  1.0000000000E+00(     1 of      1)
+ %done      Time             delta_t          Tnext
+ 42.78 4.2781895130E-01 6.4173798228E-01 1.0695569336E+00 !! Tnext >= target
+ 42.78 4.2781895130E-01 5.7218104870E-01 1.0000000000E+00 1 step to target
+     Calculating transient flow solution...
+
+Summary of nonlinear iteration
+ Iter Relfac          Delval    @Node  @NodePM  NcNode        Resval    @Node  @NodePM  NcNode Solv  Dom
+    0(Initial)     0.000                                 4.58258E-02       14       14      74
+    1  1.000      0.4453           18       18     108  -5.47657E-03       14       14      18    2 pm,pm
+    2 0.9389     -4.2107E-02       11       11      72  -3.97533E-04       14       14      14    2 pm,pm
+    3  1.000     -3.1284E-03       18       18      18  -1.41101E-06      122      113       0    1 pm,of
+ CONVERGENCE: delval  =  3.1284E-03 <  1.0000E-05
+              resval  =  1.4110E-06 <  1.0000E-05
+ 
+
+---------------------------------------------------------------------------------------------------
+ FLUID BALANCE, TIME:    1.00000000000000     
+---------------------------------------------------------------------------------------------------
+RATE OF FLUID EXCHANGE [L**3/T]
+Boundary condition name               IN                       OUT                      NET(IN-OUT)
+Head_1                          1.1933401867E-001        0.0000000000E+000        1.1933401867E-001        porous media
+Rain_2                          0.0000000000E+000        0.0000000000E+000        0.0000000000E+000      overland media
+TOTAL:[NET1(+),NET1(-),NET1]    1.1933401867E-001        0.0000000000E+000        1.1933401867E-001
+  
+RATE OF FLUID ACCUMULATION [L**3/T]
+   Porous medium                1.1933601472E-001
+   Overland                     0.0000000000E+000
+   NET2 ACCUMULATION RATE                                                         1.1933601472E-001
+  
+FLUID BALANCE ERROR
+   Absolute: (NET1-NET2)                                                         -1.9960548574E-006
+   Relative: (NET1-NET2)/(abs(NET1)+abs(NET2))/2.0                                1.6726480732E-005
+   Percent:   abs(NET1-NET2)/[max{NET1(+),abs(NET1(-)}]*100.0                     1.6726620621E-003
+ 
+FLUID EXCHANGE BETWEEN SURFACE (DUAL NODES) AND SUBSURFACE DOMAIN [L**3/T]
+  Infiltration                  5.6440321489E-006
+  Exfiltration                  0.0000000000E+000
+---------------------------------------------------------------------------------------------------
+
+  
+ Variable             Max. change     Target change   Dt multiplier   At node
+ ========             ===========     =============   =============   =======
+ Head                 0.40264            1000.0            2483.6          11
+ Saturation           0.75994E-01        1.0000            13.159          18
+ NR Iteration          3.0000            15.000            5.0000           0
+ Timestep multiplier:    5.00000000000000     
+ 
+ Minimum dt_multiplier    >    Maximum allowed
+   5.00000000000000       >    2.50000000000000     
+ Timestep multiplier:    2.50000000000000     
+ Accepted solution at time:    1.00000000000000     
+ Met global target time    1.00000000000000     
+ Restore last big timestep used  0.641737982284191     
+ Met last target time, exit time loop
+ 
+--------- SIMULATION TIME REPORT -------------------------
+Number of CPUs applied               =          1
+Number of time steps                 =         13
+Number of total Newton-Raphson loops =         30
+Number of total solver iterations    =         32
+Number of equations                  =        126
+Global assembly time (s) =  0.61462E-02
+ILUC            time (s) =  0.17550E-03
+Solver          time (s) =  0.32770E-03
+SetBC           time (s) =  0.12410E-03
+Simulation wall time (s) =  0.18896    
+Simulation CPU  time (s) =  0.78125E-01
+----------------------------------------------------------
+
+
+
+                    ---- NORMAL EXIT ----
+
+

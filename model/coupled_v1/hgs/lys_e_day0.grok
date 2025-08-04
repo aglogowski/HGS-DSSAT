@@ -377,9 +377,3 @@ nodal fluid mass balance from shp file
 c:\Users\southa0000\Documents\HGS_DSSAT_Devel\HGS-DSSAT\model\coupled_v1\mapping\cv_dssatmod_1.shp
 nfmb_dssat_id_1
 
-
-
-nodal fluid mass balance from shp file
-c:\Users\southa0000\Documents\HGS_DSSAT_Devel\HGS-DSSAT\model\coupled_v1\mapping\cv_dssatmod_2.shp
-nfmb_dssat_id_2
-
