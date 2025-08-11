@@ -117,34 +117,6 @@ time value table
 0.0 0.3
 end
 end
-choose nodes sheet
-14
-choose nodes sheet
-13
-choose nodes sheet
-12
-choose nodes sheet
-11
-choose nodes sheet
-10
-choose nodes sheet
-9
-choose nodes sheet
-8
-choose nodes sheet
-7
-choose nodes sheet
-6
-choose nodes sheet
-5
-choose nodes sheet
-4
-create node set
-coupled_section
-clear chosen zones
-clear chosen elements
-clear chosen nodes
-clear chosen faces
 choose nodes all
 write chosen nodes xyz
 pm_nodes.txt

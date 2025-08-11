@@ -378,47 +378,49 @@ C     Conflict with CERES-Wheat
 
 !       Call INFIL to calculate infiltration rates on days with irrigation
 !         or rainfall.  Call SATFLO on days with no irrigation or rain
-!         to calculate saturated flow.
-        IF (PINF .GT. 0.0001) THEN
-          CALL INFIL(
-     &      DLAYR, DS, DUL, NLAYR, PINF, SAT, SW,         !Input
-     &      SWCN, SWCON, ActWTD,                         !Input
-     &      DRAIN, DRN, EXCS, SWDELTS)                    !Output
-
-          INFILT = 0.0
-          DO L = 1, NLAYR
-            INFILT = INFILT + SWDELTS(L) * DLAYR(L) * 10.  !(in mm)
-          ENDDO
-          INFILT = INFILT + DRAIN
-
-          !Excess water not infiltrated is added to overland runoff. 
-          !If bunded, excess water is accounted for in INFILT variable.
-          IF (EXCS > 0 .AND. .NOT. BUNDED) THEN
-            RUNOFF = RUNOFF + EXCS * 10.0
-          ENDIF
-
-        ELSE
-          CALL SATFLO(
-     &      DLAYR, DUL, NLAYR, SAT, SW, SWCN, SWCON,      !Input
-     &      DRAIN, DRN, SWDELTS)                          !Output
-        ENDIF
+!!         to calculate saturated flow.
+!        IF (PINF .GT. 0.0001) THEN
+!          CALL INFIL(
+!     &      DLAYR, DS, DUL, NLAYR, PINF, SAT, SW,         !Input
+!     &      SWCN, SWCON, ActWTD,                         !Input
+!     &      DRAIN, DRN, EXCS, SWDELTS)                    !Output
+!
+!          INFILT = 0.0
+!          DO L = 1, NLAYR
+!            INFILT = INFILT + SWDELTS(L) * DLAYR(L) * 10.  !(in mm)
+!          ENDDO
+!          INFILT = INFILT + DRAIN
+!
+!          !Excess water not infiltrated is added to overland runoff. 
+!          !If bunded, excess water is accounted for in INFILT variable.
+!          IF (EXCS > 0 .AND. .NOT. BUNDED) THEN
+!            RUNOFF = RUNOFF + EXCS * 10.0
+!          ENDIF
+!
+!        ELSE
+!          CALL SATFLO(
+!     &      DLAYR, DUL, NLAYR, SAT, SW, SWCN, SWCON,      !Input
+!     &      DRAIN, DRN, SWDELTS)                          !Output
+!        ENDIF
 
         IF (TDLNO .GT. 0) THEN
           CALL TILEDRAIN(CONTROL, 
      &      DLAYR, DUL, ETDR, NLAYR, SAT, SW, SWDELTS,    !Input
      &      DRN, SWDELTT, TDFC, TDFD, TDLNO)              !Output
         ENDIF
+        
 
         ENDIF   !End of IF block for PUDDLED conditions
 !      Infil and satfolw from HGS take DRN, calulate SWDELTS and sumarazie DRAIN     
 !        CALL process_data (
 !     &    DAS,
-!     &    SWDELTS,DRN)  
-!        CALL hgs_data(
-!     &    DAS, SW,  DLAYR, NLAYR,
-!     &    SWDELTS, DRN, DRAIN)
-!        CALL wait_for_file("1.txt")
-        
+!!     &    SWDELTS,DRN)  
+        CALL hgs_data(
+     &    DAS, SW,  DLAYR, NLAYR,
+     &    SWDELTS, DRN, DRAIN)
+
+      CALL create_empty_file(DAS)
+      
 !-----------------------------------------------------------------------
       IF (FLOOD .LE. 0.0 .AND. MESEV .NE. 'S') THEN
 !       Calculate the availability of soil water for use in UPFLOW.

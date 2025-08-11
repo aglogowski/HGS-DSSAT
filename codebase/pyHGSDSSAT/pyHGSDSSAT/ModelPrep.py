@@ -130,11 +130,12 @@ def Get_Standalone_Grok_Prec_Series(standalone_grok_lines):
     return p, end_day
 
 
-def CreateETNodalFluxBlock(hnsdb_dict):
+def CreateETNodalFluxBlock(hnsdb_dict,day):
     """Create block of text defining ET subtraction with nodal fluxes
 
     Parameters:
     hnsdb_dict (dict): maps HGS node sheets to DSSAT borders
+    day (int): day of coupled model simulation for precipitation lookup
 
     Returns:
     nf_lines (list): list of strings containing contents of grok file nodal flux ET subtraction block
@@ -150,7 +151,7 @@ def CreateETNodalFluxBlock(hnsdb_dict):
     # Add node creation
     nf_lines.append('\ncreate node set\ncoupled_section\n\nclear chosen zones\nclear chosen elements\nclear chosen nodes\nclear chosen faces\n\n')
     # Add BC Section
-    nf_lines.append('! Set flux nodal to force DSSAT ET\nboundary condition\n    type\n    flux nodal\n\n    node set\n    coupled_section\n\n    time file table\n    0.0 nflux.txt\n    0.00069444 none\n    end\nend\n\n')
+    nf_lines.append('! Set flux nodal to force DSSAT ET\nboundary condition\n    type\n    flux nodal\n\n    node set\n    coupled_section\n\n    time file table\n    0.0 {}nflux.txt\n    0.00069444 none\n    end\nend\n\n'.format(day))
     return nf_lines
 
 def CreateNFMBOutputBlock(dm_area_shp_dict):
@@ -190,7 +191,7 @@ def Create_Daily_Coupled_Grok_File_Day_0(standalone_grok_lines,day,p,onfmb_lines
     # Get end index
     pend = standalone_grok_lines.index('!!--End Precipitation Time Series Section--\n')
     # Build P entry
-    pentry = f'    time value table\n    0.0 {p[day]:.2f}\n    end\n'
+    pentry = f'    time value table\n    0.0 {p[day]:.5f}\n    end\n'
     ## PET Section - this turns off the PET that was used in the standalone mode, because that will be provided by DSSAT now
     # Get start index
     petstart = standalone_grok_lines.index('!!--Begin PET Time Series Section--\n')
@@ -248,7 +249,7 @@ def Create_Daily_Coupled_Grok_File_Day_N(standalone_grok_lines,day,p,nf_lines,on
     # Get end index
     pend = standalone_grok_lines.index('!!--End Precipitation Time Series Section--\n')
     # Build P entry
-    pentry = f'    time value table\n    0.0 {p[day]:.2f}\n    end\n'
+    pentry = f'    time value table\n    0.0 {p[day]:.5f}\n    end\n'
     ## PET Section - this turns off the PET that was used in the standalone mode, because that will be provided by DSSAT now
     # Get start index
     petstart = standalone_grok_lines.index('!!--Begin PET Time Series Section--\n')
@@ -361,7 +362,6 @@ def Build_Coupled_Model_Files(mod_dir,model_name,coupled_model_name,hgs_mod_dir,
     standalone_grok_lines = Get_Standalone_Grok_Lines(grok_file_path)
     P, End_Day = Get_Standalone_Grok_Prec_Series(standalone_grok_lines)
     # Get blocks of new grok lines for coupled model
-    nf_lines = CreateETNodalFluxBlock(hnsdb_dict)
     onfmb_lines = CreateNFMBOutputBlock(dm_area_shp_dict)
     # Iterate through days to build daily hgs models
     for day in arange(0,End_Day):
@@ -374,6 +374,7 @@ def Build_Coupled_Model_Files(mod_dir,model_name,coupled_model_name,hgs_mod_dir,
         # All other Day models
         else:
             # Build text lines
+            nf_lines = CreateETNodalFluxBlock(hnsdb_dict,day)
             new_lines = Create_Daily_Coupled_Grok_File_Day_N(standalone_grok_lines,day,P,nf_lines,onfmb_lines,model_name)
             # Write out
             Write_Coupled_Grok_File(new_lines,day,coupled_mod_hgs_dir,model_name)

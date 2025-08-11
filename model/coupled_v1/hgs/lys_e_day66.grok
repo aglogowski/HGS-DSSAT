@@ -207,7 +207,7 @@ boundary condition
     coupled_section
 
     time file table
-    0.0 nflux.txt
+    0.0 66nflux.txt
     0.00069444 none
     end
 end
@@ -279,7 +279,7 @@ boundary condition
     
 !!--Begin Precipitation Time Series Section--
     time value table
-    0.0 0.00
+    0.0 0.00000
     end
 !!--End Precipitation Time Series Section--
 end
@@ -394,6 +394,6 @@ nfmb_shp.shp
 test
 
 nodal fluid mass balance from shp file
-c:\Users\southa0000\Documents\HGS_DSSAT_Devel\HGS-DSSAT\model\coupled_v1\mapping\cv_dssatmod_1.shp
+c:\Users\glogow0000\HGS-DSSAT\model\coupled_v1\mapping\cv_dssatmod_1.shp
 nfmb_dssat_id_1
 

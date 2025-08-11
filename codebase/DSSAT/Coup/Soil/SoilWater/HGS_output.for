@@ -23,49 +23,49 @@ C=======================================================================
       
       INTEGER DYNAMIC
       INTEGER i, DAS, ios
-      integer :: unit_in
+      INTEGER :: unit_in
       REAL DRAIN
       REAL, DIMENSION(NL),INTENT(OUT) :: DRN 
       REAL, DIMENSION(NL) :: SWDELTS(NL)
 !-----------------------------------------------------------------------
       !open the file and ready 10 values of DRN
       
-      open(unit=unit_in, 
+      OPEN(unit=unit_in, 
      &    file='.\data\1_SWDELTS.inp',
      &    status='old', action='read', iostat=ios)
-          if (ios /= 0) then
-              print *, 'Error opening file:', 
+          IF (ios /= 0) THEN
+              PRINT *, 'Error opening file:', 
      &        trim('file')
-              stop
-          end if
+              STOP
+          END IF 
           DO i = 0, DAS
-              read(unit_in, *, iostat=ios) SWDELTS
-                  if (ios /= 0) then
-                      print *, 'Error reading DAS ', DAS
-                      stop
-                  end if
+              READ(unit_in, *, iostat=ios) SWDELTS
+                  IF (ios /= 0) THEN
+                      PRINT *, 'Error reading DAS ', DAS
+                      STOP
+                  END IF
           ENDDO
-      close(unit_in)
+      CLOSE(unit_in)
       
-          open(unit=unit_in, 
+          OPEN(unit=unit_in, 
      &    file='.\data\1_DRN.inp',
      &    status='old', action='read', iostat=ios)
-          if (ios /= 0) then
-              print *, 'Error opening file:', 
+          IF (ios /= 0) THEN
+              PRINT *, 'Error opening file:', 
      &        trim('file')
-              stop
-          end if
+              STOP
+          END IF
           DO i = 1, DAS
-              read(unit_in, *, iostat=ios) DRN
-                  if (ios /= 0) then
-                      print *, 'Error reading DAS ', DAS
-                      stop
-                  end if
+              READ(unit_in, *, iostat=ios) DRN
+                  IF (ios /= 0) THEN
+                      PRINT *, 'Error reading DAS ', DAS
+                      STOP
+                  END IF
                   
           ENDDO
-      close(unit_in)
+      CLOSE(unit_in)
       END SUBROUTINE process_data 
-      
+c     watbal when pyHGSDSSAT ready      
       SUBROUTINE hgs_data(
      &    DAS, SW, DLAYR, NLAYR,
      &    SWDELTS,DRN, DRAIN)
@@ -80,9 +80,9 @@ C=======================================================================
       SAVE
       
       INTEGER DYNAMIC  
-      INTEGER i, DAS, ios, L, NLAYR
-      integer :: unit_in
-      character*80 file_name, full_path, DAS_con
+      INTEGER i, DAS, ios, L, NLAYR, DAS_tmp
+      INTEGER :: unit_in
+      CHARACTER*80 file_name, full_path, DAS_con
       REAL DRAIN
       REAL, DIMENSION(NL),INTENT(OUT) :: DRN 
       REAL, DIMENSION(NL) :: SWDELTS(NL)
@@ -91,31 +91,39 @@ C=======================================================================
       REAL, DIMENSION(NL) :: DLAYR
 !-----------------------------------------------------------------------
       !open the file and ready 10 values of DRN
-      file_name = '.\coup_data\1_'
-          write(DAS_con, '(I0)') DAS
-          full_path=TRIM(file_name) // TRIM(DAS_con) // '_DRN.inp' !
-!          print *, full_path
-          open(unit=unit_in, 
-     &        file=full_path ,
-     &        status='old', action='read', iostat=ios)
-              if (ios /= 0) then
-                  print *, 'Error opening file:', 
-     &            trim('file')
-                  stop
-              end if 
-              read(unit_in, *, iostat=ios) DRN
-                  if (ios /= 0) then
-                      print *, 'Error reading DAS ', DAS
-                      stop
-                  end if
+      file_name = '.\data\'
+          DAS_tmp=DAS-1
+          WRITE(DAS_con, '(I0)') DAS_tmp
+          full_path= TRIM(file_name) //'DRN_'//TRIM(DAS_con) // '.inp' !
+          print *, full_path
+10        CONTINUE
+           ! --- Call Python script after CONTINUE ---
+          !CALL execute_command_line("python3 into_dssat.py")
+          ! Or use this if you're using older Fortran or Windows:
+          ! CALL system("python into_dssat.py")
+          OPEN(unit=unit_in, file=full_path, status='old',
+     &        action='read', iostat=ios)
+
+          IF (ios /= 0) THEN
+C              PRINT *, 'File not found. Retrying in 5 second...'
+C              CALL SLEEP(1)
+              GOTO 10
+         
+          END IF
+20        CONTINUE
+              READ(unit_in, *, iostat=ios) DRN
+                  IF (ios /= 0) THEN
+                      PRINT *, 'Error reading DAS ', DAS
+                      GOTO 20
+                  END IF
           
-              close(unit_in)
+              CLOSE(unit_in)
               
-              Do L=1, 10
+              DO L=1, 10
                   
                   SWTEMP(L)=SW(L)+DRN(L)/DLAYR(L)-DRN(L+1)/DLAYR(L)
                   SWDELTS(L)=SWTEMP(L)-SW(L)
-              enddo
+              ENDDO
               DRAIN = DRN(NLAYR)
 !              print *, "DRAIN"          
 !              print *, DRAIN 
@@ -124,142 +132,91 @@ C=======================================================================
               
       
       END SUBROUTINE hgs_data 
-      
+c     call CSM end of daily loop            
       SUBROUTINE wait_for_file(filename)
-      implicit none
-      character(len=*), intent(in) :: filename
-      logical :: file_exists
-      integer :: sleep_time 
+      IMPLICIT NONE 
+      CHARACTER(LEN=*), INTENT(IN) :: filename
+      LOGICAL :: file_exists
+      INTEGER :: sleep_time 
       sleep_time = 5  ! seconds to wait between checks
 
-      print *, "Waiting for file: ", trim(filename)
+      PRINT *, "Waiting for file: ", trim(filename)
 
-      do
-          inquire(file=trim(filename), exist=file_exists)
-          if (file_exists) then
-              print *, "File found: ", trim(filename)
-              exit
-          else
-              call sleep(sleep_time)
-          end if
-      end do
-      end subroutine wait_for_file
-      
-      subroutine log_data(values)
-      real values(20)
-      integer call_count
-      integer i, unit
-      character*100 filename
-      save call_count
+      DO
+          INQUIRE (file=trim(filename), exist=file_exists)
+          IF (file_exists) THEN
+              PRINT *, "File found: ", trim(filename)
+              EXIT
+          ELSE
+              CALL sleep(sleep_time)
+          END IF
+      END DO
+      END SUBROUTINE wait_for_file
+c     call SPsubs end of XTRACT (inside)    
+     
+      subroutine write_to_file(data, filename)
+      implicit none
+      real, intent(in) :: data(20)
+      character(len=*), intent(in) :: filename
+      character(len=100) :: full_filename
+      integer :: unit, ios, day_counter, i
+      character(len=200) :: line
+      logical :: file_exists
+      integer :: last_day
 
-      data call_count /0/
-      call_count = call_count + 1
-      filename = 'RWU.txt'
-      unit = 99
+      ! Create the full file name with .txt extension
+      full_filename = './data/' // trim(filename) // '.txt'
 
-c     Open file in append mode
-      open(unit=unit, file=filename,
-     &     status='unknown', position='append', action='write')
+      ! Assign a unit number and open the file in append mode
+      inquire(file=full_filename, exist=file_exists)
 
-c     Write the call count and values array
-      write(unit, '(I5, 1X, 20F8.3)') call_count, values
+      if (file_exists) then
+          ! File exists, read to get the last day counter
+          open(unit=10, file=full_filename, status='old', action='read',
+     &         position='rewind')
+          last_day = 0
+          do
+              read(10, '(A)', iostat=ios) line
+              if (ios /= 0) exit
+              read(line, *, iostat=ios) day_counter
+              if (ios == 0) last_day = day_counter
+          end do
+          close(10)
+          day_counter = last_day + 1
+      else
+        ! File does not exist yet
+        day_counter = 1
+      end if
 
+      ! Open file for appending new line
+      open(unit=11, file=full_filename, status='unknown',
+     &     action='write', position='append')
+
+      ! Write day counter followed by the data values
+      write(11, '(I5, 1X, 20F10.4)') day_counter, data*10
+
+      close(11)
+      end subroutine write_to_file
+
+c     call WATBAL end of End of IF block for PUDDLE   
+      subroutine create_empty_file(value)
+      implicit none
+      integer, intent(in) :: value
+      character(len=100) :: filename
+      integer :: unit
+
+    ! Convert DAS to string and form filename
+      write(filename, '(I0,A)') value, '.txt'
+
+    ! Use a unique unit number (e.g., 10)
+      unit = 10
+
+    ! Open the file for writing (will create or overwrite it)
+      open(unit=unit, file=filename, status='replace', action='write')
       close(unit)
-      return
-      end subroutine
-!-----------------------------------------------------------------------
-!     SNOWFALL VARIABLE DEFINITIONS:
-!-----------------------------------------------------------------------
-! RAIN    Precipitation depth for current day (mm)
-! SNOMLT  Daily Snowmelt (mm/d)
-! SNOW    Snow accumulation (mm)
-! TMAX    Maximum daily temperature (°C)
-! WATAVL  Water available for infiltration or runoff (rainfall plus 
-!           irrigation) (mm/d)
-!-----------------------------------------------------------------------
 
-! CROP    Crop identification code 
-! ERRNUM  Error number for input 
-! FILEIO  Filename for input file (e.g., IBSNAT35.INP) 
-! FOUND   Indicator that good data was read from file by subroutine FIND (0 
-!           - End-of-file encountered, 1 - NAME was found) 
-! ICWD    Initial water table depth (cm)
-! LINC    Line number of input file 
-! LL(L)   Volumetric soil water content in soil layer L at lower limit
-!          (cm3 [water] / cm3 [soil])
-! LNUM    Current line number of input file 
-! LUNIO   Logical unit number for FILEIO 
-! NLAYR   Actual number of soil layers 
-! SECTION Section name in input file 
-! SW(L)   Volumetric soil water content in layer L
-!          (cm3 [water] / cm3 [soil])
-! ActWTD  Depth to water table (cm)
-!-----------------------------------------------------------------------
-!-----------------------------------------------------------------------
-!     UP_FLOW VARIABLE DEFINITIONS: updated 2/19/2004
-!-----------------------------------------------------------------------
-! DBAR         
-! DLAYR(L)    Thickness of soil layer L (cm)
-! DUL(L)      Volumetric soil water content at Drained Upper Limit in soil 
-!               layer L (cm3[water]/cm3[soil])
-! ESW(L)      Plant extractable soil water by layer (= DUL - LL)
-!              (cm3[water]/cm3[soil])
-! FLOWFIX     Adjustment amount for upward flow calculations to prevent a 
-!               soil layer from exceeding the saturation content (cm3/cm3)
-! GRAD         
-! IST         Beginning soil layer for upward flow calculations (=1 for 
-!               layers 1 through 5, =2 for lower layers) 
-! LL(L)       Volumetric soil water content in soil layer L at lower limit
-!              (cm3 [water] / cm3 [soil])
-! NLAYR       Actual number of soil layers 
-! SAT(L)      Volumetric soil water content in layer L at saturation
-!              (cm3 [water] / cm3 [soil])
-! SW(L)       Volumetric soil water content in layer L
-!              (cm3 [water] / cm3 [soil])
-! SW_AVAIL(L) Soil water content in layer L available for evaporation, 
-!               plant extraction, or movement through soil
-!               (cm3 [water] / cm3 [soil])
-! SW_INF(L)   Soil water content in layer L including computed upward flow
-!              (cm3 [water] / cm3 [soil])
-! SWDELTU(L)  Change in soil water content due to evaporation and/or upward 
-!               flow in layer L (cm3 [water] / cm3 [soil])
-! SWOLD       Previous soil water content prior to capillary flow from 
-!               layer (cm3/cm3)
-! SWTEMP(L)   Soil water content in layer L (temporary value to be modified 
-!               based on drainage, root uptake and upward flow through soil 
-!               layers). (cm3/cm3)
-! THET1       Soil water content above the lower limit (LL) for an upper 
-!               layer of soil for water flow from a lower layer (cm/cm)
-! THET2       Soil water content above the lower limit (LL) for a lower 
-!               layer of soil for water flow into an upper layer (cm/cm)
-! UPFLOW(L)   Movement of water between unsaturated soil layers due to soil 
-!               evaporation: + = upward, -- = downward (cm/d)
-!-----------------------------------------------------------------------
-!     WBSUM VARIABLE DEFINITIONS:
-!-----------------------------------------------------------------------
-! CRAIN     Cumulative precipitation (mm)
-! DLAYR(L)  Soil thickness in layer L (cm)
-! DRAIN     Drainage rate from soil profile (mm/d)
-! NL        Maximum number of soil layers = 20 
-! NLAYR     Actual number of soil layers 
-! RAIN      Precipitation depth for current day (mm)
-! RUNOFF    Calculated runoff (mm/d)
-! SW(L)     Volumetric soil water content in layer L
-!             (cm3 [water] / cm3 [soil])
-! TDRAIN    Cumulative daily drainage from profile (mm)
-! TRUNOF    Cumulative runoff (mm)
-! TSW       Total soil water in profile (cm)
-! TSWINI    Initial soil water content (cm)
-!-----------------------------------------------------------------------
-!     WTDEPT VARIABLE DEFINITIONS:
-!-----------------------------------------------------------------------
-! DLAYR(L) Soil thickness in layer L (cm)
-! DS(L)    Cumulative depth in soil layer L (cm)
-! NL       Maximum number of soil layers = 20 
-! NLAYR    Actual number of soil layers 
-! SAT(L)   Volumetric soil water content in layer L at saturation
-!            (cm3 [water] / cm3 [soil])
-! SW(L)    Volumetric soil water content in layer L (cm3[water]/cm3[soil])
-! WTDEP    Water table depth  (cm)
-! SATFRAC   Fraction of layer L which is saturated
-!-------------
+    !  print *, 'Created file: ', trim(filename)
+      end subroutine create_empty_file
+      
+     
+     

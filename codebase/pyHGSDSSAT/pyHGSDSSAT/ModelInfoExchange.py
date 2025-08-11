@@ -52,6 +52,7 @@ def GenerateNodalFluxTimeValueTableDSSATET(mapping,day,coupled_mod_hgs_dir,coupl
         # Load ET Out File
         dssat_zone_mod_path = os.path.join(coupled_mod_dssat_dir,str(id))
         etout_path = os.path.join(dssat_zone_mod_path,'ET.OUT')
+        print(etout_path)
         et_df = pd.read_csv(etout_path, skiprows = 12, sep = '\s+')
         print(et_df)
         # Load RWU File
@@ -64,9 +65,12 @@ def GenerateNodalFluxTimeValueTableDSSATET(mapping,day,coupled_mod_hgs_dir,coupl
         print(rwu_df)
         # Iterate through DSSAT Model Layers
         layers_list = list(mapping['dlhl'].keys())
+        rwu_temp=[]
         for layer in layers_list:
-            vals_dict[id][layer] = et_df.iloc[-2,:]['ES{}D'.format(layer)] + rwu_df.iloc[-2,:][str(layer)]
-    print(vals_dict)
+            # vals_dict[id][layer] = et_df.iloc[-1,:]['ES{}D'.format(layer)] + rwu_df.iloc[-1,:][str(layer)]
+            vals_dict[id][layer] = et_df.loc[et_df['DAS'] == day,'ES{}D'.format(layer)].values[0] + rwu_df.loc[rwu_df['day'] == day,str(layer)].values[0]
+            #print(vals_dict)
+        print(vals_dict)
     ## Store HGS Nodal Flux vals
     vals_list = []
     # Iterate through node sheets from lowest to highest
@@ -84,8 +88,9 @@ def GenerateNodalFluxTimeValueTableDSSATET(mapping,day,coupled_mod_hgs_dir,coupl
                 dslay = mapping['hnsdb'][sheet] - 1
                 # Get DSSAT flux
                 uflux = vals_dict[id][dslay]
+                print(i,uflux)
                 # Get HGS equivalent ET Flux
-                val = uflux * -1 * 24. * 60. / 1000. * area
+                val = 0.5*uflux * -1 * 24. * 60. / 1000. * area
                 vals_list.append(val)
             # Deal with Top Sheet
             elif i == len(sheets_list)-1:
@@ -94,8 +99,9 @@ def GenerateNodalFluxTimeValueTableDSSATET(mapping,day,coupled_mod_hgs_dir,coupl
                 dslay = mapping['hnsdb'][sheet]
                 # Get DSSAT flux
                 dflux = vals_dict[id][dslay]
+                print(i,dflux)
                 # Get HGS equivalent ET Flux
-                val = dflux * -1 * 24. * 60. / 1000. * area
+                val = 0.5*dflux * -1 * 24. * 60. / 1000. * area
                 vals_list.append(val)
             # All other sheets
             else:
@@ -109,17 +115,23 @@ def GenerateNodalFluxTimeValueTableDSSATET(mapping,day,coupled_mod_hgs_dir,coupl
                 dslay = mapping['hnsdb'][sheet]
                 # Get DSSAT flux
                 dflux = vals_dict[id][dslay]
+                print(i,uflux,dflux)
                 # Get HGS equivalent ET Flux
                 val = ((0.5*uflux) + (0.5*dflux)) * -1 * 24. * 60. / 1000. * area
                 vals_list.append(val)
     ## Write out file
     # nflux file path
     nflux_path = os.path.join(coupled_mod_hgs_dir,'nflux.txt')
+    arch_nflux_path = os.path.join(coupled_mod_hgs_dir,str(day)+ 'nflux.txt')
     # Write vals from val list
     with open(nflux_path,'w') as file:
         file.write(str(num_nodes) + '\n')
         for val in vals_list:
             file.write(str(val) + '\n')
+    with open(arch_nflux_path,'w') as file:
+        file.write(str(num_nodes) + '\n')
+        for val in vals_list:
+            file.write(str(val) + '\n')        
 
 
 def GenerateDSSATDailyDRNHGSNodalFlux(mapping,day,model_name,coupled_mod_hgs_dir,coupled_mod_dssat_dir):
@@ -177,6 +189,6 @@ def GenerateDSSATDailyDRNHGSNodalFlux(mapping,day,model_name,coupled_mod_hgs_dir
             line = ''
             for val in Net_Q_Vals:
                 line += (f"{val:7.4f}"+'   ')
-            for i in range(9):
+            for i in range(11):
                 line +=(f" 0.0000"+'   ')
             file.write(line)

@@ -293,7 +293,9 @@ C-----------------------------------------------------------------------
 
             CALL LinklstET(vCsvlineET)
           ENDIF
+!      CALL GET('SPAM', 'ES_LYR', ES_LYR)
 
+!      PRINT *, 'EP = ', ES_LYR
           NAVWB = 0
           EFAA  = 0.
           EMAA  = 0.
@@ -475,13 +477,14 @@ C=======================================================================
           RWU  = 0.0
         ENDIF
       ENDIF
-      print *, RWU
+      
       EP = TRWU * 10.
       DO L = 1, NLAYR
         SWDELTX(L) = SWTEMP(L) - SW(L)
       ENDDO
-      CALL log_data(RWU)
-      RETURN
+      !CALL log_data(RWU,'RWU')
+      Call write_to_file(RWU,'RWU')
+      RETURN 
       END SUBROUTINE XTRACT
 
 !-----------------------------------------------------------------------
