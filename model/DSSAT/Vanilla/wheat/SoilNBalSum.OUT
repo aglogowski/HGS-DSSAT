@@ -1,7 +1,7 @@
 
 *SOIL N BALANCE - CENTURY ROUTINES
 
-*DSSAT Cropping System Model Ver. 4.8.5.021 -develop  AUG 06, 2025 14:43:58
+*DSSAT Cropping System Model Ver. 4.8.5.021 -develop  SEP 08, 2025 15:13:36
 
 !                              |--------------- Initial N State Variables ----------------|----------------- Final N State Variables -----------------|------------- N Additions -------------|---------------- N Subtractions -----------------|--Mineralization---|----- Seasonal Balance -----|
 !                              |----------------- Organic ----------------------|         |------------------ Organic ----------------------|         |  Harvest   Applied                    |              Tile-     Plant     N gas     Flood|   Miner-    Immob-|                            |

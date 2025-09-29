@@ -156,19 +156,24 @@ def GenerateDSSATDailyDRNHGSNodalFlux(mapping,day,model_name,coupled_mod_hgs_dir
         # Get area of nodal control volume
         area = dm_area_shp_dict[id]
         # Get path to nfmb file
-        nfmb_path = os.path.join(coupled_mod_hgs_dir,model_name+'_day'+str(day)+'o.nodal_fluid_mass_balance.nfmb_dssat_id_'+str(id)+'.dat')
+        nfmb_path = os.path.join(coupled_mod_hgs_dir,model_name+'_day'+str(day)+'o.nodal_fluid_mass_balance.id_str.dat')
+        
         # Open file and grab area and variable list
         with open(nfmb_path,'r') as file:
             for i,line in enumerate(file.readlines()):
                 if i == 1:
                     area = float(line.split(':')[1].strip())
-                elif i == 3:
+                elif i == 2: #make this Variable related to be flexible for changes
                     vars = [x.replace('"','') for x in line.strip().split('=')[1].split(',')]
+                    
                 else:
                     if 'Zone T=' in line:
                         start_line = i+1
         # Load whole table as df
+        print(vars)
+        print(start_line)
         df = pd.read_csv(nfmb_path, skiprows = start_line, names = vars, delim_whitespace=True)
+        print(df)
         # Get column of time increment
         df['Time Inc'] = df['Time'].diff()
         df.loc[0,'Time Inc'] = df['Time'].values[0]
@@ -180,7 +185,7 @@ def GenerateDSSATDailyDRNHGSNodalFlux(mapping,day,model_name,coupled_mod_hgs_dir
         Net_Q_Vals = []
         for i in np.flip(np.arange(bottom_node_sheet,top_node_sheet)):
             net_q_name = 'Net_Q_{:02d}'.format(i)
-            df[net_q_name] = df.apply(lambda x: (x['QVD+{:02d}'.format(i)]+-1*(x['QVD-{:02d}'.format(i)]))*x['Time Inc']/area*100., axis = 1)
+            df[net_q_name] = df.apply(lambda x: (x['QVD+{:02d}'.format(i)]+-1*(x['QVU-{:02d}'.format(i)]))*x['Time Inc']/area*100., axis = 1)
             Net_Q_Vals.append(df[net_q_name].sum())
         # Write out to file
         zone_mod_path = os.path.join(coupled_mod_dssat_dir,r'{}\data'.format(id))

@@ -211,20 +211,20 @@ lai tables
 102 0
 end
 transpiration fitting parameters
-0.02
-0.43
+0.01
+0.3
 1
 transpiration limiting saturations
-0.218
-0.46
-0.56
-0.9
+0.037
+0.31
+0.74
+1
 evaporation limiting saturations
-0.21
-0.56
+0.037
+1
 canopy storage parameter
-0.00
+0.0000
 initial interception storage
-0.00
-Edf cubic decay function
+0.0000
+Edf quadratic decay function
 end

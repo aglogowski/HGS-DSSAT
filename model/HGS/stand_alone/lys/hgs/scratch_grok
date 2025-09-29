@@ -69,7 +69,7 @@ read properties
 gen_soil
 clear chosen zones
 Choose elements by layer
-1 9
+9 13
 new zone
 2
 clear chosen zones
@@ -94,11 +94,11 @@ choose nodes block
 initial head from depth-saturation table
 0.02 0.52
 0.10 0.52
-0.20 0.57
-0.35 0.50
+0.20 0.52
+0.35 0.57
 0.50 0.50
 0.65 0.50
-0.80 0.57
+0.80 0.50
 1.05 0.57
 1.35 0.57
 3.00 0.57
@@ -114,7 +114,7 @@ head
 node set
 lys_bottom
 time value table
-0.0 0.3
+0.0 1.5
 end
 end
 choose nodes all
@@ -522,4 +522,4 @@ pz1
 choose faces top
 nodal fluid mass balance from shp file
 nfmb_shp.shp
-test
+id_str

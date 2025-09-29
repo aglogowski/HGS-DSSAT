@@ -116,7 +116,7 @@ gen_soil
 
 clear chosen zones
 Choose elements by layer
-    1 9
+    9 13
 new zone
 2
 
@@ -153,11 +153,11 @@ choose nodes block
 initial head from depth-saturation table
     0.02 0.52
 	0.10 0.52
-    0.20 0.57
-    0.35 0.50
+    0.20 0.52
+    0.35 0.57
     0.50 0.50
     0.65 0.50
-    0.80 0.57
+    0.80 0.50
     1.05 0.57
     1.35 0.57
 	3.00 0.57
@@ -186,7 +186,7 @@ boundary condition
 	lys_bottom
 	
 	time value table
-	0.0 0.3
+	0.0 1.5
 	end
 end
 
@@ -371,7 +371,7 @@ choose faces top
 
 nodal fluid mass balance from shp file
 nfmb_shp.shp
-test
+id_str
 
 nodal fluid mass balance from shp file
 c:\Users\glogow0000\HGS-DSSAT\model\coupled_v1\mapping\cv_dssatmod_1.shp

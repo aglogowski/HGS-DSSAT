@@ -1,15 +1,15 @@
 gen_soil
 K isotropic
-0.02
+0.000034
 porosity
-0.644
+0.309
 unsaturated VAN GENUCHTEN FUNCTIONS
 alpha
-1.43
+1.2
 beta
-1.52
+1.411
 residual saturation
-0.1
+0.15
 table smoothness factor
 1.00E-07
 generate tables from unsaturated functions
@@ -17,33 +17,16 @@ end
 end material
 gen_soil2
 K isotropic
-0.02
+0.000034
 porosity
-0.44
+0.309
 unsaturated VAN GENUCHTEN FUNCTIONS
 alpha
-1.43
+1.2
 beta
-1.52
+1.411
 residual saturation
-0.1
-table smoothness factor
-1.00E-07
-generate tables from unsaturated functions
-end
-end material
-gen_soil3
-K isotropic
-0.05
-porosity
-0.44
-unsaturated VAN GENUCHTEN FUNCTIONS
-alpha
-1.43
-beta
-1.52
-residual saturation
-0.100
+0.15
 table smoothness factor
 1.00E-07
 generate tables from unsaturated functions

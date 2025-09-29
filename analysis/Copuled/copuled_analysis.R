@@ -84,27 +84,59 @@ library(readxl)
 dssat=read_xlsx(path = "dssat-hgs.xlsx",sheet = "Sat layer DSSAT wheat",skip = 1)
 dssat[,c(2:10)]= dssat[,c(2:10)]/0.44
 dssat
-colnames(dssat)=c("time","3.0","2.95","2.85","2.7","2.55","2.4","2.25","2.1","1.8")
+colnames(dssat)=c("time","2.95","2.85","2.7","2.55","2.4","2.25","2.1","1.8","1.5")
 dssat%>%
-  gather("Zsurf","VWC",`3.0`:`1.8`)->dssat
+  gather("Zsurf","VWC",`2.95`:`1.5`)->dssat
 dssat$Zsurf=as.numeric(dssat$Zsurf)
 dssat$model="dssat"
 final_data%>%
   select(time,Zsurf,VWC)%>%
-  filter(Zsurf>1)->hgs
+  filter(Zsurf>1&Zsurf<3 )->hgs
 hgs$model="hgs"
 
 
 ggplot() +
   geom_line(data = hgs, aes(x = time, y = VWC, col = model), size = 1) +
-  geom_point(data = dssat, aes(x = time, y = VWC, color = model), size = 1, shape = 16) +
+  geom_point(data = dssat, aes(x = time, y = VWC, color = model), size = 1, shape = 16)+
+  ylim(0,1)+
   labs(x = "Time", y = "Volumetric Water Content (VWC)", color = "Zsurf") +
   facet_wrap(~as.factor(Zsurf))+
+  
   theme_minimal()
 
 colSums(data[,c(3:21)])
+
+#### dssat Copuled####
+setwd("C:\\Users\\glogow0000\\HGS-DSSAT\\model\\coupled_v1\\dssat\\1")
+library(readr)
+
+lines <- readLines("SoilWat.OUT")
+header_line <- grep("^@YEAR", lines)[1]   # take only the first match
+
+# Extract the header, clean it
+header <- strsplit(trimws(lines[header_line]), "\\s+")[[1]]
+header[1] <- sub("^@", "", header[1])  # remove @
+
+# Read the data starting after the header line
+df <- read_table2("SoilWat.OUT", skip = header_line)
+
+# Apply cleaned column names
+names(df) <- header
+
+# Keep YEAR, DOY, DAS and SW columns
+sw_df <- df[, c("YEAR", "DOY", "DAS", grep("^SW[0-9]+D$", names(df), value = TRUE))]
+sw_df[] <- lapply(sw_df, function(x) as.numeric(as.character(x)))
+head(sw_df)
+dssat_coup=sw_df[,c(3:12)]
+dssat_coup[,c(2:10)]= dssat_coup[,c(2:10)]/0.44
+dssat_coup
+colnames(dssat_coup)=c("time","2.95","2.85","2.7","2.55","2.4","2.25","2.1","1.8","1.5")
+dssat_coup%>%
+  gather("Zsurf","VWC",`2.95`:`1.5`)->dssat_coup
+dssat_coup$Zsurf=as.numeric(dssat_coup$Zsurf)
+dssat_coup$model="copuled_dssat"
  #### HGS-DSSAT copuled ####
-setwd("C:\\Users\\glogow0000\\HGS-DSSAT\\model\\coupled_v1\\hgs\\")
+setwd("C:\\Users\\glogow0000\\HGS-DSSAT\\model\\coupled_v1\\hgs")
 files <- list.files(pattern = "\\.observation_well_flow.sat_prof.dat$", ignore.case = TRUE)
  
 day_numbers <- as.numeric(sub(".*lys_e_day([0-9]+)o.*", "\\1", files))
@@ -167,13 +199,14 @@ final_data <- do.call(rbind, all_data_list)
 final_data%>%
   arrange(mod_time)%>%
   select("time"=mod_time,Zsurf,VWC)%>%
-  mutate(model="copuled")%>%
-  filter(Zsurf>1)->hgs_dssat_coup
+  mutate(model="copuled_HGS")%>%
+  filter(Zsurf>1 & Zsurf<3)->hgs_dssat_coup
 
 ggplot() +
-  geom_line(data = hgs, aes(x = time, y = VWC, col = model), size = 0.51) +
-  geom_point(data = dssat, aes(x = time, y = VWC, color = model), size = 0.5, shape = 16) +
-  geom_point(data = hgs_dssat_coup, aes(x = time, y = VWC, color = model), size = 0.5, shape = 16) +
+  geom_line(data = hgs, aes(x = time, y = VWC, col = model), size = 0.3) +
+  geom_point(data = dssat, aes(x = time, y = VWC, color = model), size = 1, shape = 16) +
+  geom_point(data = dssat_coup, aes(x = time, y = VWC, color = model), size = 1, shape = 16) +
+  geom_line(data = hgs_dssat_coup, aes(x = time, y = VWC, color = model), size = 1) +
   labs(x = "Time", y = "Volumetric Water Content (VWC)", color = "Models") +
   facet_wrap(~as.factor(Zsurf))+
   theme_minimal()
@@ -234,7 +267,8 @@ final_data_wb%>%
   group_by(ceiling(mod_time))%>%
   summarise(nflux=sum(Fnodal_2))->test
 sum(test$nflux)
-
+colSums(final_data_wb[,c(2:12)])
+colSums(data_stand_alone[,c(3:21)])
 coup_wat_bal_sum=colSums(final_data_wb[,c(2:12)])
 stand_alone_wat_bal_sum=colSums(data_stand_alone[,c(3:21)])
 write.table(coup_wat_bal_sum,"C:\\Users\\glogow0000\\HGS-DSSAT\\analysis\\Copuled\\coup_wat_bal.csv",sep = ";")

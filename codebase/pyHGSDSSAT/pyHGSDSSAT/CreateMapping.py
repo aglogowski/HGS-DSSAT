@@ -5,11 +5,11 @@ import pickle as pkl
 import numpy as np
 import os
 
-def GenerateMappingShapefiles(coupled_mod_hgs_dir,coupled_mod_mapping_dir,model_name):
+def GenerateMappingShapefiles(hgs_mod_dir,coupled_mod_mapping_dir,model_name):
     """Generate Shapefile of HGS nodes and control volumes to assist in mapping process used to link DSSAT models to HGS zones.
 
     Parameters:
-    coupled_mod_hgs_dir (str): path to subdirectory containing all coupled HGS-DSSAT model files that relate to HGS
+    hgs_mod_dir (str): path to subdirectory containing stand alone  HGS model files 
     coupled_mod_mapping_dir (str): path to subdirectory containing all coupled HGS-DSSAT model files that relate to mapping
     model_name (str): standalone hgs grok file name minus .grok
 
@@ -20,7 +20,7 @@ def GenerateMappingShapefiles(coupled_mod_hgs_dir,coupled_mod_mapping_dir,model_
     """
     # Look in grok file for gen interactive layers section
     # Get grok file path
-    grok_file_path = os.path.join(coupled_mod_hgs_dir,model_name + '_day0.grok')
+    grok_file_path = os.path.join(hgs_mod_dir,model_name + '.grok')
     # Read grok file
     with open(grok_file_path,'r') as file_in:
         lines = file_in.readlines()

@@ -1,4 +1,4 @@
-*DSSAT Cropping System Model Ver. 4.8.5.021   -develop    JUL 26, 2025; 16:52:21
+*DSSAT Cropping System Model Ver. 4.8.5.021   -develop    SEP 08, 2025; 15:36:22
 
  Unit  Filename
   501  OPCLR
@@ -27,7 +27,6 @@
    63  GHG.OUT   
   105  SoilNiBal.OUT
    43  SoilNi.OUT
-   55  Mulch.OUT
   110  SWBAL
   510  SWBSUM
    48  OUTWAT
